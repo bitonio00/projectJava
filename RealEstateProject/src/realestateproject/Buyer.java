@@ -20,12 +20,13 @@ public class Buyer extends Personne{
     private String m_password;
     // fils
     // laputaindesamere
+
     
     public Buyer(String nom, String prenom, int age, String adress)
     {
         super(nom,prenom,age);
         m_adress=adress;
     }
-    
-    
+
+
 }
