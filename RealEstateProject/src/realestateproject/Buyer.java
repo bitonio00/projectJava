@@ -18,7 +18,7 @@ public class Buyer extends Personne{
     boolean m_returning;
     private int m_login;
     private String m_password;
-    // jean michel groscul
+    // jjojojo
     
     public Buyer(String nom, String prenom, int age, String adress)
     {
