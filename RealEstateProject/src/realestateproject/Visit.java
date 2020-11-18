@@ -10,5 +10,8 @@ package realestateproject;
  * @author benoi
  */
 public class Visit {
-    
+    private Estate m_estateviewed;
+    private Buyer m_estatebuyer;
+    private RealEstateAgent m_estateagent;
+    // acompleter avec benoit
 }
