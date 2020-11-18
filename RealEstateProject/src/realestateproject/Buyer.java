@@ -19,6 +19,7 @@ public class Buyer extends Personne{
     private int m_login;
     private String m_password;
     // fils
+    //jambon
     
     public Buyer(String nom, String prenom, int age, String adress)
     {
