@@ -9,7 +9,7 @@ package realestateproject;
  *
  * @author benoi
  */
-public class Appartement  {
+public class Appartement    {
     private int m_numberofloor;
     private int m_numberofroom;
     private int m_numberofbedroom;
