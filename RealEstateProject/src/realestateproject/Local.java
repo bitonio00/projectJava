@@ -9,6 +9,13 @@ package realestateproject;
  *
  * @author benoi
  */
-public class Local {
-    
+public class Local extends Estate {
+
+    String m_type;
+public Local(int size, String type , Adress adress, long price)
+{
+    super(size,adress,price);
+
+m_type= type;
+}
 }
