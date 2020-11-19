@@ -16,9 +16,9 @@ public class RealEstateAgent extends Personne {
     private ArrayList<Estate> listEstate;
     private double m_commission;
 
-public RealEstateAgent(int age, String nom, String prenom , int login, double commission)
+public RealEstateAgent(int year,int month, int day, String nom, String prenom , int login, double commission)
 {
-    super(nom,prenom,age);
+    super(nom,prenom,year,month,day);
     m_login=login;
     m_commission=commission;
     listEstate= new ArrayList<Estate>();
