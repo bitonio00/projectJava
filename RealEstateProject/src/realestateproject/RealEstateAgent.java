@@ -5,10 +5,23 @@
  */
 package realestateproject;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author benoi
  */
-public class RealEstateAgent {
-    
+public class RealEstateAgent extends Personne {
+    private int m_login;
+    private ArrayList<Estate> listEstate;
+    private double m_commission;
+
+public RealEstateAgent(int age, String nom, String prenom , int login, double commission)
+{
+    super(nom,prenom,age);
+    m_login=login;
+    m_commission=commission;
+    listEstate= new ArrayList<Estate>();
+}
+
 }
