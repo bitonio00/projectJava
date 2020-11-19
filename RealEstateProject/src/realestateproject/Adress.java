@@ -22,4 +22,18 @@ public class Adress {
         
         
     }
+    public String getCountry()
+    {
+    return m_country;
+
+    }
+    public String getCity()
+    {
+    return m_city;
+    }
+    public String getStreet()
+    {
+    return m_street;
+
+    }
 }
