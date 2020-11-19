@@ -15,19 +15,30 @@ public class Estate {
     private int m_size;
     private Adress m_adress;
     private long m_price;
-    private ArrayList<Visit>m_listVisit;
-    private ArrayList<Offer>m_listOffer;
+ 
+   
     
-public Estate(int size, Adress adress, long price)
+public Estate(int size,String country,String city, String street , long price)
 {
    
 m_size=size;
-m_adress=adress;
-m_price=price;
-m_listVisit= new ArrayList<Visit>();
-m_listOffer= new ArrayList<Offer>();
 
+m_price=price;
+
+m_adress= new Adress(country,city,street);
+}
+public int getSize()
+{
+return m_size;
 }
 
+public long getPrice()
+{
+return m_price;
+}
+public Adress getAdress()
+{
+return m_adress;
+}
 
 }
