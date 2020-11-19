@@ -12,20 +12,18 @@ import java.util.ArrayList;
  * @author benoi
  */
 public class Buyer extends Personne{
-    private ArrayList<Offer>m_listOffer;
-    private ArrayList<Visit>m_visit;
-    private String m_adress;
+   
+    
     boolean m_returning;
     private int m_login;
     private String m_password;
-    // fils
-    // laputaindesamere
+    Adress m_adress;
 
     
-    public Buyer(String nom, String prenom, int age, String adress)
+    public Buyer(String nom, String prenom, int age, String country,String city,String street)
     {
         super(nom,prenom,age);
-        m_adress=adress;
+      m_adress= new Adress(country,city,street);
     }
 
 
