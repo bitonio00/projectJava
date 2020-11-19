@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class Seller extends Personne {
     private int m_login;
     private ArrayList<Estate>m_listEstate;
-    public Seller(String nom, String prenom, int age, String adress,int login)
+    public Seller(String nom, String prenom,int year,int month,int day, int age, String adress,int login)
     {
-        super(nom,prenom,age);
+        super(nom,prenom,year,month,day);
         m_login=login;
     }
     
