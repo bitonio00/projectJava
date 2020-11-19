@@ -20,7 +20,7 @@ public class Offer {
    m_montant= montant;
    m_type=type;
    m_buyer= new Buyer( buyer.getNom(),buyer.getPrenom(),buyer.getDate().getYear(),buyer.getDate().getMonth(),buyer.getDate().getDay(),
-           buyer.getAdress().getCountry(), buyer.getAdress().getCity(),buyer.getAdress().getStreet());
+           buyer.getAdress().getCountry(), buyer.getAdress().getCity(),buyer.getAdress().getStreet(),buyer.getLogin(),buyer.getPassword());
     
    m_estateconcerned = new Estate( estateconcerned.getSize(),estateconcerned.getAdress().getCountry(),estateconcerned.getAdress().getCity(),
             estateconcerned.getAdress().getStreet(), estateconcerned.getPrice());
