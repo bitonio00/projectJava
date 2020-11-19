@@ -13,18 +13,22 @@ import java.util.ArrayList;
  */
 public class Buyer extends Personne{
    
-    
+  
     boolean m_returning;
     private int m_login;
     private String m_password;
     Adress m_adress;
 
     
-    public Buyer(String nom, String prenom, int age, String country,String city,String street)
+    public Buyer(String nom, String prenom, int year,int month,int day, String country,String city,String street)
     {
-        super(nom,prenom,age);
+        super(nom,prenom,year,month,day);
       m_adress= new Adress(country,city,street);
     }
-
+// return madress.getcountry
+public Adress getAdress()
+{
+return m_adress;
+}
 
 }
