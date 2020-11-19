@@ -12,9 +12,9 @@ package realestateproject;
 public class Local extends Estate {
 
     String m_type;
-public Local(int size, String type , Adress adress, long price)
+public Local(int size, String type , String country,String city,String street, long price)
 {
-    super(size,adress,price);
+    super(size,country,city,street,price);
 
 m_type= type;
 }
