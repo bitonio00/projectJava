@@ -15,7 +15,8 @@ public class RealEstateProject {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        RealEstateAgency a=new RealEstateAgency("pp","nn");
+        a.displayBuyer();
     }
     
 }
