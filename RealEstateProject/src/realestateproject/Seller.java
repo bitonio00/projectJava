@@ -12,11 +12,12 @@ import java.util.ArrayList;
  * @author benoi
  */
 public class Seller extends Personne {
+    private int m_login;
     private ArrayList<Estate>m_listEstate;
-    public Seller(String nom, String prenom, int age, String adress)
+    public Seller(String nom, String prenom, int age, String adress,int login)
     {
         super(nom,prenom,age);
-        
+        m_login=login;
     }
     
 }
