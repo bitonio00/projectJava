@@ -9,6 +9,14 @@ package realestateproject;
  *
  * @author benoi
  */
-public class Appartement {
-    
+public class Appartement  {
+    private int m_numberofloor;
+    private int m_numberofroom;
+    private int m_numberofbedroom;
+    private int m_numberofbathroom;
+    private boolean meubled;
+    private boolean terace;
+    private boolean visavis;
+    private boolean garden;
+    // a voir avec benoit
 }
