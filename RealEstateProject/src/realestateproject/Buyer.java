@@ -20,15 +20,29 @@ public class Buyer extends Personne{
     Adress m_adress;
 
     
-    public Buyer(String nom, String prenom, int year,int month,int day, String country,String city,String street)
+    public Buyer(String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String password)
     {
         super(nom,prenom,year,month,day);
       m_adress= new Adress(country,city,street);
+      m_login=login;
+      m_password=password;
     }
 // return madress.getcountry
 public Adress getAdress()
 {
 return m_adress;
+}
+public int getLogin()
+{
+return m_login;
+}
+public String getPassword()
+{
+return m_password;
+}
+public void display()
+{
+    System.out.println("nom:"+getNom()+" prenom:"+getPrenom()+" born:"+getDate().getDate()+" adress:"+m_adress.toString()+" login:"+m_login+" password:"+m_password);
 }
 
 }
