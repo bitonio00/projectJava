@@ -10,5 +10,16 @@ package realestateproject;
  * @author benoi
  */
 public class Adress {
+   private String m_country;
+      private String m_city;
+       private String m_street;
     
+    public Adress( String country ,String city, String street) 
+    {
+        m_country=country;
+        m_city=city;
+         m_street=street;
+        
+        
+    }
 }
