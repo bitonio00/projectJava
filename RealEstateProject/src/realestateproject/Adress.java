@@ -22,6 +22,10 @@ public class Adress {
         
         
     }
+    public String toString()
+    {
+        return m_country+" "+m_city+" "+m_street;
+    }
     public String getCountry()
     {
     return m_country;
