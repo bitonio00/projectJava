@@ -44,5 +44,11 @@ public void display()
 {
     System.out.println("nom:"+getNom()+" prenom:"+getPrenom()+" born:"+getDate().getDate()+" adress:"+m_adress.toString()+" login:"+m_login+" password:"+m_password);
 }
+public Offer makeAnOffer(Estate estate,String type, double amount)
+{
+    Offer offer;
+    return offer=new Offer(amount,getNom(), getPrenom(),getDate().getYear(),getDate().getMonth(),getDate().getDay(),
+            m_adress.getCountry(),m_adress.getCity(),m_adress.getStreet(),m_login,m_password, estate, type);
+}
 
 }
