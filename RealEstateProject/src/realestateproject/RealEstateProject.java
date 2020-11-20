@@ -16,9 +16,10 @@ public class RealEstateProject {
      */
     public static void main(String[] args) {
         RealEstateAgency a=new RealEstateAgency("pp","nn");
-        a.displayBuyer();
-        a.interact();
-        a.displayOffer();
+       
+        a.displaySeller();
+       
+        
     }
     
 }
