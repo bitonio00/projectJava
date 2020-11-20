@@ -14,11 +14,11 @@ import java.util.ArrayList;
 public class Estate {
     private int m_size;
     private Adress m_adress;
-    private long m_price;
+    private double m_price;
  
    
     
-public Estate(int size,String country,String city, String street , long price)
+public Estate(int size,String country,String city, String street , double price)
 {
    
 m_size=size;
@@ -32,7 +32,7 @@ public int getSize()
 return m_size;
 }
 
-public long getPrice()
+public double getPrice()
 {
 return m_price;
 }
