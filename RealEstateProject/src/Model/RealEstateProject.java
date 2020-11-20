@@ -26,7 +26,7 @@ public class RealEstateProject {
         b.displayBuyer();
         LoginPage c=new LoginPage();
         c.LoadLoginPage();
-        
+
     }
-    
+
 }
