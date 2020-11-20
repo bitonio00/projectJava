@@ -68,6 +68,32 @@ public void readBuyer()
             System.out.println(""+e.getMessage());
         }
 }
+public void delateBuyer(int val)
+{
+    
+    Connection conn=null;
+        try 
+        {
+            
+            String url="jdbc:mysql://localhost:3306/estate_agency";
+            String user="root";
+            String password="";
+            
+            conn=DriverManager.getConnection(url,user,password);
+            
+            PreparedStatement stmt=conn.prepareStatement("delete from buyer where buyer_id = ?");
+          // stmt.execute("DELETE FROM EMPLOYEE WHERE ID >= 1");
+           // stmt.execute("DELETE FROM BUYER WHERE buyer_id = 1001");
+            stmt.setInt(1,val);
+            stmt.executeUpdate();
+
+            conn.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(""+e.getMessage());
+        }
+}
 
 public void displayBuyer()
 {
