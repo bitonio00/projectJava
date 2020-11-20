@@ -17,6 +17,7 @@ public class RealEstateAgency {
 private String m_name;
 private ArrayList<Buyer>m_listBuyer;
 private ArrayList<Seller>m_listSeller  ;
+private ArrayList<Estate>m_listEstate  ;
 private ArrayList<Offer>m_listOffer;
 private ArrayList<RealEstateAgent>m_listRealEstateAgent;
 private ArrayList<Visit>m_listVisit;
@@ -29,6 +30,9 @@ public RealEstateAgency(String name,String pathToBdd)
     //"jdbc:mysql://localhost:3306/estate_agency"
     m_listBuyer=new ArrayList<Buyer>();
     readBuyer();
+    m_listEstate=new ArrayList<Estate>();
+    m_listEstate.add(new Estate(100,"france","paris", "21 rue du maroc" , 100000));
+    m_listOffer=new ArrayList<Offer>();
 }
 public void readBuyer()
 {
@@ -66,5 +70,16 @@ public void displayBuyer()
     {
         m_listBuyer.get(i).display();
     }
+}
+public void displayOffer()
+{
+  for(int i=0; i<m_listOffer.size();++i)
+    {
+        m_listOffer.get(i).display();
+    }  
+}
+public void interact()
+{
+   m_listOffer.add(m_listBuyer.get(0).makeAnOffer(m_listEstate.get(0), "cash", 20000)) ;
 }
 }
