@@ -11,14 +11,14 @@ import java.util.ArrayList;
  *
  * @author benoi
  */
-public class Estate {
+public abstract class Estate {
     private int m_size;
     private Adress m_adress;
     private double m_price;
  
    
     
-public Estate(int size,String country,String city, String street , double price)
+public  Estate(int size,String country,String city, String street , double price)
 {
    
 m_size=size;
