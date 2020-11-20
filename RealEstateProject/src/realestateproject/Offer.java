@@ -15,7 +15,7 @@ public class Offer {
    private Buyer m_buyer;
    private String m_type; 
     
-   public Offer( long montant,Buyer buyer,Estate estateconcerned,   String type)
+   public Offer( double montant,Buyer buyer,Estate estateconcerned,   String type)
    {
    m_montant= montant;
    m_type=type;
@@ -25,5 +25,18 @@ public class Offer {
    m_estateconcerned = new Estate( estateconcerned.getSize(),estateconcerned.getAdress().getCountry(),estateconcerned.getAdress().getCity(),
             estateconcerned.getAdress().getStreet(), estateconcerned.getPrice());
    }// a voir avec benoit
-           
+   public Offer( double montant,String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String password,Estate estateconcerned,   String type)
+   {
+   m_montant= montant;
+   m_type=type;
+   m_buyer= new Buyer(  nom,  prenom,  year,month,day, country,city,street,login,password);
+    
+   m_estateconcerned = new Estate( estateconcerned.getSize(),estateconcerned.getAdress().getCountry(),estateconcerned.getAdress().getCity(),
+            estateconcerned.getAdress().getStreet(), estateconcerned.getPrice());
+   }
+   
+   public void display()
+   {
+       System.out.println("montant:"+m_montant+" estate:"+m_estateconcerned.getAdress().getStreet()+" buyer:"+m_buyer.getNom()+" type"+m_type);
+   }
            }
