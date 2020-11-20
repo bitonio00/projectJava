@@ -30,8 +30,12 @@ public RealEstateAgency(String name,String pathToBdd)
     //"jdbc:mysql://localhost:3306/estate_agency"
     m_listBuyer=new ArrayList<Buyer>();
     readBuyer();
+    m_listSeller= new ArrayList<Seller>();
+    readSeller();
+    m_listRealEstateAgent= new ArrayList<RealEstateAgent>();
+    readRealEstateAgent();
     m_listEstate=new ArrayList<Estate>();
-    m_listEstate.add(new Estate(100,"france","paris", "21 rue du maroc" , 100000));
+    
     m_listOffer=new ArrayList<Offer>();
 }
 public void readBuyer()
@@ -71,6 +75,92 @@ public void displayBuyer()
         m_listBuyer.get(i).display();
     }
 }
+
+public void readSeller()
+{
+    
+    Connection conn=null;
+        try 
+        {
+            
+            String url="jdbc:mysql://localhost:3306/estate_agency";
+            String user="root";
+            String password="";
+            
+            conn=DriverManager.getConnection(url,user,password);
+            
+            Statement stmt=conn.createStatement();
+            //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String Password)
+            ResultSet rs=stmt.executeQuery("select * from seller ");
+            
+            while(rs.next())
+            {
+               m_listSeller.add(new Seller(rs.getString(3),rs.getString(4),1,1,1,rs.getString(6),rs.getString(7),
+                       rs.getString(8),rs.getInt(1),rs.getString(2)));
+                       
+            }
+            conn.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(""+e.getMessage());
+        }
+}
+
+
+public void displaySeller()
+{
+    for(int i=0; i<m_listSeller.size();++i)
+    {
+        m_listSeller.get(i).display();
+    }
+}
+
+
+public void readRealEstateAgent()
+{
+    
+    Connection conn=null;
+        try 
+        {
+            
+            String url="jdbc:mysql://localhost:3306/estate_agency";
+            String user="root";
+            String password="";
+            
+            conn=DriverManager.getConnection(url,user,password);
+            
+            Statement stmt=conn.createStatement();
+            //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String Password)
+            ResultSet rs=stmt.executeQuery("select * from estate_angent ");// c pa une faute tu la appelr comme sa sur php
+            
+            while(rs.next())
+            {
+               m_listRealEstateAgent.add(new RealEstateAgent(1,1,1,rs.getString(3),rs.getString(4),rs.getInt(1),rs.getString(2),
+                       rs.getDouble(6)));
+                       
+            }
+            conn.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(""+e.getMessage());
+        }
+}
+
+public void displayRealEstateAgent()
+{
+    for(int i=0; i<m_listRealEstateAgent.size();++i)
+    {
+         
+        m_listRealEstateAgent.get(i).display();
+    }
+}
+
+
+
+
+
 public void displayOffer()
 {
   for(int i=0; i<m_listOffer.size();++i)
