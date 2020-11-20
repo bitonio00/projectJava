@@ -15,7 +15,7 @@ public class Offer {
    private Buyer m_buyer;
    private String m_type; 
     
-   public Offer( double montant,Buyer buyer,Estate estateconcerned,   String type)
+   public Offer( double montant,Buyer buyer,Estate estateconcerned,   String typeo)
    {
    m_montant= montant;
    m_type=type;
@@ -37,6 +37,6 @@ public class Offer {
    
    public void display()
    {
-       System.out.println("montant:"+m_montant+" estate:"+m_estateconcerned.getAdress().getStreet()+" buyer:"+m_buyer.getNom()+" type"+m_type);
+       System.out.println("montant:"+m_montant+" estate:"+m_estateconcerned.getAdress().getStreet()+" buyer:"+m_buyer.getNom()+" typeo"+m_type);
    }
            }
