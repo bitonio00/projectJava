@@ -11,9 +11,8 @@ package Model;
  */
 public class Offer {
     private double m_montant;
-   private House m_houseConcerned;
-   private Appartement m_appartementConcerned;
-   private Local m_localConcerned;
+   private Estate m_houseConcerned;
+   
    private Buyer m_buyer;
    private String m_type;
 
@@ -45,7 +44,7 @@ public class Offer {
    m_type=type;
    m_buyer= new Buyer( buyer.getNom(),buyer.getPrenom(),buyer.getDate().getYear(),buyer.getDate().getMonth(),buyer.getDate().getDay(),
            buyer.getAdress().getCountry(), buyer.getAdress().getCity(),buyer.getAdress().getStreet(),buyer.getLogin(),buyer.getPassword());
-m_localConcerned = new Local(localConcerned.getSize(),localConcerned.getAdress().getCountry(),localConcerned.getAdress().getCity(),
+m_houseConcerned = new Local(localConcerned.getSize(),localConcerned.getAdress().getCountry(),localConcerned.getAdress().getCity(),
 localConcerned.getAdress().getStreet(),localConcerned.getPrice(),localConcerned.getSeller(),localConcerned.getAgent(),localConcerned.getLocalType(),localConcerned.getEquiped(),localConcerned.getMeubled(),localConcerned.getNOF());
    }
    
@@ -55,7 +54,7 @@ localConcerned.getAdress().getStreet(),localConcerned.getPrice(),localConcerned.
    m_type=type;
    m_buyer= new Buyer(  nom,  prenom,  year,month,day, country,city,street,login,password);
 
- m_localConcerned = new Local(localConcerned.getSize(),localConcerned.getAdress().getCountry(),localConcerned.getAdress().getCity(),
+ m_houseConcerned = new Local(localConcerned.getSize(),localConcerned.getAdress().getCountry(),localConcerned.getAdress().getCity(),
 localConcerned.getAdress().getStreet(),localConcerned.getPrice(),localConcerned.getSeller(),localConcerned.getAgent(),localConcerned.getLocalType(),localConcerned.getEquiped(),localConcerned.getMeubled(),localConcerned.getNOF());
    }
    
@@ -65,7 +64,7 @@ localConcerned.getAdress().getStreet(),localConcerned.getPrice(),localConcerned.
    m_type=type;
    m_buyer= new Buyer( buyer.getNom(),buyer.getPrenom(),buyer.getDate().getYear(),buyer.getDate().getMonth(),buyer.getDate().getDay(),
            buyer.getAdress().getCountry(), buyer.getAdress().getCity(),buyer.getAdress().getStreet(),buyer.getLogin(),buyer.getPassword());
-m_appartementConcerned = new Appartement(aptconcerned.getSize(),aptconcerned.getAdress().getCountry(),aptconcerned.getAdress().getCity(),
+m_houseConcerned = new Appartement(aptconcerned.getSize(),aptconcerned.getAdress().getCountry(),aptconcerned.getAdress().getCity(),
 aptconcerned.getAdress().getStreet(),aptconcerned.getPrice(),aptconcerned.getSeller(),aptconcerned.getAgent(),aptconcerned.getNOF(),aptconcerned.getEquiped(),
         aptconcerned.getMeubled(),aptconcerned.getvisavis());
    }
@@ -75,23 +74,16 @@ aptconcerned.getAdress().getStreet(),aptconcerned.getPrice(),aptconcerned.getSel
    m_type=type;
    m_buyer= new Buyer(  nom,  prenom,  year,month,day, country,city,street,login,password);
 
-m_appartementConcerned = new Appartement(aptconcerned.getSize(),aptconcerned.getAdress().getCountry(),aptconcerned.getAdress().getCity(),
+m_houseConcerned = new Appartement(aptconcerned.getSize(),aptconcerned.getAdress().getCountry(),aptconcerned.getAdress().getCity(),
 aptconcerned.getAdress().getStreet(),aptconcerned.getPrice(),aptconcerned.getSeller(),aptconcerned.getAgent(),aptconcerned.getNOF(),aptconcerned.getEquiped(),
         aptconcerned.getMeubled(),aptconcerned.getvisavis());
    }
    
-   public void displayHouseOffer()
+   public void display()
    {
+       
        System.out.println("montant:"+m_montant+" estate:"+m_houseConcerned.getAdress().getStreet()+" buyer:"+m_buyer.getNom()+" type"+m_type);
    }
-   public void displayLocalOffer()
-   {
-       System.out.println("montant:"+m_montant+" estate:"+m_localConcerned.getAdress().getStreet()+" buyer:"+m_buyer.getNom()+" type"+m_type);
-   }
    
-   public void displayAppartementOffer()
-   {
-       System.out.println("montant:"+m_montant+" estate:"+m_appartementConcerned.getAdress().getStreet()+" buyer:"+m_buyer.getNom()+" type"+m_type);
-   }
 
            }
