@@ -15,12 +15,17 @@ public abstract class Personne {
     private String m_nom;
     private String m_prenom;
     private Date m_ddn;
-    public Personne(String nom, String prenom, int year,int month,int day)
+    private int m_login;
+     private Adress m_adress;
+     private String m_password;
+    public Personne(String nom, String prenom, int year,int month,int day, int login,String password,String country,String city, String street)
     {
-        
+        m_password=password;
+        m_login=login;
         m_nom=nom;
         m_prenom=prenom;
        m_ddn=new Date(year,month,day);
+       m_adress= new Adress(country,city,street);
     }
     
    
@@ -43,8 +48,19 @@ public abstract class Personne {
     
     } 
   
+    public int getLogin()
+    {
+        return m_login;
+    }
+    public Adress getAdress()
+    {
+    return m_adress;
+    }
     
-
+    public String getPassword()
+    {
+    return m_password;
+    }
 }
 
 
