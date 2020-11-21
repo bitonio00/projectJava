@@ -17,16 +17,18 @@ public class RealEstateProject {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        RealEstateAgency a=new RealEstateAgency("pp","nn");
-        a.displayBuyer();
-        a.interact();
-        a.displayOffer();
-        a.delateBuyer(1001);
+        
+//        a.interact();
+     //   a.displayOffer();
+     //   a.delateBuyer(1001);
         RealEstateAgency b=new RealEstateAgency("pp","nn");
         b.displayBuyer();
         LoginPage c=new LoginPage();
+        c.setList(b.getBuyer());
         c.LoadLoginPage();
-
+       // c.compare();
+        
+       
     }
 
 }
