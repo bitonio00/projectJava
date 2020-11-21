@@ -11,11 +11,18 @@ package Model;
  */
 public class Local extends Estate {
 
-    String m_type;
-public Local(int size, String type , String country,String city,String street, long price)
+    String m_localType;
+   
+public Local(int size,String country,String city, String street , double price,Seller seller, RealEstateAgent realEstateAgent, String localType,boolean equiped, boolean meubled, int numberOfFloor)
 {
-    super(size,country,city,street,price);
+       
+           super( size,country,city,street,price,seller,realEstateAgent,numberOfFloor,equiped,meubled);
+        
 
-m_type= type;
+m_localType= localType;
+}
+public String getLocalType()
+{
+return m_localType;
 }
 }
