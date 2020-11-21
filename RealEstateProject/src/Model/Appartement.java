@@ -9,14 +9,20 @@ package Model;
  *
  * @author benoi
  */
-public class Appartement    {
-    private int m_numberofloor;
-    private int m_numberofroom;
-    private int m_numberofbedroom;
-    private int m_numberofbathroom;
-    private boolean meubled;
-    private boolean terace;
-    private boolean visavis;
-    private boolean garden;
-    // a voir avec benoit
+public class Appartement extends Estate   {
+    
+    
+    private boolean m_visavis;
+         
+    public Appartement(int size,String country,String city, String street , double price,Seller seller, RealEstateAgent realEstateAgent, int numberOfFloor, boolean equiped,boolean meubled,boolean visavis)
+    {
+        super(size,country,city,street,price,seller,realEstateAgent,numberOfFloor,equiped,meubled);
+   
+    m_visavis=visavis;
+    }
+    
+    public boolean getvisavis()
+    {
+    return m_visavis;
+    }
 }
