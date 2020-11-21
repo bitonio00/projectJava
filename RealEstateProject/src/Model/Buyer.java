@@ -47,7 +47,7 @@ public void display()
 public Offer makeAnOffer(Estate estate,String type, double amount)
 {
     Offer offer;
-    return offer=new Offer(amount,getNom(), getPrenom(),getDate().getYear(),getDate().getMonth(),getDate().getDay(),
+    return  offer=new Offer(amount,getNom(), getPrenom(),getDate().getYear(),getDate().getMonth(),getDate().getDay(),
             m_adress.getCountry(),m_adress.getCity(),m_adress.getStreet(),m_login,m_password, estate, type);
 }
 
