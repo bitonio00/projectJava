@@ -6,6 +6,7 @@
  */
  package Model;
 
+ 
  import java.util.ArrayList;
 
 /**
@@ -13,23 +14,31 @@
  * @author benoi
  */
 public class RealEstateAgent extends Personne {
-    private int m_login;
+    
     private ArrayList<Estate> listEstate;
     private double m_commission;
-    private String m_password;
 
 
-public RealEstateAgent(int year,int month, int day, String nom, String prenom , int login, String password,double commission)
+
+public RealEstateAgent(int year,int month, int day, String nom, String prenom , int login, String password,double commission,String country,
+        String city,String street)
 {
-    super(nom,prenom,year,month,day);
-    m_login=login;
-    m_password=password;
+    super(nom,prenom,year,month,day,login,password,country,city,street);
+    
+    
 
     m_commission=commission;
     listEstate= new ArrayList<Estate>();
 }
 public void display()
 {
-    System.out.println("nom:"+getNom()+" prenom:"+getPrenom()+" born:"+getDate().getDate()+" login:"+m_login+" password:"+m_password);
+    System.out.println("nom:"+getNom()+" prenom:"+getPrenom()+" born:"+getDate().getDate()+" login:"+getLogin()+" password:"+getPassword());
+}
+
+
+
+public double getCommission()
+{
+  return m_commission ; 
 }
 }
