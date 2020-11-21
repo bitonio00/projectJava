@@ -4,7 +4,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
- package Model;
+ 
+package Model;
 
  import java.sql.*;
  import java.util.*;
@@ -164,7 +165,7 @@ public void readRealEstateAgent()
             while(rs.next())
             {
                m_listRealEstateAgent.add(new RealEstateAgent(1,1,1,rs.getString(3),rs.getString(4),rs.getInt(1),rs.getString(2),
-                       rs.getDouble(6)));
+                       rs.getDouble(6),rs.getString(7),rs.getString(8),rs.getString(9)));
 
             }
             conn.close();
