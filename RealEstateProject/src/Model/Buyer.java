@@ -13,20 +13,20 @@ import java.util.ArrayList;
  * @author benoi
  */
 public class Buyer extends Personne{
-   
-  
-    boolean m_returning;
-    
-    
-    
 
-    
+
+    boolean m_returning;
+
+
+
+
+
     public Buyer(String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String password)
     {
         super(nom,prenom,year,month,day,login,password, country,city,street);
-     
-   
-      
+
+
+
     }
 // return madress.getcountry
 
