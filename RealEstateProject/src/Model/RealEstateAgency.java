@@ -36,7 +36,7 @@ public RealEstateAgency(String name,String pathToBdd)
     m_listRealEstateAgent= new ArrayList<RealEstateAgent>();
     readRealEstateAgent();
     m_listEstate=new ArrayList<Estate>();
-
+ 
     m_listOffer=new ArrayList<Offer>();
 }
 public void readBuyer()
@@ -197,6 +197,11 @@ public void displayOffer()
 }
 public void interact()
 {
-   m_listOffer.add(m_listBuyer.get(0).makeAnOffer(m_listEstate.get(0), "cash", 20000)) ;
+//   m_listOffer.add(m_listBuyer.get(0).makeAnOffer(m_listEstate.get(0), "cash", 20000)) ;
+}
+public ArrayList<Buyer> getBuyer()
+{
+return m_listBuyer;
 }
 }
+
