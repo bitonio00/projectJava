@@ -34,11 +34,11 @@ public void display()
 {
     System.out.println("nom:"+getNom()+" prenom:"+getPrenom()+" born:"+getDate().getDate()+" adress:"+getAdress().toString()+" login:"+getLogin()+" password:"+getPassword());
 }
-public Offer makeAnOffer(Estate estate,String type, double amount)
+/*public Offer makeAnOffer(Estate estate,String type, double amount)
 {
     Offer offer;
     return offer=new Offer(amount,getNom(), getPrenom(),getDate().getYear(),getDate().getMonth(),getDate().getDay(),
             getAdress().getCountry(),getAdress().getCity(),getAdress().getStreet(),getLogin(),getPassword(), estate, type);
-}
+}*/
 
 }
