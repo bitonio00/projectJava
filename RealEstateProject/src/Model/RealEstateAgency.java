@@ -103,6 +103,18 @@ public void displayBuyer()
         m_listBuyer.get(i).display();
     }
 }
+public int findBuyer(int id)
+{   
+    int v=0;
+    for(int i=0; i<m_listBuyer.size(); ++i)
+    {
+        if(m_listBuyer.get(i).getLogin()==id)
+        {
+            v=i;
+        }
+    }
+    return v;
+}
 
 public void readSeller()
 {
@@ -144,7 +156,18 @@ public void displaySeller()
     }
 }
 
-
+public int findSeller(int id)
+{   
+    int v=0;
+    for(int i=0; i<m_listSeller.size(); ++i)
+    {
+        if(m_listSeller.get(i).getLogin()==id)
+        {
+            v=i;
+        }
+    }
+    return v;
+}
 public void readRealEstateAgent()
 {
 
@@ -184,7 +207,18 @@ public void displayRealEstateAgent()
         m_listRealEstateAgent.get(i).display();
     }
 }
-
+public int findEstateAgent(int id)
+{   
+    int v=0;
+    for(int i=0; i<m_listRealEstateAgent.size(); ++i)
+    {
+        if(m_listRealEstateAgent.get(i).getLogin()==id)
+        {
+            v=i;
+        }
+    }
+    return v;
+}
 
 
 
