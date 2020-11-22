@@ -29,7 +29,7 @@ public class RealEstateProject {
         c.LoadLoginPage();*/
        // c.compare();
 
-
+       b.displayVisit();
     }
 
 }

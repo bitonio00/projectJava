@@ -13,17 +13,33 @@ public class Local extends Estate {
 
     String m_localType;
    
-public Local(int size,String country,String city, String street , double price,Seller seller,
-        RealEstateAgent realEstateAgent, String localType,boolean equiped, boolean meubled, int numberOfFloor)
+public Local(int id,int size,String country,String city, String street , double price,Seller seller,
+        RealEstateAgent realEstateAgent, String localType,boolean equiped, boolean meubled, int numberOfFloor, String type)
 {
        
-           super( size,country,city,street,price,seller,realEstateAgent,numberOfFloor,equiped,meubled);
+           super( id,size,country,city,street,price,seller,realEstateAgent,numberOfFloor,equiped,meubled,type);
         
 
 m_localType= localType;
 }
+@Override
 public String getLocalType()
 {
 return m_localType;
+}
+@Override
+public boolean getvisavis()
+    {
+   return false;
+    }
+@Override
+public String getHouseType()
+{
+    return "0";
+}
+@Override
+public boolean getGarden()
+{
+return false;
 }
 }

@@ -4,7 +4,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
- 
+
 package Model;
 
  import java.sql.*;
@@ -37,8 +37,11 @@ public RealEstateAgency(String name,String pathToBdd)
     m_listRealEstateAgent= new ArrayList<RealEstateAgent>();
     readRealEstateAgent();
     m_listEstate=new ArrayList<Estate>();
- 
+ readEstate();
     m_listOffer=new ArrayList<Offer>();
+    readOffer();
+    m_listVisit= new ArrayList< Visit>();
+    readVisit();
 }
 public void readBuyer()
 {
@@ -71,17 +74,17 @@ public void readBuyer()
 }
 public void delateBuyer(int val)
 {
-    
+
     Connection conn=null;
-        try 
+        try
         {
-            
+
             String url="jdbc:mysql://localhost:3306/estate_agency";
             String user="root";
             String password="";
-            
+
             conn=DriverManager.getConnection(url,user,password);
-            
+
             PreparedStatement stmt=conn.prepareStatement("delete from buyer where buyer_id = ?");
           // stmt.execute("DELETE FROM EMPLOYEE WHERE ID >= 1");
            // stmt.execute("DELETE FROM BUYER WHERE buyer_id = 1001");
@@ -104,7 +107,7 @@ public void displayBuyer()
     }
 }
 public int findBuyer(int id)
-{   
+{
     int v=0;
     for(int i=0; i<m_listBuyer.size(); ++i)
     {
@@ -157,7 +160,7 @@ public void displaySeller()
 }
 
 public int findSeller(int id)
-{   
+{
     int v=0;
     for(int i=0; i<m_listSeller.size(); ++i)
     {
@@ -208,7 +211,7 @@ public void displayRealEstateAgent()
     }
 }
 public int findEstateAgent(int id)
-{   
+{
     int v=0;
     for(int i=0; i<m_listRealEstateAgent.size(); ++i)
     {
@@ -254,33 +257,33 @@ public void readEstate()
 
             while(rs.next())
             {
-                if (rs.getString(4)== "local")
+                if (rs.getString(4).equals("local") )
                 {
                  int indices= findSeller(rs.getInt(8));
-                 int indicee= findEstateAgent(rs.getInt(9)); 
-                    m_listEstate.add(new Local(rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
+                 int indicee= findEstateAgent(rs.getInt(9));
+                    m_listEstate.add(new Local(rs.getInt(1),rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
                  , rs.getDouble(3), m_listSeller.get(indices),m_listRealEstateAgent.get(indicee),
-                    rs.getString(12), rs.getBoolean(15), rs.getBoolean(14),rs.getInt(10)));
+                    rs.getString(12), rs.getBoolean(15), rs.getBoolean(14),rs.getInt(10),rs.getString(4)));
                 }
-                
-                if (rs.getString(4)== "house")
+
+                if (rs.getString(4).equals("house") )
                 {
                  int indices= findSeller(rs.getInt(8));
-                 int indicee= findEstateAgent(rs.getInt(9)); 
-                    m_listEstate.add(new House(rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
+                 int indicee= findEstateAgent(rs.getInt(9));
+                    m_listEstate.add(new House(rs.getInt(1),rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
                  , rs.getDouble(3), m_listSeller.get(indices),m_listRealEstateAgent.get(indicee),
-                    rs.getString(13),rs.getInt(10), rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(16)));
+                    rs.getString(13),rs.getInt(10), rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(16),rs.getString(4)));
                 }
-                
-                if (rs.getString(4)== "appartement")
+
+                if (rs.getString(4).equals("appartement") )
                 {
                  int indices= findSeller(rs.getInt(8));
-                 int indicee= findEstateAgent(rs.getInt(9)); 
-                    m_listEstate.add(new Appartement(rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
+                 int indicee= findEstateAgent(rs.getInt(9));
+                    m_listEstate.add(new Appartement(rs.getInt(1),rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
                  , rs.getDouble(3), m_listSeller.get(indices),m_listRealEstateAgent.get(indicee),rs.getInt(10)
-                    , rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(11)));
+                    , rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(11),rs.getString(4)));
                 }
-               
+
 
             }
             conn.close();
@@ -290,18 +293,161 @@ public void readEstate()
             System.out.println(""+e.getMessage());
         }
 }
-public ArrayList<Buyer> getBuyer()
+
+public void displayEstate()
 {
-return m_listBuyer;
-}
-public ArrayList<RealEstateAgent> getRealEstateAgent()
-{
-return m_listRealEstateAgent;
-}
-public ArrayList<Seller> getSeller()
-{
-return m_listSeller;
+  for(int i=0; i<m_listEstate.size();++i)
+    {
+        m_listEstate.get(i).display();
+    }
 }
 
+public int findEstate(int id)
+{
+    int v=0;
+    for(int i=0; i<m_listEstate.size(); ++i)
+    {
+        if(m_listEstate.get(i).getId()==id)
+        {
+            v=i;
+        }
+    }
+    return v;
 }
 
+
+public void readOffer()
+{
+
+    Connection conn=null;
+        try
+        {
+
+            String url="jdbc:mysql://localhost:3306/estate_agency";
+            String user="root";
+            String password="";
+
+            conn=DriverManager.getConnection(url,user,password);
+
+            Statement stmt=conn.createStatement();
+            //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String Password)
+            ResultSet rs=stmt.executeQuery("select * from offer ");// c pa une faute tu la appelr comme sa sur php
+
+            while(rs.next())
+            {
+                int indiceb=findBuyer(rs.getInt(2));
+                int indicee= findEstate(rs.getInt(3));
+               if (m_listEstate.get(indicee).getType().equals("appartement"))
+               {//public Offer( int id,double montant,Buyer buyer,House  houseconcerned,   String type)
+               Appartement a= new Appartement(m_listEstate.get(indicee).getId(),m_listEstate.get(indicee).getSize(),
+                       m_listEstate.get(indicee).getAdress().getCountry(),m_listEstate.get(indicee).getAdress().getCity(),
+                       m_listEstate.get(indicee).getAdress().getStreet(),m_listEstate.get(indicee).getPrice(),m_listEstate.get(indicee).getSeller()
+               ,m_listEstate.get(indicee).getAgent(),m_listEstate.get(indicee).getNOF(),m_listEstate.get(indicee).getEquiped(),
+                       m_listEstate.get(indicee).getMeubled(),m_listEstate.get(indicee).getvisavis(),m_listEstate.get(indicee).getType());
+
+                  m_listOffer.add(new Offer(rs.getInt(1),rs.getDouble(4), m_listBuyer.get(indiceb),a,rs.getString(5)));
+               }
+               if (m_listEstate.get(indicee).getType().equals("house"))
+               {//public Offer( int id,double montant,Buyer buyer,House  houseconcerned,   String type)
+               House a= new House(m_listEstate.get(indicee).getId(),m_listEstate.get(indicee).getSize(),
+                       m_listEstate.get(indicee).getAdress().getCountry(),m_listEstate.get(indicee).getAdress().getCity(),
+                       m_listEstate.get(indicee).getAdress().getStreet(),m_listEstate.get(indicee).getPrice(),m_listEstate.get(indicee).getSeller()
+               ,m_listEstate.get(indicee).getAgent(),m_listEstate.get(indicee).getHouseType(),m_listEstate.get(indicee).getNOF(),
+                       m_listEstate.get(indicee).getMeubled(),m_listEstate.get(indicee).getEquiped(), m_listEstate.get(indicee).getGarden(),m_listEstate.get(indicee).getType());
+
+
+                  m_listOffer.add(new Offer(rs.getInt(1),rs.getDouble(4), m_listBuyer.get(indiceb),a,rs.getString(5)));
+               }
+                if (m_listEstate.get(indicee).getType().equals("local"))
+               {
+               Local a= new Local(m_listEstate.get(indicee).getId(),m_listEstate.get(indicee).getSize(),
+                       m_listEstate.get(indicee).getAdress().getCountry(),m_listEstate.get(indicee).getAdress().getCity(),
+                       m_listEstate.get(indicee).getAdress().getStreet(),m_listEstate.get(indicee).getPrice(),m_listEstate.get(indicee).getSeller()
+               ,m_listEstate.get(indicee).getAgent(),m_listEstate.get(indicee).getLocalType(),
+                       m_listEstate.get(indicee).getEquiped(),m_listEstate.get(indicee).getMeubled(), m_listEstate.get(indicee).getNOF(),m_listEstate.get(indicee).getType());
+
+/*public Local(int id,int size,String country,String city, String street , double price,Seller seller,
+        RealEstateAgent realEstateAgent, String localType,boolean equiped, boolean meubled, int numberOfFloor, String type)*/
+                  m_listOffer.add(new Offer(rs.getInt(1),rs.getDouble(4), m_listBuyer.get(indiceb),a,rs.getString(5)));
+               }
+            }
+            conn.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(""+e.getMessage());
+        }
+}
+public void readVisit()
+{
+
+    Connection conn=null;
+        try
+        {
+
+            String url="jdbc:mysql://localhost:3306/estate_agency";
+            String user="root";
+            String password="";
+
+            conn=DriverManager.getConnection(url,user,password);
+
+            Statement stmt=conn.createStatement();
+            //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String Password)
+            ResultSet rs=stmt.executeQuery("select * from visit ");// c pa une faute tu la appelr comme sa sur php
+//public Visit(Date date,int id, Buyer buyer, RealEstateAgent agent,House houseconcerned )
+            while(rs.next())
+            {
+                int indiceb=findBuyer(rs.getInt(2));
+                int indicee= findEstate(rs.getInt(3));
+                int indicea= findEstateAgent(rs.getInt(4));
+               if (m_listEstate.get(indicee).getType().equals("appartement"))
+               {//public Offer( int id,double montant,Buyer buyer,House  houseconcerned,   String type)
+               Appartement a= new Appartement(m_listEstate.get(indicee).getId(),m_listEstate.get(indicee).getSize(),
+                       m_listEstate.get(indicee).getAdress().getCountry(),m_listEstate.get(indicee).getAdress().getCity(),
+                       m_listEstate.get(indicee).getAdress().getStreet(),m_listEstate.get(indicee).getPrice(),m_listEstate.get(indicee).getSeller()
+               ,m_listEstate.get(indicee).getAgent(),m_listEstate.get(indicee).getNOF(),m_listEstate.get(indicee).getEquiped(),
+                       m_listEstate.get(indicee).getMeubled(),m_listEstate.get(indicee).getvisavis(),m_listEstate.get(indicee).getType());
+
+                  m_listVisit.add(new Visit(rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getInt(1), m_listBuyer.get(indiceb),m_listRealEstateAgent.get(indicea) ,a));
+               }
+               if (m_listEstate.get(indicee).getType().equals("house"))
+               {//public Offer( int id,double montant,Buyer buyer,House  houseconcerned,   String type)
+               House a= new House(m_listEstate.get(indicee).getId(),m_listEstate.get(indicee).getSize(),
+                       m_listEstate.get(indicee).getAdress().getCountry(),m_listEstate.get(indicee).getAdress().getCity(),
+                       m_listEstate.get(indicee).getAdress().getStreet(),m_listEstate.get(indicee).getPrice(),m_listEstate.get(indicee).getSeller()
+               ,m_listEstate.get(indicee).getAgent(),m_listEstate.get(indicee).getHouseType(),m_listEstate.get(indicee).getNOF(),
+                       m_listEstate.get(indicee).getMeubled(),m_listEstate.get(indicee).getEquiped(), m_listEstate.get(indicee).getGarden(),m_listEstate.get(indicee).getType());
+
+
+                  m_listVisit.add(new Visit(rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getInt(1), m_listBuyer.get(indiceb),m_listRealEstateAgent.get(indicea) ,a));
+               }
+                if (m_listEstate.get(indicee).getType().equals("local"))
+               {
+               Local a= new Local(m_listEstate.get(indicee).getId(),m_listEstate.get(indicee).getSize(),
+                       m_listEstate.get(indicee).getAdress().getCountry(),m_listEstate.get(indicee).getAdress().getCity(),
+                       m_listEstate.get(indicee).getAdress().getStreet(),m_listEstate.get(indicee).getPrice(),m_listEstate.get(indicee).getSeller()
+               ,m_listEstate.get(indicee).getAgent(),m_listEstate.get(indicee).getLocalType(),
+                       m_listEstate.get(indicee).getEquiped(),m_listEstate.get(indicee).getMeubled(), m_listEstate.get(indicee).getNOF(),m_listEstate.get(indicee).getType());
+               m_listVisit.add(new Visit(rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getInt(1), m_listBuyer.get(indiceb),m_listRealEstateAgent.get(indicea) ,a));
+/*public Local(int id,int size,String country,String city, String street , double price,Seller seller,
+        RealEstateAgent realEstateAgent, String localType,boolean equiped, boolean meubled, int numberOfFloor, String type)*/
+
+               }
+            }
+            conn.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(""+e.getMessage());
+        }
+}
+public void displayVisit()
+{
+
+
+  for(int i=0; i<m_listVisit.size();++i)
+    {
+        m_listVisit.get(i).display();
+    }
+}
+}
