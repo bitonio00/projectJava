@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+ package Model;
 
 import java.util.ArrayList;
 
@@ -13,24 +13,27 @@ import java.util.ArrayList;
  */
 public abstract class Estate {
     private int m_size;
+    private int m_id;
     private Adress m_adress;
     private double m_price;
     private Seller m_seller;
     private RealEstateAgent m_RealEstateAgent;
-    private String m_features;
-     private int m_numberOfFloor;
+    private int m_numberOfFloor;
     private boolean m_meubled;
     private boolean m_equiped; 
+    private String m_type;
 
 
 
 
-    public Estate(int size,String country,String city, String street , double price,Seller seller, RealEstateAgent realEstateAgent,  int numberOfFloor,boolean equiped, boolean meubled)
+    public Estate(int id,int size,String country,String city, String street , double price,Seller seller, RealEstateAgent realEstateAgent,
+            int numberOfFloor,boolean equiped, boolean meubled,String type)
 {
     m_meubled=meubled;
     m_equiped=equiped;
     m_numberOfFloor=numberOfFloor;
-
+    m_id=id;
+    m_type=type;
 m_size=size;
 
 m_price=price;
@@ -77,8 +80,26 @@ public boolean getMeubled()
 {
 return m_meubled;
 }
+public int getId()
+{
+    return m_id;
+}  
 
+public String getType()
+{
+return m_type;
+}
+    
 
-
+public void display()
+{
+    System.out.println( "size: "+m_size+"adress: "+m_adress+"price: "+m_price+"seller: "+m_seller.getPrenom()+
+            m_seller.getNom()+"agent: "+m_RealEstateAgent.getPrenom()+m_RealEstateAgent.getNom()+"number of floor: "+m_numberOfFloor
+    +"equiped: " + m_equiped+"meubled: "+m_meubled);
+}
+public abstract boolean getvisavis();
+public abstract String getHouseType();
+public abstract boolean getGarden();
+public abstract String getLocalType();
 
 }
