@@ -5,7 +5,7 @@
  */
 package View;
 
-import Model.Buyer;
+import Model.*;
 import java.awt.event.*; 
 import javax.swing.*;
 import java.awt.*;
@@ -26,18 +26,41 @@ public class LoginPage implements ActionListener {
     private static JButton button;
     private static String password;
     private static ArrayList<Buyer>listB;
+    private static ArrayList<Seller>listS;
+    private static ArrayList<RealEstateAgent>listREA;
     private   int log;
+    private String m_type;
   
-    
-    public void setList(ArrayList<Buyer>listBuyer)
+    public void setLoginPage(String type)
+    {
+        m_type=type;
+    }
+    public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayList<RealEstateAgent>listRealEstateAgent)
             {
-                 listB=new ArrayList<Buyer>();
+        listB=new ArrayList<Buyer>();
         for(int i=0;i<listBuyer.size(); ++i)
         {
             //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String password
-            listB.add(new Buyer(listBuyer.get(i).getPrenom(),listBuyer.get(i).getNom(), listBuyer.get(i).getDate().getYear(), 
+            listB.add(new Buyer(listBuyer.get(i).getNom(),listBuyer.get(i).getPrenom(), listBuyer.get(i).getDate().getYear(), 
              listBuyer.get(i).getDate().getMonth(), listBuyer.get(i).getDate().getDay(),  listBuyer.get(i).getAdress().getCountry(),
              listBuyer.get(i).getAdress().getCity(), listBuyer.get(i).getAdress().getStreet(), listBuyer.get(i).getLogin(), listBuyer.get(i).getPassword()));
+        }
+        listS=new ArrayList<Seller>();
+        for(int i=0;i<listSeller.size(); ++i)
+        {
+           // String nom, String prenom,int year,int month,int day,   String country,String city,String street ,int login, String password
+            listS.add(new Seller(listSeller.get(i).getNom(),listSeller.get(i).getPrenom(), listSeller.get(i).getDate().getYear(), 
+             listSeller.get(i).getDate().getMonth(), listSeller.get(i).getDate().getDay(),  listSeller.get(i).getAdress().getCountry(),
+             listSeller.get(i).getAdress().getCity(), listSeller.get(i).getAdress().getStreet(), listSeller.get(i).getLogin(), listSeller.get(i).getPassword()));
+        }
+        listREA=new ArrayList<RealEstateAgent>();
+        for(int i=0;i<listRealEstateAgent.size(); ++i)
+        {
+            //(int year,int month, int day, String nom, String prenom , int login, String password,double commission,String country,String city,String street
+        
+            listREA.add(new RealEstateAgent(listRealEstateAgent.get(i).getDate().getYear(),listRealEstateAgent.get(i).getDate().getMonth(),listRealEstateAgent.get(i).getDate().getDay(), 
+                    listRealEstateAgent.get(i).getNom(),listRealEstateAgent.get(i).getPrenom(),listRealEstateAgent.get(i).getLogin(),listRealEstateAgent.get(i).getPassword(), listRealEstateAgent.get(i).getCommission(),
+                    listRealEstateAgent.get(i).getAdress().getCountry(), listRealEstateAgent.get(i).getAdress().getCity(), listRealEstateAgent.get(i).getAdress().getStreet()));
         }
             }
     public void LoadLoginPage ()
@@ -45,6 +68,7 @@ public class LoginPage implements ActionListener {
        
         
         
+       
         panel=new JPanel();
         frame= new JFrame();
         frame.setSize(4000, 4000);
@@ -88,8 +112,10 @@ public class LoginPage implements ActionListener {
                 String login=loginText.getText();
                  password=passwordText.getText();
                  
-                  log=Integer.parseInt(login);
-                 for(int i=0; i<listB.size(); ++i)
+                log=Integer.parseInt(login);
+                if(m_type.equals("Buyer"))
+                {
+                  for(int i=0; i<listB.size(); ++i)
                {
                    System.out.print("ttt");
                       if(listB.get(i).getLogin()==log && listB.get(i).getPassword().equals(password))
@@ -97,7 +123,33 @@ public class LoginPage implements ActionListener {
                           System.out.println("yeeeeeeeeeeeeees");
                           JOptionPane.showMessageDialog(null,"lolo");
                          }
-                       }
+                       }  
+                }
+                if(m_type.equals("REA"))
+                {
+                  for(int i=0; i<listREA.size(); ++i)
+               {
+                   System.out.print("ttt");
+                      if(listREA.get(i).getLogin()==log && listREA.get(i).getPassword().equals(password))
+                         {
+                          System.out.println("yeeeeeeeeeeeeees");
+                          JOptionPane.showMessageDialog(null,"lolo");
+                         }
+                       }  
+                }
+                 if(m_type.equals("Seller"))
+                {
+                  for(int i=0; i<listS.size(); ++i)
+               {
+                   System.out.print("ttt");
+                      if(listS.get(i).getLogin()==log && listS.get(i).getPassword().equals(password))
+                         {
+                          System.out.println("yeeeeeeeeeeeeees");
+                          JOptionPane.showMessageDialog(null,"lolo");
+                         }
+                       }  
+                }
+                 
                               
                 
     }
