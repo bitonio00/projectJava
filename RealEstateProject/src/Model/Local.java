@@ -13,7 +13,8 @@ public class Local extends Estate {
 
     String m_localType;
    
-public Local(int size,String country,String city, String street , double price,Seller seller, RealEstateAgent realEstateAgent, String localType,boolean equiped, boolean meubled, int numberOfFloor)
+public Local(int size,String country,String city, String street , double price,Seller seller,
+        RealEstateAgent realEstateAgent, String localType,boolean equiped, boolean meubled, int numberOfFloor)
 {
        
            super( size,country,city,street,price,seller,realEstateAgent,numberOfFloor,equiped,meubled);
