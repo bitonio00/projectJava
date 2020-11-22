@@ -238,5 +238,63 @@ public ArrayList<Buyer> getBuyer()
 {
 return m_listBuyer;
 }
+public void readEstate()
+{
+
+    Connection conn=null;
+        try
+        {
+
+            String url="jdbc:mysql://localhost:3306/estate_agency";
+            String user="root";
+            String password="";
+
+            conn=DriverManager.getConnection(url,user,password);
+
+            Statement stmt=conn.createStatement();
+            //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String Password)
+            ResultSet rs=stmt.executeQuery("select * from estate ");// c pa une faute tu la appelr comme sa sur php
+
+            while(rs.next())
+            {
+                if (rs.getString(4)== "local")
+                {
+                 int indices= findSeller(rs.getInt(8));
+                 int indicee= findEstateAgent(rs.getInt(9)); 
+                    m_listEstate.add(new Local(rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
+                 , rs.getDouble(3), m_listSeller.get(indices),m_listRealEstateAgent.get(indicee),
+                    rs.getString(12), rs.getBoolean(15), rs.getBoolean(14),rs.getInt(10)));
+                }
+                
+                if (rs.getString(4)== "house")
+                {
+                 int indices= findSeller(rs.getInt(8));
+                 int indicee= findEstateAgent(rs.getInt(9)); 
+                    m_listEstate.add(new House(rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
+                 , rs.getDouble(3), m_listSeller.get(indices),m_listRealEstateAgent.get(indicee),
+                    rs.getString(13),rs.getInt(10), rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(16)));
+                }
+                
+                if (rs.getString(4)== "appartement")
+                {
+                 int indices= findSeller(rs.getInt(8));
+                 int indicee= findEstateAgent(rs.getInt(9)); 
+                    m_listEstate.add(new Appartement(rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
+                 , rs.getDouble(3), m_listSeller.get(indices),m_listRealEstateAgent.get(indicee),rs.getInt(10)
+                    , rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(11)));
+                }
+               
+
+            }
+            conn.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(""+e.getMessage());
+        }
+}
+
+
+
 }
 
