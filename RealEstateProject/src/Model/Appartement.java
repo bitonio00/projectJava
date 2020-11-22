@@ -14,7 +14,8 @@ public class Appartement extends Estate   {
     
     private boolean m_visavis;
          
-    public Appartement(int size,String country,String city, String street , double price,Seller seller, RealEstateAgent realEstateAgent, int numberOfFloor, boolean equiped,boolean meubled,boolean visavis)
+    public Appartement(int size,String country,String city, String street , double price,Seller seller,
+            RealEstateAgent realEstateAgent, int numberOfFloor, boolean equiped,boolean meubled,boolean visavis)
     {
         super(size,country,city,street,price,seller,realEstateAgent,numberOfFloor,equiped,meubled);
    
