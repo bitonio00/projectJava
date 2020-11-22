@@ -22,10 +22,11 @@ public class RealEstateProject {
      //   a.displayOffer();
      //   a.delateBuyer(1001);
         RealEstateAgency b=new RealEstateAgency("pp","nn");
-        b.displayBuyer();
+        TypePage a=new TypePage();
+        a.LoadLoginPage();       /*
         LoginPage c=new LoginPage();
-        c.setList(b.getBuyer());
-        c.LoadLoginPage();
+        c.setList(b.getBuyer(),b.getSeller(),b.getRealEstateAgent());
+        c.LoadLoginPage();*/
        // c.compare();
 
 
