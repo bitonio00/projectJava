@@ -16,7 +16,9 @@ public class House extends Estate {
     
    
 
-    public House(int size,String country,String city, String street , double price,Seller seller, RealEstateAgent realEstateAgent, String houseType, int numberOfFloor, boolean meubled,boolean equiped,boolean garden)
+    public House(int size,String country,String city, String street ,
+            double price,Seller seller, RealEstateAgent realEstateAgent, String houseType,
+            int numberOfFloor, boolean meubled,boolean equiped,boolean garden)
     {
     super(size,country,city,street,price,seller,realEstateAgent,numberOfFloor,equiped,meubled);
     m_houseType=  houseType;
