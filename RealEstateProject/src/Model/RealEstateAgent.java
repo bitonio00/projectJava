@@ -15,7 +15,7 @@
  */
 public class RealEstateAgent extends Personne {
     
-    private ArrayList<Estate> listEstate;
+   // private ArrayList<Estate> listEstate;
     private double m_commission;
 
 
@@ -28,7 +28,7 @@ public RealEstateAgent(int year,int month, int day, String nom, String prenom , 
     
 
     m_commission=commission;
-    listEstate= new ArrayList<Estate>();
+    //listEstate= new ArrayList<Estate>();
 }
 public void display()
 {
