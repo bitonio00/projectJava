@@ -234,10 +234,7 @@ public void interact()
 {
 //   m_listOffer.add(m_listBuyer.get(0).makeAnOffer(m_listEstate.get(0), "cash", 20000)) ;
 }
-public ArrayList<Buyer> getBuyer()
-{
-return m_listBuyer;
-}
+
 public void readEstate()
 {
 
@@ -293,8 +290,18 @@ public void readEstate()
             System.out.println(""+e.getMessage());
         }
 }
-
-
+public ArrayList<Buyer> getBuyer()
+{
+return m_listBuyer;
+}
+public ArrayList<RealEstateAgent> getRealEstateAgent()
+{
+return m_listRealEstateAgent;
+}
+public ArrayList<Seller> getSeller()
+{
+return m_listSeller;
+}
 
 }
 
