@@ -42,4 +42,14 @@ public boolean getGarden()
 {
 return false;
 }
+ @Override
+public int getNob()
+{
+    return 0;
+} 
+@Override
+public int getNor()
+{
+    return 0;
+}  
 }
