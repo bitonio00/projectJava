@@ -26,7 +26,7 @@ public class Offer {
 
    m_houseConcerned = new House(houseconcerned.getId(), houseconcerned.getSize(),houseconcerned.getAdress().getCountry(),houseconcerned.getAdress().getCity(),
             houseconcerned.getAdress().getStreet(), houseconcerned.getPrice(),houseconcerned.getSeller(),houseconcerned.getAgent(),houseconcerned.getHouseType(),houseconcerned.getNOF(),houseconcerned.getMeubled(),
-           houseconcerned.getEquiped(),houseconcerned.getGarden(),houseconcerned.getType());
+           houseconcerned.getEquiped(),houseconcerned.getGarden(),houseconcerned.getType(),houseconcerned.getNor(),houseconcerned.getNob());
    }// a voir avec benoit
    public Offer( int id,double montant,String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String password,House  houseconcerned,   String type)
    {
@@ -37,7 +37,7 @@ public class Offer {
 
  m_houseConcerned = new House(houseconcerned.getId(), houseconcerned.getSize(),houseconcerned.getAdress().getCountry(),houseconcerned.getAdress().getCity(),
             houseconcerned.getAdress().getStreet(), houseconcerned.getPrice(),houseconcerned.getSeller(),houseconcerned.getAgent(),houseconcerned.getHouseType(),houseconcerned.getNOF(),houseconcerned.getMeubled(),
-           houseconcerned.getEquiped(),houseconcerned.getGarden(),houseconcerned.getType());
+           houseconcerned.getEquiped(),houseconcerned.getGarden(),houseconcerned.getType(),houseconcerned.getNor(),houseconcerned.getNob());
    }
 
    public Offer(int id, double montant,Buyer buyer,Local localConcerned,   String type)
@@ -73,7 +73,7 @@ localConcerned.getAdress().getStreet(),localConcerned.getPrice(),localConcerned.
            buyer.getAdress().getCountry(), buyer.getAdress().getCity(),buyer.getAdress().getStreet(),buyer.getLogin(),buyer.getPassword());
 m_houseConcerned = new Appartement(aptconcerned.getId(),aptconcerned.getSize(),aptconcerned.getAdress().getCountry(),aptconcerned.getAdress().getCity(),
 aptconcerned.getAdress().getStreet(),aptconcerned.getPrice(),aptconcerned.getSeller(),aptconcerned.getAgent(),aptconcerned.getNOF(),aptconcerned.getEquiped(),
-        aptconcerned.getMeubled(),aptconcerned.getvisavis(),aptconcerned.getType());
+        aptconcerned.getMeubled(),aptconcerned.getvisavis(),aptconcerned.getType(),aptconcerned.getNor(),aptconcerned.getNob());
    }
    public Offer(int id, double montant,String nom, String prenom, int year,int month,int day, String country,String city,
            String street,int login,String password,Appartement  aptconcerned,   String type)
@@ -85,7 +85,7 @@ aptconcerned.getAdress().getStreet(),aptconcerned.getPrice(),aptconcerned.getSel
 
 m_houseConcerned = new Appartement(aptconcerned.getId(),aptconcerned.getSize(),aptconcerned.getAdress().getCountry(),aptconcerned.getAdress().getCity(),
 aptconcerned.getAdress().getStreet(),aptconcerned.getPrice(),aptconcerned.getSeller(),aptconcerned.getAgent(),aptconcerned.getNOF(),aptconcerned.getEquiped(),
-        aptconcerned.getMeubled(),aptconcerned.getvisavis(),aptconcerned.getType());
+        aptconcerned.getMeubled(),aptconcerned.getvisavis(),aptconcerned.getType(),aptconcerned.getNor(),aptconcerned.getNob());
    }
    
    public void display()
