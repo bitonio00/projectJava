@@ -26,7 +26,7 @@ public void loadGui()
     TypePage a=new TypePage();
     a.LoadTypePage();
 }
-public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayList<RealEstateAgent>listRealEstateAgent)
+public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayList<RealEstateAgent>listRealEstateAgent,ArrayList<Estate>listEstate)
 {
     m_listBuyer=new ArrayList<Buyer>();
         for(int i=0;i<listBuyer.size(); ++i)
@@ -53,7 +53,43 @@ public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayL
                     listRealEstateAgent.get(i).getNom(),listRealEstateAgent.get(i).getPrenom(),listRealEstateAgent.get(i).getLogin(),listRealEstateAgent.get(i).getPassword(), listRealEstateAgent.get(i).getCommission(),
                     listRealEstateAgent.get(i).getAdress().getCountry(), listRealEstateAgent.get(i).getAdress().getCity(), listRealEstateAgent.get(i).getAdress().getStreet()));
         }
+        for(int i=0;i <listEstate.size();i++)
+        {
+            if(listEstate.get(i).getType().equals("house"))
+            {
+
+                m_listEstate.add(new House(listEstate.get(i).getId(),listEstate.get(i).getSize(),listEstate.get(i).getAdress().getCountry()
+                ,listEstate.get(i).getAdress().getCity(),listEstate.get(i).getAdress().getStreet()
+                ,listEstate.get(i).getPrice(),listEstate.get(i).getSeller(),listEstate.get(i).getAgent(),listEstate.get(i).getHouseType()
+                ,listEstate.get(i).getNOF(), listEstate.get(i).getMeubled(),listEstate.get(i).getEquiped(),listEstate.get(i).getGarden()
+                ,listEstate.get(i).getType()));
+
+            }
+
+                if(listEstate.get(i).getType().equals("appartement"))
+                {
+
+                    m_listEstate.add(new Appartement(listEstate.get(i).getId(),listEstate.get(i).getSize(),listEstate.get(i).getAdress().getCountry()
+                            ,listEstate.get(i).getAdress().getCity(),listEstate.get(i).getAdress().getStreet()
+                            ,listEstate.get(i).getPrice(),listEstate.get(i).getSeller(),listEstate.get(i).getAgent()
+                            ,listEstate.get(i).getNOF(), listEstate.get(i).getEquiped(),listEstate.get(i).getMeubled(),listEstate.get(i).getvisavis()
+                            ,listEstate.get(i).getType()));
+                }
+
+                if(listEstate.get(i).getType().equals("local"))
+                {
+
+                    m_listEstate.add(new Local(listEstate.get(i).getId(),listEstate.get(i).getSize(),listEstate.get(i).getAdress().getCountry()
+                    ,listEstate.get(i).getAdress().getCity(),listEstate.get(i).getAdress().getStreet()
+                    ,listEstate.get(i).getPrice(),listEstate.get(i).getSeller(),listEstate.get(i).getAgent(),listEstate.get(i).getLocalType()
+                    , listEstate.get(i).getEquiped(),listEstate.get(i).getMeubled(),listEstate.get(i).getNOF()
+                    ,listEstate.get(i).getType()));
+
+                }
+
+            }
 }
+
 
 public void addBuyer(Buyer a)
 {
