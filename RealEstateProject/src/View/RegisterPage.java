@@ -105,6 +105,7 @@ public class RegisterPage extends MasterList implements ActionListener{
         panel.add(typeLabel);
         panel.add(typeText);
         
+        
         loginLabel=new JLabel("login:");
         loginLabel.setBounds(10,60,80,25);
         loginText= new JTextField(15);
