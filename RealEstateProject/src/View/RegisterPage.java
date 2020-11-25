@@ -43,6 +43,7 @@ public class RegisterPage extends MasterList implements ActionListener{
     private static JTextField countryText;
     private static JTextField cityText;
     private static JTextField streetText;
+    private static JComboBox formList;
     private static JButton button1;
     private static String type;
     private static int login;
@@ -55,6 +56,7 @@ public class RegisterPage extends MasterList implements ActionListener{
     private static String country;       
     private static String city;
     private static String street;
+    private static String person;
    /* private static ArrayList<Buyer>listB;
     private static ArrayList<Seller>listS;
     private static ArrayList<RealEstateAgent>listREA;*/
@@ -98,12 +100,22 @@ public class RegisterPage extends MasterList implements ActionListener{
         frame.add(panel);
         
         panel.setLayout(null);
-        typeLabel=new JLabel("Seller/Buyer:");
-        typeLabel.setBounds(10,20,80,25);
-        typeText= new JTextField(6);
-        typeText.setBounds(200,20,80,25);
-        panel.add(typeLabel);
-        panel.add(typeText);
+        String[] formStrings = { "Seller","Buyer"   };
+       formList = new JComboBox(formStrings);
+        formList.setSelectedIndex(1);
+        formList.setBounds(10,20,80,25);
+        formList.addActionListener(new ActionCombo());
+        panel.add(formList);
+        //typeLabel=new JLabel("Seller/Buyer:");
+       // typeLabel.setBounds(10,20,80,25);
+        //typeText= new JTextField(6);
+        //typeText.setBounds(200,20,80,25);
+        //panel.add(typeLabel);
+       // panel.add(typeText);
+         
+
+
+
         
         loginLabel=new JLabel("login:");
         loginLabel.setBounds(10,60,80,25);
@@ -187,12 +199,23 @@ public class RegisterPage extends MasterList implements ActionListener{
         frame.setVisible(true);
     }
     
+  public class ActionCombo implements ActionListener
+  {
+  public void actionPerformed(ActionEvent ae)
+  {
+   JComboBox cb = (JComboBox)ae.getSource();
+        person = (String)cb.getSelectedItem();
+       
   
+  }
+  
+  
+  }
     
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-         type=typeText.getText();
+         
          login= parseInt(loginText.getText());
          pass=passwordText.getText();
          lname=nameText.getText();
@@ -214,7 +237,7 @@ public class RegisterPage extends MasterList implements ActionListener{
             String password="";
 
             conn=DriverManager.getConnection(url,user,password);
-        if(type.equals("Seller"))
+        if(person.equals("Seller"))
         {
            Seller s=new Seller(lname,fname,yb,mb,db,country,city,street,login,pass);
             addSeller(s);
@@ -223,7 +246,7 @@ public class RegisterPage extends MasterList implements ActionListener{
          
             
         }
-        else if(type.equals("Buyer"))
+        else if(person.equals("Buyer"))
         {  Buyer a=new Buyer(lname,fname,yb,mb,db,country,city,street,login,pass);
            System.out.print("aa"+a.getLogin());
            addBuyer(a);
