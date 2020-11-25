@@ -10,6 +10,7 @@ package Model;
  import java.sql.*;
  import java.util.*;
 
+
 /**
  *
  * @author benoi
@@ -449,5 +450,10 @@ public void displayVisit()
     {
         m_listVisit.get(i).display();
     }
+  
+  
+  
 }
+
+
 }
