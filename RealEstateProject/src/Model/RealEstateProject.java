@@ -24,7 +24,7 @@ public class RealEstateProject {
         RealEstateAgency b=new RealEstateAgency("pp","nn");
         
         MasterList a=new MasterList();
-        a.setList(b.getBuyer(),b.getSeller(),b.getREA());
+        a.setList(b.getBuyer(),b.getSeller(),b.getREA(),b.getEstate());
         a.loadGui();
 
        
