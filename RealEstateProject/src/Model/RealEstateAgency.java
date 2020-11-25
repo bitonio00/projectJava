@@ -458,6 +458,10 @@ public ArrayList<Seller>getSeller()
 {
 return m_listSeller;
 }
+public ArrayList<Estate>getEstate()
+{
+return m_listEstate;
+}
 public ArrayList<RealEstateAgent>getREA()
 {
 return m_listRealEstateAgent;
