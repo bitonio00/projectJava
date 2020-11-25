@@ -22,14 +22,12 @@ public class RealEstateProject {
      //   a.displayOffer();
      //   a.delateBuyer(1001);
         RealEstateAgency b=new RealEstateAgency("pp","nn");
-        TypePage a=new TypePage();
-        a.LoadLoginPage();       /*
-        LoginPage c=new LoginPage();
-        c.setList(b.getBuyer(),b.getSeller(),b.getRealEstateAgent());
-        c.LoadLoginPage();*/
-       // c.compare();
+        
+        MasterList a=new MasterList();
+        a.setList(b.getBuyer(),b.getSeller(),b.getREA());
+        a.loadGui();
 
-       b.displayVisit();
+       
     }
 
 }

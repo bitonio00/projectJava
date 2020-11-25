@@ -85,7 +85,7 @@ agent.getAdress().getCountry(),agent.getAdress().getCity(),agent.getAdress().get
 public void display()
 {
 System.out.println("date: " + m_day + " "+ m_month+ " "+ m_year +" "+ m_hour+" " +m_minute
-+ "adresse: "+ m_estateviewed.getAdress()+"buyer: "+ m_estatebuyer+ "agent: "+m_estateagent);
++ "adresse: "+ m_estateviewed.getAdress()+"buyer: "+ m_estatebuyer.getNom()+ "agent: "+m_estateagent.getNom());
 }
 
 }
