@@ -13,12 +13,14 @@ package Model;
 public class House extends Estate {
     private String m_houseType;
     private boolean m_garden;
+    private int m_nor;
+    private int m_nob;
     
    
 
     public House(int id,int size,String country,String city, String street ,
             double price,Seller seller, RealEstateAgent realEstateAgent, String houseType,
-            int numberOfFloor, boolean meubled,boolean equiped,boolean garden,String type)
+            int numberOfFloor, boolean meubled,boolean equiped,boolean garden,String type, int nor, int nob)
     {
     super(id,size,country,city,street,price,seller,realEstateAgent,numberOfFloor,equiped,meubled,type);
     m_houseType=  houseType;
@@ -45,6 +47,15 @@ public String getLocalType()
 {
 return "0";
 }
-
+ @Override
+public int getNob()
+{
+    return m_nob;
+}  
+@Override
+public int getNor()
+{
+    return m_nor;
+}  
 
 }

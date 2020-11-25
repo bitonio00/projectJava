@@ -63,7 +63,7 @@ public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayL
                 ,listEstate.get(i).getAdress().getCity(),listEstate.get(i).getAdress().getStreet()
                 ,listEstate.get(i).getPrice(),listEstate.get(i).getSeller(),listEstate.get(i).getAgent(),listEstate.get(i).getHouseType()
                 ,listEstate.get(i).getNOF(), listEstate.get(i).getMeubled(),listEstate.get(i).getEquiped(),listEstate.get(i).getGarden()
-                ,listEstate.get(i).getType()));
+                ,listEstate.get(i).getType(),listEstate.get(i).getNor(),listEstate.get(i).getNob()));
 
             }
 
@@ -74,7 +74,7 @@ public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayL
                             ,listEstate.get(i).getAdress().getCity(),listEstate.get(i).getAdress().getStreet()
                             ,listEstate.get(i).getPrice(),listEstate.get(i).getSeller(),listEstate.get(i).getAgent()
                             ,listEstate.get(i).getNOF(), listEstate.get(i).getEquiped(),listEstate.get(i).getMeubled(),listEstate.get(i).getvisavis()
-                            ,listEstate.get(i).getType()));
+                            ,listEstate.get(i).getType(),listEstate.get(i).getNor(),listEstate.get(i).getNob()));
                 }
 
                 if(listEstate.get(i).getType().equals("local"))

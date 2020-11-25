@@ -13,13 +13,16 @@ public class Appartement extends Estate   {
     
     
     private boolean m_visavis;
-         
+    private int m_nor;
+    private int m_nob;     
     public Appartement(int id,int size,String country,String city, String street , double price,Seller seller,
-            RealEstateAgent realEstateAgent, int numberOfFloor, boolean equiped,boolean meubled,boolean visavis, String type)
+            RealEstateAgent realEstateAgent, int numberOfFloor, boolean equiped,boolean meubled,boolean visavis, String type, int nor, int nob)
     {
         super(id,size,country,city,street,price,seller,realEstateAgent,numberOfFloor,equiped,meubled,type);
    
     m_visavis=visavis;
+    m_nob=nob;
+    m_nor=nor;
     }
     @Override
     public boolean getvisavis()
@@ -41,4 +44,15 @@ return false;
 {
 return "0";
 }
+  @Override
+public int getNob()
+{
+    return m_nob;
+}
+@Override
+public int getNor()
+{
+    return m_nor;
+}  
+    
 }

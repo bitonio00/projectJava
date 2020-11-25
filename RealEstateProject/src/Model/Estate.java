@@ -89,6 +89,8 @@ public String getType()
 {
 return m_type;
 }
+
+
     
 
 public void display()
@@ -101,5 +103,7 @@ public abstract boolean getvisavis();
 public abstract String getHouseType();
 public abstract boolean getGarden();
 public abstract String getLocalType();
+public abstract int getNor();
+public abstract int getNob();
 
 }
