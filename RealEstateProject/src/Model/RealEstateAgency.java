@@ -273,7 +273,7 @@ public void readEstate()
                  int indicee= findEstateAgent(rs.getInt(9));
                     m_listEstate.add(new House(rs.getInt(1),rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
                  , rs.getDouble(3), m_listSeller.get(indices),m_listRealEstateAgent.get(indicee),
-                    rs.getString(13),rs.getInt(10), rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(16),rs.getString(4)));
+                    rs.getString(13),rs.getInt(10), rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(16),rs.getString(4),rs.getInt(16),rs.getInt(17)));
                 }
 
                 if (rs.getString(4).equals("appartement") )
@@ -282,7 +282,7 @@ public void readEstate()
                  int indicee= findEstateAgent(rs.getInt(9));
                     m_listEstate.add(new Appartement(rs.getInt(1),rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
                  , rs.getDouble(3), m_listSeller.get(indices),m_listRealEstateAgent.get(indicee),rs.getInt(10)
-                    , rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(11),rs.getString(4)));
+                    , rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(11),rs.getString(4),rs.getInt(16),rs.getInt(17)));
                 }
 
 
@@ -344,7 +344,8 @@ public void readOffer()
                        m_listEstate.get(indicee).getAdress().getCountry(),m_listEstate.get(indicee).getAdress().getCity(),
                        m_listEstate.get(indicee).getAdress().getStreet(),m_listEstate.get(indicee).getPrice(),m_listEstate.get(indicee).getSeller()
                ,m_listEstate.get(indicee).getAgent(),m_listEstate.get(indicee).getNOF(),m_listEstate.get(indicee).getEquiped(),
-                       m_listEstate.get(indicee).getMeubled(),m_listEstate.get(indicee).getvisavis(),m_listEstate.get(indicee).getType());
+                       m_listEstate.get(indicee).getMeubled(),m_listEstate.get(indicee).getvisavis(),m_listEstate.get(indicee).getType(),
+               m_listEstate.get(indicee).getNor(),m_listEstate.get(indicee).getNob());
 
                   m_listOffer.add(new Offer(rs.getInt(1),rs.getDouble(4), m_listBuyer.get(indiceb),a,rs.getString(5)));
                }
@@ -354,7 +355,8 @@ public void readOffer()
                        m_listEstate.get(indicee).getAdress().getCountry(),m_listEstate.get(indicee).getAdress().getCity(),
                        m_listEstate.get(indicee).getAdress().getStreet(),m_listEstate.get(indicee).getPrice(),m_listEstate.get(indicee).getSeller()
                ,m_listEstate.get(indicee).getAgent(),m_listEstate.get(indicee).getHouseType(),m_listEstate.get(indicee).getNOF(),
-                       m_listEstate.get(indicee).getMeubled(),m_listEstate.get(indicee).getEquiped(), m_listEstate.get(indicee).getGarden(),m_listEstate.get(indicee).getType());
+                       m_listEstate.get(indicee).getMeubled(),m_listEstate.get(indicee).getEquiped(), m_listEstate.get(indicee).getGarden(),
+                       m_listEstate.get(indicee).getType(),m_listEstate.get(indicee).getNor(),m_listEstate.get(indicee).getNob());
 
 
                   m_listOffer.add(new Offer(rs.getInt(1),rs.getDouble(4), m_listBuyer.get(indiceb),a,rs.getString(5)));
@@ -407,7 +409,8 @@ public void readVisit()
                        m_listEstate.get(indicee).getAdress().getCountry(),m_listEstate.get(indicee).getAdress().getCity(),
                        m_listEstate.get(indicee).getAdress().getStreet(),m_listEstate.get(indicee).getPrice(),m_listEstate.get(indicee).getSeller()
                ,m_listEstate.get(indicee).getAgent(),m_listEstate.get(indicee).getNOF(),m_listEstate.get(indicee).getEquiped(),
-                       m_listEstate.get(indicee).getMeubled(),m_listEstate.get(indicee).getvisavis(),m_listEstate.get(indicee).getType());
+                       m_listEstate.get(indicee).getMeubled(),m_listEstate.get(indicee).getvisavis(),m_listEstate.get(indicee).getType(),
+                       m_listEstate.get(indicee).getNor(),m_listEstate.get(indicee).getNob());
 
                   m_listVisit.add(new Visit(rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getInt(1), m_listBuyer.get(indiceb),m_listRealEstateAgent.get(indicea) ,a));
                }
@@ -417,7 +420,8 @@ public void readVisit()
                        m_listEstate.get(indicee).getAdress().getCountry(),m_listEstate.get(indicee).getAdress().getCity(),
                        m_listEstate.get(indicee).getAdress().getStreet(),m_listEstate.get(indicee).getPrice(),m_listEstate.get(indicee).getSeller()
                ,m_listEstate.get(indicee).getAgent(),m_listEstate.get(indicee).getHouseType(),m_listEstate.get(indicee).getNOF(),
-                       m_listEstate.get(indicee).getMeubled(),m_listEstate.get(indicee).getEquiped(), m_listEstate.get(indicee).getGarden(),m_listEstate.get(indicee).getType());
+                       m_listEstate.get(indicee).getMeubled(),m_listEstate.get(indicee).getEquiped(), m_listEstate.get(indicee).getGarden(),m_listEstate.get(indicee).getType(),
+               m_listEstate.get(indicee).getNor(),m_listEstate.get(indicee).getNob());
 
 
                   m_listVisit.add(new Visit(rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getInt(1), m_listBuyer.get(indiceb),m_listRealEstateAgent.get(indicea) ,a));
