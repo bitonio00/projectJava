@@ -28,6 +28,7 @@ public class LoginPage implements ActionListener {
     private static ArrayList<Buyer>listB;
     private static ArrayList<Seller>listS;
     private static ArrayList<RealEstateAgent>listREA;
+    private static ArrayList<Estate>listE;
     private   int log;
     private String m_type;
   
@@ -35,7 +36,7 @@ public class LoginPage implements ActionListener {
     {
         m_type=type;
     }
-    public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayList<RealEstateAgent>listRealEstateAgent)
+    public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayList<RealEstateAgent>listRealEstateAgent,ArrayList<Estate>listEstate)
             {
         listB=new ArrayList<Buyer>();
         for(int i=0;i<listBuyer.size(); ++i)
@@ -61,6 +62,45 @@ public class LoginPage implements ActionListener {
             listREA.add(new RealEstateAgent(listRealEstateAgent.get(i).getDate().getYear(),listRealEstateAgent.get(i).getDate().getMonth(),listRealEstateAgent.get(i).getDate().getDay(), 
                     listRealEstateAgent.get(i).getNom(),listRealEstateAgent.get(i).getPrenom(),listRealEstateAgent.get(i).getLogin(),listRealEstateAgent.get(i).getPassword(), listRealEstateAgent.get(i).getCommission(),
                     listRealEstateAgent.get(i).getAdress().getCountry(), listRealEstateAgent.get(i).getAdress().getCity(), listRealEstateAgent.get(i).getAdress().getStreet()));
+        }
+        for(int i=0;i <listEstate.size();i++)
+        {
+        if(listEstate.get(i).getType().equals("house"))
+        {
+        /*int id,int size,String country,String city, String street ,
+            double price,Seller seller, RealEstateAgent realEstateAgent, String houseType,
+            int numberOfFloor, boolean meubled,boolean equiped,boolean garden,String type*/
+            listE.add(new House(listEstate.get(i).getId(),listEstate.get(i).getSize(),listEstate.get(i).getAdress().getCountry()
+                    ,listEstate.get(i).getAdress().getCity(),listEstate.get(i).getAdress().getStreet()
+                    ,listEstate.get(i).getPrice(),listEstate.get(i).getSeller(),listEstate.get(i).getAgent(),listEstate.get(i).getHouseType()
+                    ,listEstate.get(i).getNOF(), listEstate.get(i).getMeubled(),listEstate.get(i).getEquiped(),listEstate.get(i).getGarden()
+                    ,listEstate.get(i).getType()));
+        
+        }
+        
+        if(listEstate.get(i).getType().equals("appartement"))
+        {
+        /*int id,int size,String country,String city, String street , double price,Seller seller,
+            RealEstateAgent realEstateAgent, int numberOfFloor, boolean equiped,boolean meubled,boolean visavis, String type*/
+        listE.add(new Appartement(listEstate.get(i).getId(),listEstate.get(i).getSize(),listEstate.get(i).getAdress().getCountry()
+                    ,listEstate.get(i).getAdress().getCity(),listEstate.get(i).getAdress().getStreet()
+                    ,listEstate.get(i).getPrice(),listEstate.get(i).getSeller(),listEstate.get(i).getAgent()
+                    ,listEstate.get(i).getNOF(), listEstate.get(i).getEquiped(),listEstate.get(i).getMeubled(),listEstate.get(i).getvisavis()
+                    ,listEstate.get(i).getType()));
+        }
+        
+        if(listEstate.get(i).getType().equals("local"))
+        {
+        /*int id,int size,String country,String city, String street , double price,Seller seller,
+        RealEstateAgent realEstateAgent, String localType,boolean equiped, boolean meubled, int numberOfFloor, String type*/
+            listE.add(new Local(listEstate.get(i).getId(),listEstate.get(i).getSize(),listEstate.get(i).getAdress().getCountry()
+                    ,listEstate.get(i).getAdress().getCity(),listEstate.get(i).getAdress().getStreet()
+                    ,listEstate.get(i).getPrice(),listEstate.get(i).getSeller(),listEstate.get(i).getAgent(),listEstate.get(i).getLocalType()
+                    , listEstate.get(i).getEquiped(),listEstate.get(i).getMeubled(),listEstate.get(i).getNOF()
+                    ,listEstate.get(i).getType()));
+        
+        }
+            
         }
             }
     public void LoadLoginPage ()
