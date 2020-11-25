@@ -10,6 +10,7 @@ package Model;
  import java.sql.*;
  import java.util.*;
 
+
 /**
  *
  * @author benoi
@@ -449,6 +450,9 @@ public void displayVisit()
     {
         m_listVisit.get(i).display();
     }
+
+  
+
 }
 public ArrayList<Buyer>getBuyer()
 {
@@ -467,4 +471,3 @@ public ArrayList<RealEstateAgent>getREA()
 return m_listRealEstateAgent;
 }
 }
-
