@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *
  * @author benoi
  */
-public class LoginPage implements ActionListener {
+public class LoginPage extends MasterList implements ActionListener {
     private static JPanel panel;
     private static JFrame frame;
     private static JLabel loginLabel;
@@ -25,17 +25,17 @@ public class LoginPage implements ActionListener {
     private static JPasswordField passwordText;
     private static JButton button;
     private static String password;
-    private static ArrayList<Buyer>listB;
+    /*private static ArrayList<Buyer>listB;
     private static ArrayList<Seller>listS;
-    private static ArrayList<RealEstateAgent>listREA;
-    private   int log;
-    private String m_type;
+    private static ArrayList<RealEstateAgent>listREA;*/
+    private static int log;
+    private static String m_type;
   
     public void setLoginPage(String type)
     {
         m_type=type;
     }
-    public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayList<RealEstateAgent>listRealEstateAgent)
+    /*public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayList<RealEstateAgent>listRealEstateAgent)
             {
         listB=new ArrayList<Buyer>();
         for(int i=0;i<listBuyer.size(); ++i)
@@ -62,12 +62,13 @@ public class LoginPage implements ActionListener {
                     listRealEstateAgent.get(i).getNom(),listRealEstateAgent.get(i).getPrenom(),listRealEstateAgent.get(i).getLogin(),listRealEstateAgent.get(i).getPassword(), listRealEstateAgent.get(i).getCommission(),
                     listRealEstateAgent.get(i).getAdress().getCountry(), listRealEstateAgent.get(i).getAdress().getCity(), listRealEstateAgent.get(i).getAdress().getStreet()));
         }
-            }
+            }*/
+    
     public void LoadLoginPage ()
     {
        
         
-        
+       
        
         panel=new JPanel();
         frame= new JFrame();
@@ -109,28 +110,35 @@ public class LoginPage implements ActionListener {
 
     
     public void actionPerformed(ActionEvent e) {
+                System.out.println(m_type);
                 String login=loginText.getText();
                  password=passwordText.getText();
-                 
-                log=Integer.parseInt(login);
+                
+                 log=Integer.parseInt(login);
+             //   System.out.print(m_type);
                 if(m_type.equals("Buyer"))
                 {
-                  for(int i=0; i<listB.size(); ++i)
+                  for(int i=0; i<getBList().size(); ++i)
                {
-                   System.out.print("ttt");
-                      if(listB.get(i).getLogin()==log && listB.get(i).getPassword().equals(password))
+                   System.out.println(getBList().get(i).getLogin());
+                      if(getBList().get(i).getLogin()==log && getBList().get(i).getPassword().equals(password))
                          {
                           System.out.println("yeeeeeeeeeeeeees");
                           JOptionPane.showMessageDialog(null,"lolo");
+                          
                          }
-                       }  
+                       } 
+                  //GUI a=new hhhuhug()
+                  //a.setEstate(listEstate)
+                  //a.loadPAGE()
+                  
                 }
-                if(m_type.equals("REA"))
+                if(m_type.equals("Real Estate Agent"))
                 {
-                  for(int i=0; i<listREA.size(); ++i)
+                  for(int i=0; i<getREAList().size(); ++i)
                {
-                   System.out.print("ttt");
-                      if(listREA.get(i).getLogin()==log && listREA.get(i).getPassword().equals(password))
+                  // System.out.print("ttt");
+                      if(getREAList().get(i).getLogin()==log && getREAList().get(i).getPassword().equals(password))
                          {
                           System.out.println("yeeeeeeeeeeeeees");
                           JOptionPane.showMessageDialog(null,"lolo");
@@ -139,10 +147,10 @@ public class LoginPage implements ActionListener {
                 }
                  if(m_type.equals("Seller"))
                 {
-                  for(int i=0; i<listS.size(); ++i)
+                  for(int i=0; i<getSList().size(); ++i)
                {
-                   System.out.print("ttt");
-                      if(listS.get(i).getLogin()==log && listS.get(i).getPassword().equals(password))
+                //   System.out.print("ttt");
+                      if(getSList().get(i).getLogin()==log && getSList().get(i).getPassword().equals(password))
                          {
                           System.out.println("yeeeeeeeeeeeeees");
                           JOptionPane.showMessageDialog(null,"lolo");
@@ -153,20 +161,7 @@ public class LoginPage implements ActionListener {
                               
                 
     }
-  
-public void compare()
-{
-    
- for(int i=0; i<listB.size(); ++i)
-               {
-                   System.out.print("ttt");
-                      if(listB.get(i).getLogin()==log && listB.get(i).getPassword().equals(password))
-                         {
-                          System.out.println("yeeeeeeeeeeeeees");
-                          JOptionPane.showMessageDialog(null,"lolo");
-                         }
-                       }
-}   
 }
+  
 
 
