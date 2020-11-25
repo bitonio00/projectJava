@@ -53,6 +53,7 @@ public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayL
                     listRealEstateAgent.get(i).getNom(),listRealEstateAgent.get(i).getPrenom(),listRealEstateAgent.get(i).getLogin(),listRealEstateAgent.get(i).getPassword(), listRealEstateAgent.get(i).getCommission(),
                     listRealEstateAgent.get(i).getAdress().getCountry(), listRealEstateAgent.get(i).getAdress().getCity(), listRealEstateAgent.get(i).getAdress().getStreet()));
         }
+        m_listEstate=new ArrayList<Estate>();
         for(int i=0;i <listEstate.size();i++)
         {
             if(listEstate.get(i).getType().equals("house"))
