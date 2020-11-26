@@ -20,10 +20,10 @@ public class RealEstateAgent extends Personne {
 
 
 
-public RealEstateAgent(int year,int month, int day, String nom, String prenom , int login, String password,double commission,String country,
+public RealEstateAgent(String date, String nom, String prenom , int login, String password,double commission,String country,
         String city,String street)
 {
-    super(nom,prenom,year,month,day,login,password,country,city,street);
+    super(nom,prenom,date,login,password,country,city,street);
     
     
 
@@ -32,7 +32,7 @@ public RealEstateAgent(int year,int month, int day, String nom, String prenom , 
 }
 public void display()
 {
-    System.out.println("nom:"+getNom()+" prenom:"+getPrenom()+" born:"+getDate().getDate()+" login:"+getLogin()+" password:"+getPassword());
+    System.out.println("nom:"+getNom()+" prenom:"+getPrenom()+" born:"+getDate()+" login:"+getLogin()+" password:"+getPassword());
 }
 
 
