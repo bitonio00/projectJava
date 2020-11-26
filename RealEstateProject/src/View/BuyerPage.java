@@ -30,12 +30,15 @@ public class BuyerPage extends MasterList implements ActionListener {
     private static JLabel nbrFloorLabel;
     private static JLabel nbrBedRoomLabel;
     private static JLabel nbrBathRoomLabel;
-    private static JLabel sizeLabel;
+    private static JLabel minsizeLabel;
+    private static JLabel maxsizeLabel;
     private static JTextField maxPriceText;
     private static JTextField minPriceText;
     private static JTextField countryText;
     private static JTextField cityText;
     private static JTextField streetText;
+    private static JTextField minsizeText;
+    private static JTextField maxsizeText;
     private static JComboBox formList;
     private static JComboBox nbrFloorList;
     private static JComboBox nbrBedRoomList;
@@ -45,7 +48,7 @@ public class BuyerPage extends MasterList implements ActionListener {
     private static JCheckBox visavisCheck;
     private static JCheckBox equipedCheck;
     private static JCheckBox meubledCheck;
-    private static JSlider sizeSlider;
+   // private static JSlider sizeSlider;
     private static String typeEstate;
     private static String nbrFloor;
     private static String nbrBedRoom;
@@ -54,7 +57,15 @@ public class BuyerPage extends MasterList implements ActionListener {
     private static boolean equiped;
     private static boolean garden;
     private static boolean visavis;
+    private static int maxPrice;
+    private static int minPrice;
+    private static int maxSize;
+    private static int minSize;
     
+    public BuyerPage()
+            {
+                
+            }
     public void loadBuyerPage()
     {
         panel=new JPanel();
@@ -160,19 +171,27 @@ public class BuyerPage extends MasterList implements ActionListener {
         panel.add(nbrBathRoomLabel);
         panel.add(nbrBathRoomList);
         
-        sizeLabel=new JLabel("size:");
-        sizeLabel.setBounds(10,320,80,25);
-        sizeSlider = new JSlider(JSlider.HORIZONTAL,0, 1000, 100);
+        minsizeLabel=new JLabel("min_size:");
+        minsizeLabel.setBounds(10,320,80,25);
+        minsizeText=new JTextField(10);
+        minsizeText.setBounds(70,320,80,25);
+        maxsizeLabel=new JLabel("max_size:");
+        maxsizeLabel.setBounds(160,320,80,25);
+        maxsizeText=new JTextField(10);
+        maxsizeText.setBounds(240,320,80,25);
+        /*sizeSlider = new JSlider(JSlider.HORIZONTAL,0, 500, 0);
         sizeSlider.setBounds(50,320,80,25);
         sizeSlider.setSize(100, 100);
-        sizeSlider.setMajorTickSpacing(10);
-        sizeSlider.setMinorTickSpacing(1);
+        sizeSlider.setMajorTickSpacing(100);
+        sizeSlider.setMinorTickSpacing(100);
         sizeSlider.setPaintTicks(true);
         sizeSlider.setPaintLabels(true);
-        Font font = new Font("Serif", Font.ITALIC, 15);
-        sizeSlider.setFont(font);
-        panel.add(sizeLabel);
-        panel.add(sizeSlider);
+        Font font = new Font("Serif", Font.ITALIC, 10);
+        sizeSlider.setFont(font);*/
+        panel.add(minsizeLabel);
+        panel.add(minsizeText);
+        panel.add(maxsizeLabel);
+        panel.add(maxsizeText);
         
         
         
