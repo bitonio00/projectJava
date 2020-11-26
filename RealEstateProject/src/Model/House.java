@@ -23,6 +23,8 @@ public class House extends Estate {
             int numberOfFloor, boolean meubled,boolean equiped,boolean garden,String type, int nor, int nob)
     {
     super(id,size,country,city,street,price,seller,realEstateAgent,numberOfFloor,equiped,meubled,type);
+    m_nor=nor;
+    m_nob=nob;
     m_houseType=  houseType;
    m_garden=garden;
     
