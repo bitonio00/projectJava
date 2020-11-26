@@ -58,7 +58,7 @@ public class EstateDaoImpl implements EstateDao{
                  int indicee= findEstateAgent(rs.getInt(9));
                     m_listEstate.add(new House(rs.getInt(1),rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
                  , rs.getDouble(3), m_listSeller.get(indices),m_listRealEstateAgent.get(indicee),
-                    rs.getString(13),rs.getInt(10), rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(16),rs.getString(4),rs.getInt(16),rs.getInt(17)));
+                    rs.getString(13),rs.getInt(10), rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(16),rs.getString(4),rs.getInt(17),rs.getInt(18)));
                 }
 
                 if (rs.getString(4).equals("appartement") )
@@ -67,7 +67,7 @@ public class EstateDaoImpl implements EstateDao{
                  int indicee= findEstateAgent(rs.getInt(9));
                     m_listEstate.add(new Appartement(rs.getInt(1),rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
                  , rs.getDouble(3), m_listSeller.get(indices),m_listRealEstateAgent.get(indicee),rs.getInt(10)
-                    , rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(11),rs.getString(4),rs.getInt(16),rs.getInt(17)));
+                    , rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(11),rs.getString(4),rs.getInt(17),rs.getInt(18)));
                 }
 
 
@@ -84,6 +84,20 @@ public class EstateDaoImpl implements EstateDao{
     public void addEstate(Estate estate)
     {
       //tarek  
+          Connection conn=null;
+        try
+        {
+           DataSource a=new DataSource();
+           conn=a.createConnection(); 
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(seller_id,password,name,first_name,date_birth,country,city,adress) VALUES('"+seller.getLogin()+"','"+seller.getPassword()+"','"+seller.getNom()+"','"+seller.getPrenom()+"','"+seller.getDate()+"','"+seller.getAdress().getCountry()+"','"+seller.getAdress().getCity()+"','"+seller.getAdress().getStreet()+"')");
+            stmt.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(""+e.getMessage());
+        }
+//PreparedStatement stmt=conn.prepareStatement("INSERT INTO  seller(seller_id,password,name,first_name,date_birth,country,city,adress) VALUES('"+seller.getLogin()+"','"+seller.getPassword()+"','"+seller.getNom()+"','"+seller.getPrenom()+"','"+seller.getDate()+"','"+seller.getAdress().getCountry()+"','"+seller.getAdress().getCity()+"','"+seller.getAdress().getStreet()+"')");
+
     }
     public void deleteEstate(Estate estate)
     {
