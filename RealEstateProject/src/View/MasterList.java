@@ -32,16 +32,14 @@ public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayL
         for(int i=0;i<listBuyer.size(); ++i)
         {
             //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String password
-            m_listBuyer.add(new Buyer(listBuyer.get(i).getNom(),listBuyer.get(i).getPrenom(), listBuyer.get(i).getDate().getYear(), 
-             listBuyer.get(i).getDate().getMonth(), listBuyer.get(i).getDate().getDay(),  listBuyer.get(i).getAdress().getCountry(),
+            m_listBuyer.add(new Buyer(listBuyer.get(i).getNom(),listBuyer.get(i).getPrenom(), listBuyer.get(i).getDate(),  listBuyer.get(i).getAdress().getCountry(),
              listBuyer.get(i).getAdress().getCity(), listBuyer.get(i).getAdress().getStreet(), listBuyer.get(i).getLogin(), listBuyer.get(i).getPassword()));
         }
         m_listSeller=new ArrayList<Seller>();
         for(int i=0;i<listSeller.size(); ++i)
         {
            // String nom, String prenom,int year,int month,int day,   String country,String city,String street ,int login, String password
-            m_listSeller.add(new Seller(listSeller.get(i).getNom(),listSeller.get(i).getPrenom(), listSeller.get(i).getDate().getYear(), 
-             listSeller.get(i).getDate().getMonth(), listSeller.get(i).getDate().getDay(),  listSeller.get(i).getAdress().getCountry(),
+            m_listSeller.add(new Seller(listSeller.get(i).getNom(),listSeller.get(i).getPrenom(), listSeller.get(i).getDate(),  listSeller.get(i).getAdress().getCountry(),
              listSeller.get(i).getAdress().getCity(), listSeller.get(i).getAdress().getStreet(), listSeller.get(i).getLogin(), listSeller.get(i).getPassword()));
         }
         m_listRealEstateAgent=new ArrayList<RealEstateAgent>();
@@ -49,7 +47,7 @@ public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayL
         {
             //(int year,int month, int day, String nom, String prenom , int login, String password,double commission,String country,String city,String street
         
-            m_listRealEstateAgent.add(new RealEstateAgent(listRealEstateAgent.get(i).getDate().getYear(),listRealEstateAgent.get(i).getDate().getMonth(),listRealEstateAgent.get(i).getDate().getDay(), 
+            m_listRealEstateAgent.add(new RealEstateAgent(listRealEstateAgent.get(i).getDate(), 
                     listRealEstateAgent.get(i).getNom(),listRealEstateAgent.get(i).getPrenom(),listRealEstateAgent.get(i).getLogin(),listRealEstateAgent.get(i).getPassword(), listRealEstateAgent.get(i).getCommission(),
                     listRealEstateAgent.get(i).getAdress().getCountry(), listRealEstateAgent.get(i).getAdress().getCity(), listRealEstateAgent.get(i).getAdress().getStreet()));
         }
