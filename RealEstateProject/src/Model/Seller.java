@@ -19,15 +19,15 @@ public class Seller extends Personne {
     
    
     private ArrayList<Estate>m_listEstate;
-    public Seller(String nom, String prenom,int year,int month,int day,   String country,String city,String street ,int login, String password)
+    public Seller(String nom, String prenom,String date,   String country,String city,String street ,int login, String password)
     {
-        super(nom,prenom,year,month,day,login,password,country,city,street);
+        super(nom,prenom,date,login,password,country,city,street);
         
         
        
     }
    public void display()
     {
-    System.out.println("nom:"+getNom()+" prenom:"+getPrenom()+" born:"+getDate().getDate()+" adress:"+getAdress().toString()+" login:"+getLogin()+" password:"+getPassword());
+    System.out.println("nom:"+getNom()+" prenom:"+getPrenom()+" born:"+getDate()+" adress:"+getAdress().toString()+" login:"+getLogin()+" password:"+getPassword());
     }
 }
