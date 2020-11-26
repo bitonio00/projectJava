@@ -32,10 +32,10 @@ m_minute=minute;
 m_estateviewed = new House(houseconcerned.getId(), houseconcerned.getSize(),houseconcerned.getAdress().getCountry(),houseconcerned.getAdress().getCity(),
             houseconcerned.getAdress().getStreet(), houseconcerned.getPrice(),houseconcerned.getSeller(),houseconcerned.getAgent(),houseconcerned.getHouseType(),houseconcerned.getNOF(),houseconcerned.getMeubled(),
            houseconcerned.getEquiped(),houseconcerned.getGarden(),houseconcerned.getType(),houseconcerned.getNor(),houseconcerned.getNob());
-m_estatebuyer= new Buyer( buyer.getNom(),buyer.getPrenom(),buyer.getDate().getYear(),buyer.getDate().getMonth(),buyer.getDate().getDay(),
+m_estatebuyer= new Buyer( buyer.getNom(),buyer.getPrenom(),buyer.getDate(),
            buyer.getAdress().getCountry(), buyer.getAdress().getCity(),buyer.getAdress().getStreet(),buyer.getLogin(),buyer.getPassword());
 
-m_estateagent= new  RealEstateAgent(agent.getDate().getYear(),agent.getDate().getMonth(),agent.getDate().getDay(),
+m_estateagent= new  RealEstateAgent(agent.getDate(),
 agent.getNom(),agent.getPrenom(),agent.getLogin(),agent.getPassword(),agent.getCommission(),
 agent.getAdress().getCountry(),agent.getAdress().getCity(),agent.getAdress().getStreet());
 
@@ -52,10 +52,10 @@ m_minute=minute;
 m_estateviewed = new Local(localConcerned.getId(),localConcerned.getSize(),localConcerned.getAdress().getCountry(),localConcerned.getAdress().getCity(),
 localConcerned.getAdress().getStreet(),localConcerned.getPrice(),localConcerned.getSeller(),localConcerned.getAgent(),localConcerned.getLocalType(),
         localConcerned.getEquiped(),localConcerned.getMeubled(),localConcerned.getNOF(),localConcerned.getType());
-m_estatebuyer= new Buyer( buyer.getNom(),buyer.getPrenom(),buyer.getDate().getYear(),buyer.getDate().getMonth(),buyer.getDate().getDay(),
+m_estatebuyer= new Buyer( buyer.getNom(),buyer.getPrenom(),buyer.getDate(),
            buyer.getAdress().getCountry(), buyer.getAdress().getCity(),buyer.getAdress().getStreet(),buyer.getLogin(),buyer.getPassword());
 
-m_estateagent= new  RealEstateAgent(agent.getDate().getYear(),agent.getDate().getMonth(),agent.getDate().getDay(),
+m_estateagent= new  RealEstateAgent(agent.getDate(),
 agent.getNom(),agent.getPrenom(),agent.getLogin(),agent.getPassword(),agent.getCommission(),
 agent.getAdress().getCountry(),agent.getAdress().getCity(),agent.getAdress().getStreet());
 
@@ -72,10 +72,10 @@ m_minute=minute;
 m_estateviewed = new Appartement(aptconcerned.getId(),aptconcerned.getSize(),aptconcerned.getAdress().getCountry(),aptconcerned.getAdress().getCity(),
 aptconcerned.getAdress().getStreet(),aptconcerned.getPrice(),aptconcerned.getSeller(),aptconcerned.getAgent(),aptconcerned.getNOF(),aptconcerned.getEquiped(),
         aptconcerned.getMeubled(),aptconcerned.getvisavis(),aptconcerned.getType(),aptconcerned.getNor(),aptconcerned.getNob());
-m_estatebuyer= new Buyer( buyer.getNom(),buyer.getPrenom(),buyer.getDate().getYear(),buyer.getDate().getMonth(),buyer.getDate().getDay(),
+m_estatebuyer= new Buyer( buyer.getNom(),buyer.getPrenom(),buyer.getDate(),
            buyer.getAdress().getCountry(), buyer.getAdress().getCity(),buyer.getAdress().getStreet(),buyer.getLogin(),buyer.getPassword());
 
-m_estateagent= new  RealEstateAgent(agent.getDate().getYear(),agent.getDate().getMonth(),agent.getDate().getDay(),
+m_estateagent= new  RealEstateAgent(agent.getDate(),
 agent.getNom(),agent.getPrenom(),agent.getLogin(),agent.getPassword(),agent.getCommission(),
 agent.getAdress().getCountry(),agent.getAdress().getCity(),agent.getAdress().getStreet());
 
