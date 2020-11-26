@@ -37,9 +37,9 @@ public abstract class Estate {
 m_size=size;
 
 m_price=price;
-m_seller= new Seller(seller.getNom(),seller.getPrenom(),seller.getDate().getYear(),seller.getDate().getMonth(),seller.getDate().getDay(),
+m_seller= new Seller(seller.getNom(),seller.getPrenom(),seller.getDate(),
         seller.getAdress().getCountry(),seller.getAdress().getCity(),seller.getAdress().getStreet(), seller.getLogin(),seller.getPassword());
-m_RealEstateAgent=new RealEstateAgent(realEstateAgent.getDate().getYear() ,realEstateAgent.getDate().getMonth(),realEstateAgent.getDate().getDay(),
+m_RealEstateAgent=new RealEstateAgent(realEstateAgent.getDate(),
     realEstateAgent.getNom(),realEstateAgent.getPrenom(),realEstateAgent.getLogin(),realEstateAgent.getPassword(),realEstateAgent.getCommission(),realEstateAgent.getAdress().getCountry(),
 realEstateAgent.getAdress().getCity(),realEstateAgent.getAdress().getStreet());
 
