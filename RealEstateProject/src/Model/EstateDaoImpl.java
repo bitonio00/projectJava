@@ -83,13 +83,13 @@ public class EstateDaoImpl implements EstateDao{
     }
     public void addEstate(Estate estate)
     {
-      //tarek  
+     /* //tarek  
           Connection conn=null;
         try
         {
            DataSource a=new DataSource();
            conn=a.createConnection(); 
-            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(seller_id,password,name,first_name,date_birth,country,city,adress) VALUES('"+seller.getLogin()+"','"+seller.getPassword()+"','"+seller.getNom()+"','"+seller.getPrenom()+"','"+seller.getDate()+"','"+seller.getAdress().getCountry()+"','"+seller.getAdress().getCity()+"','"+seller.getAdress().getStreet()+"')");
+            //PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(seller_id,password,name,first_name,date_birth,country,city,adress) VALUES('"+seller.getLogin()+"','"+seller.getPassword()+"','"+seller.getNom()+"','"+seller.getPrenom()+"','"+seller.getDate()+"','"+seller.getAdress().getCountry()+"','"+seller.getAdress().getCity()+"','"+seller.getAdress().getStreet()+"')");
             stmt.executeUpdate();
         }
         catch(SQLException e)
@@ -97,7 +97,7 @@ public class EstateDaoImpl implements EstateDao{
             System.out.println(""+e.getMessage());
         }
 //PreparedStatement stmt=conn.prepareStatement("INSERT INTO  seller(seller_id,password,name,first_name,date_birth,country,city,adress) VALUES('"+seller.getLogin()+"','"+seller.getPassword()+"','"+seller.getNom()+"','"+seller.getPrenom()+"','"+seller.getDate()+"','"+seller.getAdress().getCountry()+"','"+seller.getAdress().getCity()+"','"+seller.getAdress().getStreet()+"')");
-
+*/
     }
     public void deleteEstate(Estate estate)
     {
