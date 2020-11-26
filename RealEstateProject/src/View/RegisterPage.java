@@ -228,22 +228,16 @@ public class RegisterPage extends MasterList implements ActionListener{
          country=countryText.getText();
          city=cityText.getText();
          street=streetText.getText();
+         System.out.println(person);
         
-         Connection conn=null;
-        try
-        {
-
-            String url="jdbc:mysql://localhost:3306/estate_agency";
-            String user="root";
-            String password="";
-
-            conn=DriverManager.getConnection(url,user,password);
+         
         if(person.equals("Seller"))
         {
            Seller s=new Seller(lname,fname,birthDate,country,city,street,login,pass);
             addSeller(s);
-            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  seller(seller_id,password,name,first_name,date_birth,country,city,adress) VALUES('"+login+"','"+pass+"','"+lname+"','"+fname+"','"+birthDate+"','"+country+"','"+city+"','"+street+"')");
-            stmt.executeUpdate();
+            SellerDaoImpl sellerDao=new SellerDaoImpl();
+            sellerDao.addSeller(s);
+           
          
             
         }
@@ -251,16 +245,12 @@ public class RegisterPage extends MasterList implements ActionListener{
         {  Buyer a=new Buyer(lname,fname,birthDate,country,city,street,login,pass);
            System.out.print("aa"+a.getLogin());
            addBuyer(a);
-           PreparedStatement stmt=conn.prepareStatement("INSERT INTO  buyer(buyer_id,password,name,first_name,date_birth,country,city,adress) VALUES('"+login+"','"+pass+"','"+lname+"','"+fname+"','"+birthDate+"','"+country+"','"+city+"','"+street+"')");
-            stmt.executeUpdate(); 
+           BuyerDaoImpl buyerDao=new BuyerDaoImpl();
+           buyerDao.addBuyer(a);
+         
         }
         
-        conn.close();
-        }
-        catch(SQLException e)
-        {
-            System.out.println(""+e.getMessage());
-        }
+
         
         frame.setVisible(false);
         frame.dispose();
