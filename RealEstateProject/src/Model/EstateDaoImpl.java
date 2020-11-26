@@ -89,7 +89,7 @@ public class EstateDaoImpl implements EstateDao{
         {
            DataSource a=new DataSource();
            conn=a.createConnection(); 
-            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(seller_id,password,name,first_name,date_birth,country,city,adress) VALUES('"+seller.getLogin()+"','"+seller.getPassword()+"','"+seller.getNom()+"','"+seller.getPrenom()+"','"+seller.getDate()+"','"+seller.getAdress().getCountry()+"','"+seller.getAdress().getCity()+"','"+seller.getAdress().getStreet()+"')");
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(estate_id,size,price,type,country,city,adress,seller_id,estatag_id,number_of_floor,visavis,local_type,house_type,meubled,equiped,garden,number_of_room,number_of_bathroom ) VALUES('"+estate.getId()+"','"+estate.getSize()+"','"+estate.getPrice()+"','"+estate.getType()+"','"+estate.getAdress().getCountry()+"','"+estate.getAdress().getCity()+"','"+estate.getAdress().getStreet()+"','"+estate.getSeller().getLogin()+"','"+estate.getAgent().getLogin()+"','"+estate.getNOF()+"','"+estate.getvisavis()+"','"+estate.getLocalType()+"','"+estate.getHouseType()+"','"+estate.getMeubled()+"','"+estate.getEquiped()+"','"+estate.getGarden()+"','"+estate.getNor()+"','"+estate.getNob()+"')");
             stmt.executeUpdate();
         }
         catch(SQLException e)
