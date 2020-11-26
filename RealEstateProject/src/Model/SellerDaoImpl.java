@@ -54,7 +54,7 @@ public class SellerDaoImpl implements SellerDao {
         {
            DataSource a=new DataSource();
            conn=a.createConnection(); 
-            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  seller(seller_id,password,name,first_name,date_birth,country,city,adress) VALUES('"+seller.getLogin()+"','"+seller.getPassword()+"','"+seller.getNom()+"','"+seller.getPrenom()+"','"+seller.getDate()+"','"+seller.getAdress().getCountry()+"','"+seller.getAdress().getCity()+"','"+seller.getAdress().getStreet()+"')");
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  seller(seller_id,password,last_name,first_name,date_birth,country,city,street) VALUES('"+seller.getLogin()+"','"+seller.getPassword()+"','"+seller.getNom()+"','"+seller.getPrenom()+"','"+seller.getDate()+"','"+seller.getAdress().getCountry()+"','"+seller.getAdress().getCity()+"','"+seller.getAdress().getStreet()+"')");
             stmt.executeUpdate();
         }
         catch(SQLException e)
