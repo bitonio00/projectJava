@@ -240,7 +240,7 @@ public class RegisterPage extends MasterList implements ActionListener{
             conn=DriverManager.getConnection(url,user,password);
         if(person.equals("Seller"))
         {
-           Seller s=new Seller(lname,fname,yb,mb,db,country,city,street,login,pass);
+           Seller s=new Seller(lname,fname,birthDate,country,city,street,login,pass);
             addSeller(s);
             PreparedStatement stmt=conn.prepareStatement("INSERT INTO  seller(seller_id,password,name,first_name,date_birth,country,city,adress) VALUES('"+login+"','"+pass+"','"+lname+"','"+fname+"','"+birthDate+"','"+country+"','"+city+"','"+street+"')");
             stmt.executeUpdate();
@@ -248,7 +248,7 @@ public class RegisterPage extends MasterList implements ActionListener{
             
         }
         else if(person.equals("Buyer"))
-        {  Buyer a=new Buyer(lname,fname,yb,mb,db,country,city,street,login,pass);
+        {  Buyer a=new Buyer(lname,fname,birthDate,country,city,street,login,pass);
            System.out.print("aa"+a.getLogin());
            addBuyer(a);
            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  buyer(buyer_id,password,name,first_name,date_birth,country,city,adress) VALUES('"+login+"','"+pass+"','"+lname+"','"+fname+"','"+birthDate+"','"+country+"','"+city+"','"+street+"')");
