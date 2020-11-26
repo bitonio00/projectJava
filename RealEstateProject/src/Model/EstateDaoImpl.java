@@ -20,23 +20,23 @@ import java.util.ArrayList;
 public class EstateDaoImpl implements EstateDao{
     private ArrayList<RealEstateAgent>m_listRealEstateAgent;
     private ArrayList<Seller>m_listSeller;
-    
+
     public ArrayList<Estate>readEstate(ArrayList<RealEstateAgent>listRealEstateAgent,ArrayList<Seller>listSeller)
     {
         m_listRealEstateAgent=new ArrayList<RealEstateAgent>();
         m_listRealEstateAgent=listRealEstateAgent;
-        
+
         m_listSeller=new ArrayList<Seller>();
         m_listSeller=listSeller;
-        
+
         ArrayList<Estate>m_listEstate=new ArrayList<Estate>();
-        
+
         Connection conn=null;
         try
         {
 
             DataSource a=new DataSource();
-            conn=a.createConnection(); 
+            conn=a.createConnection();
             Statement stmt=conn.createStatement();
             //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String Password)
             ResultSet rs=stmt.executeQuery("select * from estate ");// c pa une faute tu la appelr comme sa sur php
@@ -79,17 +79,17 @@ public class EstateDaoImpl implements EstateDao{
             System.out.println(""+e.getMessage());
         }
         return m_listEstate;
-        
+
     }
     public void addEstate(Estate estate)
     {
-     /* //tarek  
+     /* //tarek
           Connection conn=null;
         try
         {
            DataSource a=new DataSource();
-           conn=a.createConnection(); 
-            //PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(seller_id,password,name,first_name,date_birth,country,city,adress) VALUES('"+seller.getLogin()+"','"+seller.getPassword()+"','"+seller.getNom()+"','"+seller.getPrenom()+"','"+seller.getDate()+"','"+seller.getAdress().getCountry()+"','"+seller.getAdress().getCity()+"','"+seller.getAdress().getStreet()+"')");
+           conn=a.createConnection();
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(estate_id,size,price,type,country,city,adress,seller_id,estatag_id,number_of_floor,visavis,local_type,house_type,meubled,equiped,garden,number_of_room,number_of_bathroom ) VALUES('"+estate.getId()+"','"+estate.getSize()+"','"+estate.getPrice()+"','"+estate.getType()+"','"+estate.getAdress().getCountry()+"','"+estate.getAdress().getCity()+"','"+estate.getAdress().getStreet()+"','"+estate.getSeller().getLogin()+"','"+estate.getAgent().getLogin()+"','"+estate.getNOF()+"','"+estate.getvisavis()+"','"+estate.getLocalType()+"','"+estate.getHouseType()+"','"+estate.getMeubled()+"','"+estate.getEquiped()+"','"+estate.getGarden()+"','"+estate.getNor()+"','"+estate.getNob()+"')");
             stmt.executeUpdate();
         }
         catch(SQLException e)
@@ -106,7 +106,7 @@ public class EstateDaoImpl implements EstateDao{
         {
 
            DataSource a=new DataSource();
-           conn=a.createConnection(); 
+           conn=a.createConnection();
 
             PreparedStatement stmt=conn.prepareStatement("delete from estate where estate_id = ?");
           // stmt.execute("DELETE FROM EMPLOYEE WHERE ID >= 1");
@@ -120,8 +120,8 @@ public class EstateDaoImpl implements EstateDao{
             System.out.println(""+e.getMessage());
         }
     }
-    
-            
+
+
     public int findEstateAgent(int id)
 {
     int v=0;
@@ -146,6 +146,6 @@ public class EstateDaoImpl implements EstateDao{
     }
     return v;
 }
-    
-    
+
+
 }
