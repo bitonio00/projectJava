@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -29,6 +30,7 @@ public class BuyerPage extends MasterList implements ActionListener {
     private static JLabel nbrFloorLabel;
     private static JLabel nbrBedRoomLabel;
     private static JLabel nbrBathRoomLabel;
+    private static JLabel sizeLabel;
     private static JTextField maxPriceText;
     private static JTextField minPriceText;
     private static JTextField countryText;
@@ -43,6 +45,7 @@ public class BuyerPage extends MasterList implements ActionListener {
     private static JCheckBox visavisCheck;
     private static JCheckBox equipedCheck;
     private static JCheckBox meubledCheck;
+    private static JSlider sizeSlider;
     private static String typeEstate;
     private static String nbrFloor;
     private static String nbrBedRoom;
@@ -156,6 +159,20 @@ public class BuyerPage extends MasterList implements ActionListener {
         nbrBathRoomList.addActionListener(new ActionComboBathRoom());
         panel.add(nbrBathRoomLabel);
         panel.add(nbrBathRoomList);
+        
+        sizeLabel=new JLabel("size:");
+        sizeLabel.setBounds(10,320,80,25);
+        sizeSlider = new JSlider(JSlider.HORIZONTAL,0, 1000, 100);
+        sizeSlider.setBounds(50,320,80,25);
+        sizeSlider.setSize(100, 100);
+        sizeSlider.setMajorTickSpacing(10);
+        sizeSlider.setMinorTickSpacing(1);
+        sizeSlider.setPaintTicks(true);
+        sizeSlider.setPaintLabels(true);
+        Font font = new Font("Serif", Font.ITALIC, 15);
+        sizeSlider.setFont(font);
+        panel.add(sizeLabel);
+        panel.add(sizeSlider);
         
         
         
