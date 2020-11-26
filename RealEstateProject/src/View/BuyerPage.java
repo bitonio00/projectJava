@@ -5,11 +5,14 @@
  */
 package View;
 
+import Model.Estate;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import static java.lang.Double.parseDouble;
+import java.util.ArrayList;
 import javafx.scene.control.CheckBox;
 import javax.swing.*;
 
@@ -57,14 +60,18 @@ public class BuyerPage extends MasterList implements ActionListener {
     private static boolean equiped;
     private static boolean garden;
     private static boolean visavis;
-    private static int maxPrice;
-    private static int minPrice;
+    private static double maxPrice;
+    private static double minPrice;
     private static int maxSize;
     private static int minSize;
+    private static ArrayList<Estate>m_estateConcerned;
     
     public BuyerPage()
             {
-                
+                maxPrice=100000000;
+                minPrice=0;
+                minSize=0;
+                maxSize=1500;
             }
     public void loadBuyerPage()
     {
@@ -208,8 +215,10 @@ public class BuyerPage extends MasterList implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         
-        String maxPrice=maxPriceText.getText();
-        String minPrice=minPriceText.getText();
+        String maxPriceS=maxPriceText.getText();
+        maxPrice=parseDouble(maxPriceS);
+        String minPriceS=minPriceText.getText();
+        minPrice=parseDouble(minPriceS);
         String country=countryText.getText();
         String city=cityText.getText();
         String street=streetText.getText();
@@ -217,7 +226,11 @@ public class BuyerPage extends MasterList implements ActionListener {
         {
             for(int i=0;i<getEList().size();++i)
             {
-                
+                if(getEList().get(i).getEquiped()==equiped && getEList().get(i).getGarden()==garden && getEList().get(i).getMeubled()==meubled && getEList().get(i).getvisavis()==visavis && getEList().get(i).getPrice()>minPrice)
+                           
+                {
+                    
+                }
             }
         }
         
