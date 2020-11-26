@@ -83,7 +83,7 @@ public class EstateDaoImpl implements EstateDao{
     }
     public void addEstate(Estate estate)
     {
-     /* //tarek
+    
           Connection conn=null;
         try
         {
@@ -96,8 +96,7 @@ public class EstateDaoImpl implements EstateDao{
         {
             System.out.println(""+e.getMessage());
         }
-//PreparedStatement stmt=conn.prepareStatement("INSERT INTO  seller(seller_id,password,name,first_name,date_birth,country,city,adress) VALUES('"+seller.getLogin()+"','"+seller.getPassword()+"','"+seller.getNom()+"','"+seller.getPrenom()+"','"+seller.getDate()+"','"+seller.getAdress().getCountry()+"','"+seller.getAdress().getCity()+"','"+seller.getAdress().getStreet()+"')");
-*/
+
     }
     public void deleteEstate(Estate estate)
     {
