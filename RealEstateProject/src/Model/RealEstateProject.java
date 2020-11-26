@@ -25,7 +25,9 @@ public class RealEstateProject {
         
         MasterList a=new MasterList();
         a.setList(b.getBuyer(),b.getSeller(),b.getREA(),b.getEstate());
-        a.loadGui();
+        //a.loadGui();
+        BuyerPage c=new BuyerPage();
+        c.loadBuyerPage();
        //BuyerPage c=new BuyerPage();
        //c.loadBuyerPage();
 
