@@ -14,17 +14,17 @@ import java.util.Date;
 public abstract class Personne {
     private String m_nom;
     private String m_prenom;
-    private Date m_ddn;
+    private String m_ddn;
     private int m_login;
      private Adress m_adress;
      private String m_password;
-    public Personne(String nom, String prenom, int year,int month,int day, int login,String password,String country,String city, String street)
+    public Personne(String nom, String prenom, String date, int login,String password,String country,String city, String street)
     {
         m_password=password;
         m_login=login;
         m_nom=nom;
         m_prenom=prenom;
-       m_ddn=new Date(year,month,day);
+       m_ddn=date;
        m_adress= new Adress(country,city,street);
     }
     
@@ -42,7 +42,7 @@ public abstract class Personne {
     return m_prenom;
     }
    
-    public Date getDate( )
+    public String getDate( )
     {
         return m_ddn;
     
