@@ -43,6 +43,14 @@ public class BuyerPage extends MasterList implements ActionListener {
     private static JCheckBox visavisCheck;
     private static JCheckBox equipedCheck;
     private static JCheckBox meubledCheck;
+    private static String typeEstate;
+    private static String nbrFloor;
+    private static String nbrBedRoom;
+    private static String nbrBathRoom;
+    private static boolean meubled;
+    private static boolean equiped;
+    private static boolean garden;
+    private static boolean visavis;
     
     public void loadBuyerPage()
     {
@@ -57,7 +65,7 @@ public class BuyerPage extends MasterList implements ActionListener {
         formList = new JComboBox(formStrings);
         formList.setSelectedIndex(2);
         formList.setBounds(10,20,80,25);
-        formList.addActionListener(new BuyerPage());
+        formList.addActionListener(new actionComboType());
         panel.add(formList);
         
         maxPriceLabel=new JLabel("MAX_PRICE:");
@@ -150,53 +158,78 @@ public class BuyerPage extends MasterList implements ActionListener {
         panel.add(nbrBathRoomList);
         
         
+        
         button1=new JButton("Search");
         button1.setBounds(100, 360, 80, 25);
         panel.add(button1);
-        button1.addActionListener(new EavesDropper());
+        button1.addActionListener(new BuyerPage());
         
         
         frame.setVisible(true);
     }
+    
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        
+        String maxPrice=maxPriceText.getText();
+        String minPrice=minPriceText.getText();
+        String country=countryText.getText();
+        String city=cityText.getText();
+        String street=streetText.getText();
+        if(typeEstate.equals("House"))
+        {
+            for(int i=0;i<getEList().size();++i)
+            {
+                
+            }
+        }
+        
+    }
+    
     public class CheckBox implements ItemListener
             {
 
         @Override
         public void itemStateChanged(ItemEvent ie) {
+            Object source = ie.getItemSelectable();
+            if(source==jardinCheck)
+                garden=true;
+            else if(source==meubledCheck)
+                meubled=true;
+            else if(source==equipedCheck)
+                equiped=true;
+            else if(source==visavisCheck)
+                visavis=true;
+       
+            
             
         }
                 
             }
-
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        
-         JComboBox cb = (JComboBox)ae.getSource();
-        String formName = (String)cb.getSelectedItem();
-        System.out.println(formName);
-    }
-    class EavesDropper implements ActionListener
+    class actionComboType implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-            System.out.println("ee");
-            //m=e.getActionCommand();
+        JComboBox cb = (JComboBox)e.getSource();
+        typeEstate = (String)cb.getSelectedItem();
+        
         }
     }
     class ActionComboFloor implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-            System.out.println("ee");
-            //m=e.getActionCommand();
+        JComboBox cb = (JComboBox)e.getSource();
+        nbrFloor = (String)cb.getSelectedItem();
         }
     }
     class ActionComboBedRoom implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-            System.out.println("ee");
-            //m=e.getActionCommand();
+        JComboBox cb = (JComboBox)e.getSource();
+        nbrBedRoom = (String)cb.getSelectedItem();
         }
         
     }
@@ -204,8 +237,8 @@ public class BuyerPage extends MasterList implements ActionListener {
     {
         public void actionPerformed(ActionEvent e)
         {
-            System.out.println("ee");
-            //m=e.getActionCommand();
+        JComboBox cb = (JComboBox)e.getSource();
+        nbrBathRoom = (String)cb.getSelectedItem();
         }
     }
     
