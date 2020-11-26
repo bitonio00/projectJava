@@ -16,22 +16,22 @@ public class RealEstateProject {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+   // public static void main(String[] args) {
 
 //        a.interact();
      //   a.displayOffer();
      //   a.delateBuyer(1001);
-        RealEstateAgency b=new RealEstateAgency("pp","nn");
+    //    RealEstateAgency b=new RealEstateAgency("pp","nn");
         
-        MasterList a=new MasterList();
-        a.setList(b.getBuyer(),b.getSeller(),b.getREA(),b.getEstate());
+    //    MasterList a=new MasterList();
+    //    a.setList(b.getBuyer(),b.getSeller(),b.getREA(),b.getEstate());
         //a.loadGui();
-        BuyerPage c=new BuyerPage();
-        c.loadBuyerPage();
+    //    BuyerPage c=new BuyerPage();
+    //    c.loadBuyerPage();
        //BuyerPage c=new BuyerPage();
        //c.loadBuyerPage();
 
        
     }
 
-}
+
