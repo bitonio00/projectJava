@@ -74,32 +74,32 @@ public class TypePage extends MasterList implements ActionListener  {
         
         panel.setLayout(null);
         textLabel=new JLabel("Connect As");
-        textLabel.setBounds(10,20,80,25);
+        textLabel.setBounds(850,200,400,100);
         
         panel.add(textLabel);
        
         
         button1=new JButton("Buyer");
-        button1.setBounds(10, 80, 80, 25);
+        button1.setBounds(200, 500, 400, 100);
         button1.setSize(new Dimension(200, 40));
         panel.add(button1);
         button1.addActionListener(new TypePage());
         
         button2=new JButton("Seller");
-        button2.setBounds(300, 80, 80, 25);
+        button2.setBounds(600, 500, 400, 100);
         button2.setSize(new Dimension(200, 40));
         panel.add(button2);
         button2.addActionListener(new TypePage());
         
         button3=new JButton("Real Estate Agent");
-        button3.setBounds(590, 80, 80, 25);
+        button3.setBounds(1000, 500, 400, 100);
         button3.setSize(new Dimension(200, 40));
         panel.add(button3);
         button3.addActionListener(new TypePage());
         
         button4=new JButton("New Customer");
-        button4.setBounds(880, 80, 80, 25);
-        button4.setSize(new Dimension(200, 40));
+        button4.setBounds(1400, 500, 400, 100);
+        button4.setSize(new Dimension(400, 100));
         panel.add(button4);
         button4.addActionListener(new TypePage());
           
