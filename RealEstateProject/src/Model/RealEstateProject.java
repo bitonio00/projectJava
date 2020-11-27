@@ -11,7 +11,7 @@ import View.*;
  *
  * @author benoi
  */
-public class RealEstateProject {
+//public class RealEstateProject {
 
     /**
      * @param args the command line arguments
@@ -23,15 +23,18 @@ public class RealEstateProject {
      //   a.delateBuyer(1001);
     //    RealEstateAgency b=new RealEstateAgency("pp","nn");
         
-    //    MasterList a=new MasterList();
+      // MasterList a=new MasterList();
     //    a.setList(b.getBuyer(),b.getSeller(),b.getREA(),b.getEstate());
         //a.loadGui();
     //    BuyerPage c=new BuyerPage();
     //    c.loadBuyerPage();
        //BuyerPage c=new BuyerPage();
        //c.loadBuyerPage();
+      //TypePage b= new TypePage();
+      // b.LoadTypePage();
+     // a.loadGui();
 
        
-    }
+   // } }
 
 
