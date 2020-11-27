@@ -7,6 +7,7 @@ package Controller;
 
 import View.BuyerPage;
 import View.MasterList;
+import View.TypePage;
 
 /**
  *
@@ -25,8 +26,8 @@ public class Main {
         MasterList m=new MasterList();
         m.setList(a.getB(),a.getS(),a.getR(),a.getE());
        // m.loadGui();
-       BuyerPage b=new BuyerPage();
-       b.loadBuyerPage();
+     TypePage h= new TypePage();
+     h.LoadTypePage();
         
         //MasterList a=new MasterList();
        // a.setList(b.getBuyer(),b.getSeller(),b.getREA(),b.getEstate());
