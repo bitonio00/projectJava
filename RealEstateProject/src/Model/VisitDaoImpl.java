@@ -47,7 +47,7 @@ public class VisitDaoImpl implements VisitDao {
                     Appartement a = new Appartement(m_listEstate.get(indicee).getId(), m_listEstate.get(indicee).getSize(),
                             m_listEstate.get(indicee).getAdress().getCountry(), m_listEstate.get(indicee).getAdress().getCity(),
                             m_listEstate.get(indicee).getAdress().getStreet(), m_listEstate.get(indicee).getPrice(), m_listEstate.get(indicee).getSeller(),
-                             m_listEstate.get(indicee).getAgent(), m_listEstate.get(indicee).getNOF(), m_listEstate.get(indicee).getEquiped(),
+                            m_listEstate.get(indicee).getAgent(), m_listEstate.get(indicee).getNOF(), m_listEstate.get(indicee).getEquiped(),
                             m_listEstate.get(indicee).getMeubled(), m_listEstate.get(indicee).getvisavis(), m_listEstate.get(indicee).getType(),
                             m_listEstate.get(indicee).getNor(), m_listEstate.get(indicee).getNob());
 
@@ -62,7 +62,7 @@ public class VisitDaoImpl implements VisitDao {
                     House a = new House(m_listEstate.get(indicee).getId(), m_listEstate.get(indicee).getSize(),
                             m_listEstate.get(indicee).getAdress().getCountry(), m_listEstate.get(indicee).getAdress().getCity(),
                             m_listEstate.get(indicee).getAdress().getStreet(), m_listEstate.get(indicee).getPrice(), m_listEstate.get(indicee).getSeller(),
-                             m_listEstate.get(indicee).getAgent(), m_listEstate.get(indicee).getHouseType(), m_listEstate.get(indicee).getNOF(),
+                            m_listEstate.get(indicee).getAgent(), m_listEstate.get(indicee).getHouseType(), m_listEstate.get(indicee).getNOF(),
                             m_listEstate.get(indicee).getMeubled(), m_listEstate.get(indicee).getEquiped(), m_listEstate.get(indicee).getGarden(), m_listEstate.get(indicee).getType(),
                             m_listEstate.get(indicee).getNor(), m_listEstate.get(indicee).getNob());
 
@@ -77,7 +77,7 @@ public class VisitDaoImpl implements VisitDao {
                     Local a = new Local(m_listEstate.get(indicee).getId(), m_listEstate.get(indicee).getSize(),
                             m_listEstate.get(indicee).getAdress().getCountry(), m_listEstate.get(indicee).getAdress().getCity(),
                             m_listEstate.get(indicee).getAdress().getStreet(), m_listEstate.get(indicee).getPrice(), m_listEstate.get(indicee).getSeller(),
-                             m_listEstate.get(indicee).getAgent(), m_listEstate.get(indicee).getLocalType(),
+                            m_listEstate.get(indicee).getAgent(), m_listEstate.get(indicee).getLocalType(),
                             m_listEstate.get(indicee).getEquiped(), m_listEstate.get(indicee).getMeubled(), m_listEstate.get(indicee).getNOF(), m_listEstate.get(indicee).getType());
 
                     if (rs.getBoolean(10) == true) {
@@ -95,22 +95,51 @@ public class VisitDaoImpl implements VisitDao {
         return m_listVisit;
 
     }
-    public void updateVisit(Visit visit)
-    {
-        Connection conn=null;
-        try
-        {
-           DataSource a=new DataSource();
-           conn=a.createConnection(); 
-            PreparedStatement stmt=conn.prepareStatement("update visit set buyer_id=?, reserved=1 where visit_id=?");
+
+    public void updateVisit(Visit visit) {
+        Connection conn = null;
+        try {
+            DataSource a = new DataSource();
+            conn = a.createConnection();
+            PreparedStatement stmt = conn.prepareStatement("update visit set buyer_id=?, reserved=1 where visit_id=?");
             stmt.setInt(1, visit.getBuyer().getLogin());
             stmt.setInt(2, visit.getId());
             stmt.executeUpdate();
- 
-      }
-        catch(SQLException e)
-        {
-            System.out.println(""+e.getMessage());
+
+        } catch (SQLException e) {
+            System.out.println("" + e.getMessage());
+        }
+    }
+
+    public void cancelVisit(Visit visit) {
+        Connection conn = null;
+        try {
+            DataSource a = new DataSource();
+            conn = a.createConnection();
+            PreparedStatement stmt = conn.prepareStatement("update visit set buyer_id=0, reserved=0 where visit_id=?");
+            stmt.setInt(1, visit.getId());
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("" + e.getMessage());
+        }
+    }
+
+    public void deleteVisit(Visit visit) {
+        Connection conn = null;
+        try {
+
+            DataSource a = new DataSource();
+            conn = a.createConnection();
+
+            PreparedStatement stmt = conn.prepareStatement("delete from visit where visit_id = ?");
+            // stmt.execute("DELETE FROM EMPLOYEE WHERE ID >= 1");
+            // stmt.execute("DELETE FROM BUYER WHERE buyer_id = 1001");
+            stmt.setInt(1, visit.getId());
+            stmt.executeUpdate();
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("" + e.getMessage());
         }
     }
 
