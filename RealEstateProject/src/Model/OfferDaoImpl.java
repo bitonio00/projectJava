@@ -103,6 +103,27 @@ public class OfferDaoImpl implements OfferDao {
             System.out.println(""+e.getMessage());
         }
     }
+    public void deleteOffer(Offer offer)
+    {
+        Connection conn=null;
+        try
+        {
+
+           DataSource a=new DataSource();
+           conn=a.createConnection(); 
+
+            PreparedStatement stmt=conn.prepareStatement("delete from offer where offer_id = ?");
+          // stmt.execute("DELETE FROM EMPLOYEE WHERE ID >= 1");
+           // stmt.execute("DELETE FROM BUYER WHERE buyer_id = 1001");
+            stmt.setInt(1,offer.getId());
+            stmt.executeUpdate();
+            conn.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(""+e.getMessage());
+        }
+    }
     
     public int findEstate(int id)
 {
