@@ -28,6 +28,7 @@ public class BuyerPage2Visit extends MasterList implements ActionListener {
     private static int currentIndexVisit;
     private static int indexVisitConcerned;
     private static int indexVisit;
+    private static JButton returnButton;
     
     
     public BuyerPage2Visit()
@@ -60,6 +61,11 @@ public class BuyerPage2Visit extends MasterList implements ActionListener {
         button1.setSize(200, 50);
         panel.add(button1);
         button1.addActionListener(new BuyerPage2Visit());
+        
+        returnButton=new JButton("return");
+        returnButton.setBounds(800, 10, 80, 25);
+        panel.add(returnButton);
+        returnButton.addActionListener(new ActionReturn());
         
         frame.setVisible(true);
         
@@ -96,10 +102,10 @@ public class BuyerPage2Visit extends MasterList implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
        
-        listVisitConcerned.get(indexVisit).setBuyer(getBList().get( getIndexUser()));
+        getVList().get(indexVisit).setBuyer(getBList().get( getIndexUser()));
         VisitDaoImpl a=new VisitDaoImpl();
-        a.updateVisit( listVisitConcerned.get(indexVisit));
-        listVisitConcerned.get(indexVisit).display();
+        a.updateVisit( getVList().get(indexVisit));
+        getVList().get(indexVisit).display();
     }
     
     public class ActionComboVisit implements  ActionListener
@@ -151,5 +157,18 @@ public class BuyerPage2Visit extends MasterList implements ActionListener {
             
         
         }
+     public class ActionReturn implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            frame.setVisible(false);
+            frame.dispose();
+            BuyerPage2 buyerPage2=new BuyerPage2();
+            buyerPage2.loadBuyerPage2();
+            
+        }
+        
+    }
     
 }
