@@ -65,6 +65,7 @@ public class BuyerPage extends MasterList implements ActionListener {
     private static int maxSize;
     private static int minSize;
     private static ArrayList<Estate> m_estateConcerned;
+    private static JButton returnButton;
 
     public BuyerPage() {
         maxPrice = 100000000;
@@ -210,6 +211,11 @@ public class BuyerPage extends MasterList implements ActionListener {
         button1.setBounds(100, 360, 80, 25);
         panel.add(button1);
         button1.addActionListener(new BuyerPage());
+        
+        returnButton=new JButton("return");
+        returnButton.setBounds(790, 10, 80, 25);
+        panel.add(returnButton);
+        returnButton.addActionListener(new ActionReturn());
 
         frame.setVisible(true);
     }
@@ -474,6 +480,21 @@ public class BuyerPage extends MasterList implements ActionListener {
             String nbrBathRoomS = (String) cb.getSelectedItem();
             nbrBathRoom = parseInt(nbrBathRoomS);
         }
+    }
+    
+    
+     public class ActionReturn implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            frame.setVisible(false);
+            frame.dispose();
+            BuyerPage0 buyerpage0=new BuyerPage0();
+            buyerpage0.loadBuyerPage0();
+            
+        }
+        
     }
 
 }
