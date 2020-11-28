@@ -15,4 +15,5 @@ public interface EstateDao {
     ArrayList<Estate>readEstate(ArrayList<RealEstateAgent>m_listRealEstateAgent,ArrayList<Seller>m_listSeller);
     void addEstate(Estate estate);
     void deleteEstate(Estate estate);
+    public void addAppart(Appartement estate);
 }
