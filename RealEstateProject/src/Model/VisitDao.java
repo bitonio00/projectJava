@@ -14,4 +14,6 @@ import java.util.ArrayList;
 public interface VisitDao {
     ArrayList<Visit>readVisit(ArrayList<Buyer>listBuyer,ArrayList<Estate>listEstate);
     void updateVisit(Visit visit);
+    void cancelVisit(Visit visit);
+    void deleteVisit(Visit visit);
 }
