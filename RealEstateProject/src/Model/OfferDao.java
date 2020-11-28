@@ -14,4 +14,5 @@ import java.util.ArrayList;
 public interface OfferDao {
     ArrayList<Offer>readOffer(ArrayList<Buyer>listBuyer,ArrayList<Estate>listEstate);
     void addOffer(Offer offer);
+    void deleteOffer(Offer offer);
 }
