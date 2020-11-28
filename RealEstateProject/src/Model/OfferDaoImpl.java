@@ -7,6 +7,7 @@ package Model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -85,6 +86,22 @@ public class OfferDaoImpl implements OfferDao {
             System.out.println(""+e.getMessage());
         }
         return m_listOffer;    
+    }
+    public void addOffer(Offer offer)
+    {
+        Connection conn=null;
+        try
+        {
+           DataSource a=new DataSource();
+           conn=a.createConnection(); 
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  offer(offer_id,buyer_id,estate_id,offer_amount,type) VALUES('"+offer.getId()+"','"+offer.getBuyer().getLogin()+"','"+offer.getEstate().getId()+"','"+offer.getMontant()+"','"+offer.getType()+"')");
+            stmt.executeUpdate();
+ 
+      }
+        catch(SQLException e)
+        {
+            System.out.println(""+e.getMessage());
+        }
     }
     
     public int findEstate(int id)
