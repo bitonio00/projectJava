@@ -79,7 +79,9 @@ public class LoginPage extends MasterList implements ActionListener {
 
 
     public void actionPerformed(ActionEvent e) {
-                System.out.println(m_type);
+                
+            
+                int v=0;
                 String login=loginText.getText();
                  password=passwordText.getText();
 
@@ -92,14 +94,12 @@ public class LoginPage extends MasterList implements ActionListener {
                    System.out.println(getBList().get(i).getLogin());
                       if(getBList().get(i).getLogin()==log && getBList().get(i).getPassword().equals(password))
                          {
-                          System.out.println("yeeeeeeeeeeeeees");
-                          JOptionPane.showMessageDialog(null,"lolo");
-
+                          BuyerPage buyerpage=new BuyerPage();
+                          buyerpage.loadBuyerPage();
+                          v=i;
                          }
                        }
-                  //GUI a=new hhhuhug()
-                  //a.setEstate(listEstate)
-                  //a.loadPAGE()
+                 
 
                 }
                 if(m_type.equals("Real Estate Agent"))
@@ -111,6 +111,7 @@ public class LoginPage extends MasterList implements ActionListener {
                          {
                           System.out.println("yeeeeeeeeeeeeees");
                           JOptionPane.showMessageDialog(null,"lolo");
+                          v=i;
                          }
                        }
                 }
@@ -123,9 +124,14 @@ public class LoginPage extends MasterList implements ActionListener {
                          {
                           System.out.println("yeeeeeeeeeeeeees");
                           JOptionPane.showMessageDialog(null,"lolo");
+                          v=i;
                          }
                        }
                 }
+                
+                setidUser(v);
+                frame.setVisible(false);
+                frame.dispose();
 
 
 
