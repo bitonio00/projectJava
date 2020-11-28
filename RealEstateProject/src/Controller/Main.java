@@ -24,11 +24,12 @@ public class Main {
         App a=new App();
         //a.display();
         MasterList m=new MasterList();
-        m.setList(a.getB(),a.getS(),a.getR(),a.getE());
-       // m.loadGui();
-     TypePage h= new TypePage();
-     h.LoadTypePage();
-        
+        m.setList(a.getB(),a.getS(),a.getR(),a.getE(),a.getO(),a.getV());
+        m.loadGui();
+     //TypePage h= new TypePage();
+    // h.LoadTypePage();
+        //BuyerPage b=new BuyerPage();
+        //b.loadBuyerPage();
         //MasterList a=new MasterList();
        // a.setList(b.getBuyer(),b.getSeller(),b.getREA(),b.getEstate());
         //a.loadGui();
