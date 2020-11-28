@@ -113,6 +113,11 @@ aptconcerned.getAdress().getStreet(),aptconcerned.getPrice(),aptconcerned.getSel
   {
       return m_montant;
   }
+  public String getFullOffer()
+  {
+      String string1=String.valueOf(getMontant());
+      return string1+"$ "+" in "+getType()+" on "+getEstate().getAdress().getFullAdress();
+  }
    
 
            }
