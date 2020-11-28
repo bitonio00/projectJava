@@ -28,6 +28,7 @@ public class BuyerPage2Offer extends MasterList implements ActionListener {
     private static String transactionType;
     private static double montant;
     private static int indexEstateConcerned;
+    private static JButton returnButton;
     
     public BuyerPage2Offer()
     {
@@ -60,6 +61,13 @@ public class BuyerPage2Offer extends MasterList implements ActionListener {
         button1.setBounds(50,520,80,25);
         panel.add(button1);
         button1.addActionListener(new BuyerPage2Offer());
+        
+        returnButton=new JButton("return");
+        returnButton.setBounds(350, 10, 80, 25);
+        panel.add(returnButton);
+        returnButton.addActionListener(new ActionReturn());
+
+
         
         
         
@@ -122,6 +130,21 @@ public class BuyerPage2Offer extends MasterList implements ActionListener {
             transactionType = (String) cb.getSelectedItem();
             
         }
+    }
+    
+     public class ActionReturn implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            frame.setVisible(false);
+            frame.dispose();
+            BuyerPage2 buyerPage2=new BuyerPage2();
+            buyerPage2.loadBuyerPage2();
+            
+            
+        }
+        
     }
 
 }
