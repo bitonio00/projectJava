@@ -45,6 +45,7 @@ public class RegisterPage extends MasterList implements ActionListener{
     private static JTextField streetText;
     private static JComboBox formList;
     private static JButton button1;
+    private static JButton returnButton;
     private static String type;
     private static int login;
     private static  String pass;
@@ -57,39 +58,7 @@ public class RegisterPage extends MasterList implements ActionListener{
     private static String city;
     private static String street;
     private static String person;
-   /* private static ArrayList<Buyer>listB;
-    private static ArrayList<Seller>listS;
-    private static ArrayList<RealEstateAgent>listREA;*/
-       
-        
-     /*public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayList<RealEstateAgent>listRealEstateAgent)
-               {
-        listB=new ArrayList<Buyer>();
-        for(int i=0;i<listBuyer.size(); ++i)
-        {
-            //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String password
-            listB.add(new Buyer(listBuyer.get(i).getNom(),listBuyer.get(i).getPrenom(), listBuyer.get(i).getDate().getYear(), 
-             listBuyer.get(i).getDate().getMonth(), listBuyer.get(i).getDate().getDay(),  listBuyer.get(i).getAdress().getCountry(),
-             listBuyer.get(i).getAdress().getCity(), listBuyer.get(i).getAdress().getStreet(), listBuyer.get(i).getLogin(), listBuyer.get(i).getPassword()));
-        }
-        listS=new ArrayList<Seller>();
-        for(int i=0;i<listSeller.size(); ++i)
-        {
-           // String nom, String prenom,int year,int month,int day,   String country,String city,String street ,int login, String password
-            listS.add(new Seller(listSeller.get(i).getNom(),listSeller.get(i).getPrenom(), listSeller.get(i).getDate().getYear(), 
-             listSeller.get(i).getDate().getMonth(), listSeller.get(i).getDate().getDay(),  listSeller.get(i).getAdress().getCountry(),
-             listSeller.get(i).getAdress().getCity(), listSeller.get(i).getAdress().getStreet(), listSeller.get(i).getLogin(), listSeller.get(i).getPassword()));
-        }
-        listREA=new ArrayList<RealEstateAgent>();
-        for(int i=0;i<listRealEstateAgent.size(); ++i)
-        {
-            //(int year,int month, int day, String nom, String prenom , int login, String password,double commission,String country,String city,String street
-        
-            listREA.add(new RealEstateAgent(listRealEstateAgent.get(i).getDate().getYear(),listRealEstateAgent.get(i).getDate().getMonth(),listRealEstateAgent.get(i).getDate().getDay(), 
-                    listRealEstateAgent.get(i).getNom(),listRealEstateAgent.get(i).getPrenom(),listRealEstateAgent.get(i).getLogin(),listRealEstateAgent.get(i).getPassword(), listRealEstateAgent.get(i).getCommission(),
-                    listRealEstateAgent.get(i).getAdress().getCountry(), listRealEstateAgent.get(i).getAdress().getCity(), listRealEstateAgent.get(i).getAdress().getStreet()));
-        }
-            }*/
+ 
     public void loadRegisterPage()
     {
         panel=new JPanel();
@@ -106,17 +75,8 @@ public class RegisterPage extends MasterList implements ActionListener{
         formList.setBounds(10,20,80,25);
         formList.addActionListener(new ActionCombo());
         panel.add(formList);
-        //typeLabel=new JLabel("Seller/Buyer:");
-       // typeLabel.setBounds(10,20,80,25);
-        //typeText= new JTextField(6);
-        //typeText.setBounds(200,20,80,25);
-        //panel.add(typeLabel);
-       // panel.add(typeText);
-         
-
-
-
         
+         
         
         loginLabel=new JLabel("login:");
         loginLabel.setBounds(10,60,80,25);
@@ -193,6 +153,11 @@ public class RegisterPage extends MasterList implements ActionListener{
         panel.add(button1);
         button1.addActionListener(new RegisterPage());
         
+        returnButton=new JButton("return");
+        returnButton.setBounds(350, 10, 80, 25);
+        panel.add(returnButton);
+        returnButton.addActionListener(new ActionReturn());
+        
         
         
         //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String password
@@ -257,6 +222,20 @@ public class RegisterPage extends MasterList implements ActionListener{
         TypePage typePage=new TypePage();
         typePage.LoadTypePage();
         //TypePage a=new TypePage();
+        
+    }
+    
+        public class ActionReturn implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            frame.setVisible(false);
+            frame.dispose();
+            TypePage typepage=new TypePage();
+            typepage.LoadTypePage();
+            
+        }
         
     }
     
