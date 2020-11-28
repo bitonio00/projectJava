@@ -131,12 +131,22 @@ public class Visit {
     {
         return "Year:"+m_year+" month:"+m_month+" day:"+m_day+" hour:"+m_hour+" minute:"+m_minute;
     }
+    public String getFullVisit()
+    {
+        
+        return m_estateviewed.getAdress().getFullAdress()+" visitBooked: "+getFullDate();
+    }
     public void setBuyer(Buyer buyer)
     {
         m_reserved=true;
          m_estatebuyer = new Buyer(buyer.getNom(), buyer.getPrenom(), buyer.getDate(),
                 buyer.getAdress().getCountry(), buyer.getAdress().getCity(), buyer.getAdress().getStreet(), buyer.getLogin(), buyer.getPassword());
         
+    }
+    public void cancelVisit()
+    {
+        m_reserved=false;
+        m_estatebuyer=null;
     }
     
     
