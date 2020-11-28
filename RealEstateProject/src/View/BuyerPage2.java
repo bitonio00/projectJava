@@ -70,7 +70,13 @@ public class BuyerPage2   extends MasterList implements ActionListener {
         panel.setLayout(null);
         frame.add(panel);
         
-        String[] estateStrings = new String[m_listEstateConcerned.size()];
+        String[] estateStrings;
+        if(m_listEstateConcerned.isEmpty()==false)
+        {
+          estateStrings = new String[m_listEstateConcerned.size()];  
+        }
+        else
+            estateStrings = new String[1]; 
         estateStrings=createStringEstate();
         estateList = new JComboBox(estateStrings);
         estateList.setSelectedIndex(0);
@@ -179,11 +185,23 @@ public class BuyerPage2   extends MasterList implements ActionListener {
     }
     public String [] createStringEstate()
     {
-        String[]stringEstate=new String[m_listEstateConcerned.size()];
+        String[]stringEstate;
+        if(m_listEstateConcerned.isEmpty()==false)
+        {
+           stringEstate=new String[m_listEstateConcerned.size()];
+        
         for(int i=0;i<m_listEstateConcerned.size();++i)
         {
             stringEstate[i]=m_listEstateConcerned.get(i).getAdress().getFullAdress();
         }
+        
+        }
+        else
+        {
+            stringEstate=new String[1];
+            stringEstate[0]=" ";
+        }
+        
         return stringEstate;
     }
    
@@ -201,9 +219,9 @@ public class BuyerPage2   extends MasterList implements ActionListener {
         else if(source.equals("Book_Visit"))
         {
             
-           BuyerPage2Visit buyerpage2offer=new BuyerPage2Visit();
-           buyerpage2offer.setIndexEstateConcerned(indexEstate);
-           buyerpage2offer.loadBuyerPage2Visit();  
+           BuyerPage2Visit buyerpage2visit=new BuyerPage2Visit();
+           buyerpage2visit.setIndexEstateConcerned(indexEstate);
+           buyerpage2visit.loadBuyerPage2Visit();  
         }
     }
     
