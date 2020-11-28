@@ -122,6 +122,27 @@ public int getIdLastOffer()
     
     return v;
 }
+
+public int getIdLastEstate()
+{
+    int v=0;
+    if(m_listEstate==null)
+    {
+        v=4000;
+        
+    }
+    else
+    {
+      for(int i=0;i<m_listEstate.size();++i)
+    {
+        v=m_listEstate.get(i).getId();
+        
+    } 
+      v=v+1;
+    }
+    
+    return v;
+}
 public int getIdLastVisit()
 {
     int v=0;
@@ -142,6 +163,25 @@ public int getIdLastVisit()
     
     return v;
 }
-
+public void removeVisit(Visit visit)
+{
+    m_listVisit.remove(visit);
+}
+public void removeOffer(Offer offer)
+{
+    m_listOffer.remove(offer);
+}
+public void removeBuyer(Buyer buyer)
+{
+    m_listBuyer.remove(buyer);
+}
+public void removeSeller(Seller seller)
+{
+    m_listSeller.remove(seller);
+}
+public void removeEstate(Estate estate)
+{
+    m_listEstate.remove(estate);
+}
     
 }
