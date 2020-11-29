@@ -9,9 +9,12 @@ import Model.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import static java.lang.Integer.parseInt;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -103,7 +106,7 @@ public class RegisterPage extends MasterList implements ActionListener{
         String[] formStrings = { "Seller","Buyer"   };
        formList = new JComboBox(formStrings);
         formList.setSelectedIndex(1);
-        formList.setBounds(10,20,80,25);
+        formList.setBounds(900,500,100,50);
         formList.addActionListener(new ActionCombo());
         panel.add(formList);
         //typeLabel=new JLabel("Seller/Buyer:");
@@ -115,81 +118,97 @@ public class RegisterPage extends MasterList implements ActionListener{
          
 
 
-
+panel.setLayout(null);
+        JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
+        background1.setBounds(0, 0, 80, 80);
+        
+        
+        frame.add(background1); 
+        frame.pack();
+        frame.setResizable(true);
+        frame.add(panel); 
+         
+        JLabel fondL= new JLabel("Register");
+        fondL.setBounds(900, 350, 1000, 200);
+        fondL.setForeground(Color.blue);
+        
+        fondL.setFont(new Font("Verdera", Font.PLAIN,30));
+        
+        panel.add(fondL);
         
         
         loginLabel=new JLabel("login:");
-        loginLabel.setBounds(10,60,80,25);
+        loginLabel.setBounds(10,600,100,50);
         loginText= new JTextField(15);
-        loginText.setBounds(200,60,80,25);
+        loginText.setBounds(100,600,200,50);
         panel.add(loginLabel);
         panel.add(loginText);
         
         passwordLabel=new JLabel("Password:");
-        passwordLabel.setBounds(10,100,80,25);
+        passwordLabel.setBounds(400,600,100,50);
         passwordText= new JTextField(15);
-        passwordText.setBounds(200,100,80,25);
+        passwordText.setBounds(500,600,200,50);
         panel.add(passwordLabel);
         panel.add(passwordText);
         
         nameLabel=new JLabel("last_Name:");
-        nameLabel.setBounds(10,140,80,25);
+        nameLabel.setBounds(800,600,100,50);
         nameText= new JTextField(15);
-        nameText.setBounds(200,140,80,25);
+        nameText.setBounds(900,600,200,50);
         panel.add(nameLabel);
         panel.add(nameText);
         
         fnameLabel=new JLabel("first_Name:");
-        fnameLabel.setBounds(10,180,80,25);
+        fnameLabel.setBounds(1200,600,100,50);
         fnameText= new JTextField(15);
-        fnameText.setBounds(200,180,80,25);
+        fnameText.setBounds(1300,600,200,50);
         panel.add(fnameLabel);
         panel.add(fnameText);
         
         ybirthLabel=new JLabel("birth_year:");
-        ybirthLabel.setBounds(10,220,80,25);
+        ybirthLabel.setBounds(1600,600,100,50);
         ybirthText= new JTextField(15);
-        ybirthText.setBounds(200,220,80,25);
+        ybirthText.setBounds(1700,600,200,50);
         panel.add(ybirthLabel);
         panel.add(ybirthText);
         
         mbirthLabel=new JLabel("birth_month:");
-        mbirthLabel.setBounds(10,260,80,25);
+        mbirthLabel.setBounds(10,800,80,25);
         mbirthText= new JTextField(15);
-        mbirthText.setBounds(200,260,80,25);
+        mbirthText.setBounds(100,800,200,50);
         panel.add(mbirthLabel);
         panel.add(mbirthText);
         
         dbirthLabel=new JLabel("birth_day:");
-        dbirthLabel.setBounds(10,300,80,25);
+        dbirthLabel.setBounds(400,800,100,50);
         dbirthText= new JTextField(15);
-        dbirthText.setBounds(200,300,80,25);
+        dbirthText.setBounds(500,800,200,50);
         panel.add(dbirthLabel);
         panel.add(dbirthText);
         
         countryLabel=new JLabel("country:");
-        countryLabel.setBounds(10,340,80,25);
+        countryLabel.setBounds(800,800,100,50);
         countryText= new JTextField(15);
-        countryText.setBounds(200,340,80,25);
+        countryText.setBounds(900,800,200,50);
         panel.add(countryLabel);
         panel.add(countryText);
         
         cityLabel=new JLabel("city:");
-        cityLabel.setBounds(10,380,80,25);
+        cityLabel.setBounds(1200,800,100,50);
         cityText= new JTextField(15);
-        cityText.setBounds(200,380,80,25);
+        cityText.setBounds(1300,800,200,50);
         panel.add(cityLabel);
         panel.add(cityText);
         
         streetLabel=new JLabel("street:");
-        streetLabel.setBounds(10,420,80,25);
+        streetLabel.setBounds(1600,800,100,50);
         streetText= new JTextField(15);
-        streetText.setBounds(200,420,80,25);
+        streetText.setBounds(1700,800,200,50);
         panel.add(streetLabel);
         panel.add(streetText);
         
         button1=new JButton("ok");
-        button1.setBounds(10,460,80,25);
+        button1.setBounds(900,900,100,50);
         panel.add(button1);
         button1.addActionListener(new RegisterPage());
         
@@ -218,6 +237,7 @@ public class RegisterPage extends MasterList implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
          
          login= parseInt(loginText.getText());
+         // if tatirioeoe blinder
          pass=passwordText.getText();
          lname=nameText.getText();
          fname=fnameText.getText();
@@ -255,8 +275,12 @@ public class RegisterPage extends MasterList implements ActionListener{
         frame.setVisible(false);
         frame.dispose();
         TypePage typePage=new TypePage();
-        typePage.LoadTypePage();
-        //TypePage a=new TypePage();
+        try {
+            typePage.LoadTypePage();
+            //TypePage a=new TypePage();
+        } catch (IOException ex) {
+            Logger.getLogger(RegisterPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     
