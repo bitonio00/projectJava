@@ -6,8 +6,10 @@
 package Controller;
 
 import View.BuyerPage;
+import View.RegisterPage;
 import View.MasterList;
 import View.TypePage;
+import java.io.IOException;
 
 /**
  *
@@ -15,7 +17,7 @@ import View.TypePage;
  */
 public class Main {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
 //        a.interact();
      //   a.displayOffer();
@@ -26,9 +28,10 @@ public class Main {
         MasterList m=new MasterList();
         m.setList(a.getB(),a.getS(),a.getR(),a.getE());
        // m.loadGui();
-     TypePage h= new TypePage();
-     h.LoadTypePage();
-        
+     //TypePage h= new TypePage();
+     //h.LoadTypePage();
+        RegisterPage z= new RegisterPage();
+        z.loadRegisterPage();
         //MasterList a=new MasterList();
        // a.setList(b.getBuyer(),b.getSeller(),b.getREA(),b.getEstate());
         //a.loadGui();
