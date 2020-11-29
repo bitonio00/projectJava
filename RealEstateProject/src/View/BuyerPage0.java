@@ -6,6 +6,8 @@
 package View;
 
 import Model.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -43,8 +45,26 @@ public class BuyerPage0 extends MasterList implements ActionListener {
         panel.setLayout(null);
         frame.add(panel);
         
+        JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
+        background1.setBounds(0, 0, 80, 80);
+
+
+        frame.add(background1);
+        frame.pack();
+        frame.setResizable(true);
+        frame.add(panel);
+
+        JLabel fondL= new JLabel("what do you want to do ?");
+        fondL.setBounds(900, 350, 1000, 200);
+        fondL.setForeground(Color.blue);
+
+        fondL.setFont(new Font("Verdera", Font.PLAIN,30));
+
+        panel.add(fondL);
+        
         offerLabel = new JLabel("Vos_Offres:");
-        offerLabel.setBounds(10, 20, 125, 25);
+        offerLabel.setBounds(300, 500, 125, 25);
+        panel.add(offerLabel);
         String [] myOfferStrings;
         if(myOffer.isEmpty()==false)
         {
@@ -58,18 +78,19 @@ public class BuyerPage0 extends MasterList implements ActionListener {
         myOfferStrings = createStringmyOffer();
         myOfferList = new JComboBox(myOfferStrings);
         myOfferList.setSelectedIndex(0);
-        myOfferList.setBounds(135, 20, 80, 25);
-        myOfferList.setSize(550, 30);
+        myOfferList.setBounds(500, 500, 100, 50);
+        //myOfferList.setSize(550, 30);
         myOfferList.addActionListener(new ActionComboOffer());
         panel.add(myOfferList);
         
         button1 = new JButton("Cancel_Offer");
-        button1.setBounds(790, 20, 200, 25);
+        button1.setBounds(790, 500, 200, 50);
         panel.add(button1);
         button1.addActionListener(new ActionOfferCancel());
         
         visitLabel = new JLabel("Vos_Visit:");
-        visitLabel.setBounds(10, 100, 125, 25);
+        visitLabel.setBounds(500, 600, 125, 25);
+        panel.add(visitLabel);
         String[] myVisitStrings;
         if(myVisit.isEmpty()==false)
         {
@@ -82,23 +103,23 @@ public class BuyerPage0 extends MasterList implements ActionListener {
         myVisitStrings = createMyVisitString();
         myVisitList = new JComboBox(myVisitStrings);
         myVisitList.setSelectedIndex(0);
-        myVisitList.setBounds(135, 100, 80, 25);
-        myVisitList.setSize(550, 30);
+        myVisitList.setBounds(650, 600, 100, 50);
+        //myVisitList.setSize(550, 30);
         myVisitList.addActionListener(new ActionComboVisit());
         panel.add(myVisitList);
 
         button2 = new JButton("Cancel_Visit");
-        button2.setBounds(790, 100, 200, 25);
+        button2.setBounds(790, 600, 200, 50);
         panel.add(button2);
         button2.addActionListener(new ActionVisitCancel());
 
         button3 = new JButton("Find_Estate");
-        button3.setBounds(100, 360, 80, 25);
+        button3.setBounds(700,900, 100, 50);
         panel.add(button3);
         button3.addActionListener(new BuyerPage0());
         
         returnButton=new JButton("return");
-        returnButton.setBounds(990, 10, 80, 25);
+        returnButton.setBounds(500, 900, 100, 50);
         panel.add(returnButton);
         returnButton.addActionListener(new ActionReturn());
 
