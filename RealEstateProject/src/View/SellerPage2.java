@@ -72,7 +72,7 @@ public class SellerPage2 extends MasterList implements ActionListener{
         String[] formStrings = {"appartement", "house", "manoir", "villa", "local", "local_pro", "local_perso"};
         formList = new JComboBox(formStrings);
         formList.setSelectedIndex(1);
-        formList.setBounds(10, 20, 80, 25);
+        formList.setBounds(700, 450, 100, 50);
         formList.addActionListener(new actionComboType());
         panel.add(formList);
         String [] reaStrings;
@@ -86,105 +86,123 @@ public class SellerPage2 extends MasterList implements ActionListener{
            reaStrings = new String[1];  
         }   
         reaStrings = createRea();
+        
+        JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
+        background1.setBounds(0, 0, 80, 80);
+
+
+        frame.add(background1);
+        frame.pack();
+        frame.setResizable(true);
+        frame.add(panel);
+
+        JLabel fondL= new JLabel("Submit your estate");
+        fondL.setBounds(900, 350, 1000, 200);
+        fondL.setForeground(Color.blue);
+
+        fondL.setFont(new Font("Verdera", Font.PLAIN,30));
+
+        panel.add(fondL);
+        
         reaList = new JComboBox(reaStrings);
         reaList.setSelectedIndex(0);
-        reaList.setBounds(135, 20, 80, 25);
-        reaList.setSize(550, 30);
+        reaList.setBounds(900, 450, 100, 50);
+        //reaList.setSize(550, 30);
         reaList.addActionListener(new ActionComboREA());
         panel.add(reaList);
 
         priceLabel = new JLabel("PRICE:");
-        priceLabel.setBounds(10, 80, 80, 25);
+        priceLabel.setBounds(700, 550, 100, 50);
         priceText = new JTextField(15);
-        priceText.setBounds(100, 80, 80, 25);
+        priceText.setBounds(800, 550, 100, 50);
         panel.add(priceLabel);
         panel.add(priceText);
         
         sizeLabel = new JLabel("SIZE:");
-        sizeLabel.setBounds(190, 80, 80, 25);
+        sizeLabel.setBounds(900, 550, 100, 50);
         sizeText = new JTextField(15);
-        sizeText.setBounds(280, 80, 80, 25);
+        sizeText.setBounds(1000, 550, 100, 50);
         panel.add(sizeLabel);
         panel.add(sizeText);
         
         
         countryLabel = new JLabel("Country:");
-        countryLabel.setBounds(10, 140, 80, 25);
+        countryLabel.setBounds(600, 650, 100, 50);
         countryText = new JTextField(15);
-        countryText.setBounds(100, 140, 80, 25);
+        countryText.setBounds(700, 650, 100, 50);
         panel.add(countryLabel);
         panel.add(countryText);
 
         cityLabel = new JLabel("City:");
-        cityLabel.setBounds(200, 140, 80, 25);
+        cityLabel.setBounds(850, 550, 100, 50);
         cityText = new JTextField(15);
-        cityText.setBounds(280, 140, 80, 25);
+        cityText.setBounds(950, 550, 100, 50);
         panel.add(cityLabel);
         panel.add(cityText);
 
         streetLabel = new JLabel("Street:");
-        streetLabel.setBounds(380, 140, 80, 25);
+        streetLabel.setBounds(1100, 550, 100, 50);
         streetText = new JTextField(15);
-        streetText.setBounds(440, 140, 80, 25);
+        streetText.setBounds(1200, 550, 100, 50);
         panel.add(streetLabel);
         panel.add(streetText);
 
         jardinCheck = new JCheckBox("Garden");
         jardinCheck.setSelected(false);
-        jardinCheck.setBounds(10, 200, 80, 25);
+        jardinCheck.setBounds(700, 650, 100, 50);
         jardinCheck.addItemListener(new CheckBox());
         panel.add(jardinCheck);
 
         visavisCheck = new JCheckBox("VisaVis");
         visavisCheck.setSelected(false);
-        visavisCheck.setBounds(110, 200, 80, 25);
+        visavisCheck.setBounds(800, 650, 100, 50);
         visavisCheck.addItemListener(new CheckBox());
         panel.add(visavisCheck);
 
         equipedCheck = new JCheckBox("equiped");
         equipedCheck.setSelected(false);
-        equipedCheck.setBounds(210, 200, 80, 25);
+        equipedCheck.setBounds(900, 650, 100, 50);
         equipedCheck.addItemListener(new CheckBox());
         panel.add(equipedCheck);
 
         meubledCheck = new JCheckBox("meubled");
         meubledCheck.setSelected(false);
-        meubledCheck.setBounds(310, 200, 80, 25);
+        meubledCheck.setBounds(1000, 650, 100, 50);
         meubledCheck.addItemListener(new CheckBox());
         panel.add(meubledCheck);
 
         nbrFloorLabel = new JLabel("nbrFloor:");
-        nbrFloorLabel.setBounds(10, 260, 80, 25);
+        nbrFloorLabel.setBounds(550, 750, 100, 50);
         String[] numberFloorStrings = {"0", "1", "2", "3", "4", "5"};
         nbrFloorList = new JComboBox(numberFloorStrings);
         nbrFloorList.setSelectedIndex(0);
-        nbrFloorList.setBounds(60, 260, 80, 25);
+        nbrFloorList.setBounds(700, 750, 100, 50);
         nbrFloorList.addActionListener(new ActionComboFloor());
         panel.add(nbrFloorLabel);
         panel.add(nbrFloorList);
 
         nbrBedRoomLabel = new JLabel("nbrBedRoom:");
-        nbrBedRoomLabel.setBounds(140, 260, 80, 25);
+        nbrBedRoomLabel.setBounds(850, 750, 100, 50);
         String[] nbrBedRoomStrings = {"1", "2", "3", "4", "5", "6", "7", "8"};
         nbrBedRoomList = new JComboBox(nbrBedRoomStrings);
         nbrBedRoomList.setSelectedIndex(0);
-        nbrBedRoomList.setBounds(220, 260, 80, 25);
+        nbrBedRoomList.setBounds(1000, 750, 100, 50);
         nbrBedRoomList.addActionListener(new ActionComboBedRoom());
         panel.add(nbrBedRoomLabel);
         panel.add(nbrBedRoomList);
 
         nbrBathRoomLabel = new JLabel("nbrBathRoom:");
-        nbrBathRoomLabel.setBounds(300, 260, 80, 25);
+        nbrBathRoomLabel.setBounds(1150, 750, 100, 50);
         String[] nbrBathRoomStrings = {"1", "2", "3", "4", "5", "6", "7", "8"};
         nbrBathRoomList = new JComboBox(nbrBathRoomStrings);
         nbrBathRoomList.setSelectedIndex(0);
-        nbrBathRoomList.setBounds(390, 260, 80, 25);
+        nbrBathRoomList.setBounds(1300, 750, 100, 50);
         nbrBathRoomList.addActionListener(new ActionComboBathRoom());
         panel.add(nbrBathRoomLabel);
         panel.add(nbrBathRoomList);
         
         button1 = new JButton("SUBMIT");
-        button1.setBounds(300, 320, 200, 25);
+        button1.setBounds(1000, 850, 200, 50);
         panel.add(button1);
         button1.addActionListener(new SellerPage2());
         
