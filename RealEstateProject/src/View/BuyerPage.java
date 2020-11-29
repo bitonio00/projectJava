@@ -114,37 +114,37 @@ public class BuyerPage extends MasterList implements ActionListener {
         panel.add(formList);
 
         maxPriceLabel = new JLabel("MAX_PRICE:");
-        maxPriceLabel.setBounds(600, 900, 100, 50);
+        maxPriceLabel.setBounds(600, 750, 100, 50);
         maxPriceText = new JTextField(15);
-        maxPriceText.setBounds(800, 900, 100, 50);
+        maxPriceText.setBounds(800, 750, 100, 50);
         panel.add(maxPriceLabel);
         panel.add(maxPriceText);
 
         minPriceLabel = new JLabel("MIN_PRICE:");
-        minPriceLabel.setBounds(1000, 900, 100, 50);
+        minPriceLabel.setBounds(1000, 750, 100, 50);
         minPriceText = new JTextField(15);
-        minPriceText.setBounds(1100, 900, 100, 50);
+        minPriceText.setBounds(1100, 750, 100, 50);
         panel.add(minPriceLabel);
         panel.add(minPriceText);
 
         countryLabel = new JLabel("Country:");
-        countryLabel.setBounds(400, 800, 100, 50);
+        countryLabel.setBounds(400, 650, 100, 50);
         countryText = new JTextField(15);
-        countryText.setBounds(500, 800, 100, 50);
+        countryText.setBounds(500, 650, 100, 50);
         panel.add(countryLabel);
         panel.add(countryText);
 
         cityLabel = new JLabel("City:");
-        cityLabel.setBounds(800, 800, 100, 50);
+        cityLabel.setBounds(700, 650, 100, 50);
         cityText = new JTextField(15);
-        cityText.setBounds(900, 800, 100, 50);
+        cityText.setBounds(800, 650, 100, 50);
         panel.add(cityLabel);
         panel.add(cityText);
 
         streetLabel = new JLabel("Street:");
-        streetLabel.setBounds(1100, 800, 100, 50);
+        streetLabel.setBounds(1000, 650, 100, 50);
         streetText = new JTextField(15);
-        streetText.setBounds(1200, 800, 100, 50);
+        streetText.setBounds(1100, 650, 100, 50);
         panel.add(streetLabel);
         panel.add(streetText);
 
@@ -173,21 +173,21 @@ public class BuyerPage extends MasterList implements ActionListener {
         panel.add(meubledCheck);
 
         nbrFloorLabel = new JLabel("nbrFloor:");
-        nbrFloorLabel.setBounds(600, 650, 100, 50);
+        nbrFloorLabel.setBounds(1300, 650, 100, 50);
         String[] numberFloorStrings = {"0", "1", "2", "3", "4", "5"};
         nbrFloorList = new JComboBox(numberFloorStrings);
         nbrFloorList.setSelectedIndex(0);
-        nbrFloorList.setBounds(800, 650, 100, 50);
+        nbrFloorList.setBounds(1400, 650, 100, 50);
         nbrFloorList.addActionListener(new ActionComboFloor());
         panel.add(nbrFloorLabel);
         panel.add(nbrFloorList);
 
         nbrBedRoomLabel = new JLabel("nbrBedRoom:");
-        nbrBedRoomLabel.setBounds(1000, 650, 100, 50);
+        nbrBedRoomLabel.setBounds(1600, 650, 100, 50);
         String[] nbrBedRoomStrings = {"1", "2", "3", "4", "5", "6", "7", "8"};
         nbrBedRoomList = new JComboBox(nbrBedRoomStrings);
         nbrBedRoomList.setSelectedIndex(0);
-        nbrBedRoomList.setBounds(1200, 650, 100, 50);
+        nbrBedRoomList.setBounds(1700, 650, 100, 50);
         nbrBedRoomList.addActionListener(new ActionComboBedRoom());
         panel.add(nbrBedRoomLabel);
         panel.add(nbrBedRoomList);
@@ -225,12 +225,12 @@ public class BuyerPage extends MasterList implements ActionListener {
         panel.add(maxsizeText);
 
         button1 = new JButton("Search");
-        button1.setBounds(1000, 1600, 100, 50);
+        button1.setBounds(1000, 900, 100, 50);
         panel.add(button1);
         button1.addActionListener(new BuyerPage());
         
         returnButton=new JButton("return");
-        returnButton.setBounds(800, 1600, 100, 50);
+        returnButton.setBounds(800, 900, 100, 50);
         panel.add(returnButton);
         returnButton.addActionListener(new ActionReturn());
 
