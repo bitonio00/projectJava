@@ -6,6 +6,8 @@
 package View;
 
 import Model.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import static java.lang.Double.parseDouble;
@@ -43,27 +45,44 @@ public class BuyerPage2Offer extends MasterList implements ActionListener {
         panel.setLayout(null);
         frame.add(panel);
        
+        JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
+        background1.setBounds(0, 0, 80, 80);
+
+
+        frame.add(background1);
+        frame.pack();
+        frame.setResizable(true);
+        frame.add(panel);
+
+        JLabel fondL= new JLabel("Make your offer");
+        fondL.setBounds(900, 350, 1000, 200);
+        fondL.setForeground(Color.blue);
+
+        fondL.setFont(new Font("Verdera", Font.PLAIN,30));
+
+        panel.add(fondL);
+        
         montantLabel = new JLabel("Montant:");
-        montantLabel.setBounds(10, 50, 80, 25);
+        montantLabel.setBounds(900, 500, 100, 50);
         montantText=new JTextField(15);
-        montantText.setBounds(50, 50, 80, 25);
+        montantText.setBounds(900, 600, 100, 50);
         panel.add(montantLabel);
         panel.add(montantText);
         
         String[] formStrings = {"check", "cash", "bankCard"};
         formList = new JComboBox(formStrings);
         formList.setSelectedIndex(0);
-        formList.setBounds(50, 70, 80, 25);
+        formList.setBounds(900, 700, 100, 50);
         formList.addActionListener(new ActionComboTransactionType());
         panel.add(formList);
         
         button1=new JButton("Submit");
-        button1.setBounds(50,520,80,25);
+        button1.setBounds(900,900,100,50);
         panel.add(button1);
         button1.addActionListener(new BuyerPage2Offer());
         
         returnButton=new JButton("return");
-        returnButton.setBounds(350, 10, 80, 25);
+        returnButton.setBounds(700, 900, 100, 50);
         panel.add(returnButton);
         returnButton.addActionListener(new ActionReturn());
 
