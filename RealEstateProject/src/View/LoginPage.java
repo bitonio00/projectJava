@@ -102,7 +102,7 @@ public class LoginPage extends MasterList implements ActionListener {
                   //a.loadPAGE()
 
                 }
-                if(m_type.equals("Real Estate Agent"))
+                else if(m_type.equals("Real Estate Agent"))
                 {
                   for(int i=0; i<getREAList().size(); ++i)
                {
@@ -114,7 +114,7 @@ public class LoginPage extends MasterList implements ActionListener {
                          }
                        }
                 }
-                 if(m_type.equals("Seller"))
+                else if(m_type.equals("Seller"))
                 {
                   for(int i=0; i<getSList().size(); ++i)
                {
@@ -123,7 +123,9 @@ public class LoginPage extends MasterList implements ActionListener {
                          {
                           System.out.println("yeeeeeeeeeeeeees");
                           JOptionPane.showMessageDialog(null,"lolo");
+                          
                          }
+                      //else ()message erreur
                        }
                 }
 
