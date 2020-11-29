@@ -49,13 +49,13 @@ public class LoginPage extends MasterList implements ActionListener {
 
         panel.setLayout(null);
         loginLabel=new JLabel("login");
-        loginLabel.setBounds(10,20,80,25);
+        loginLabel.setBounds(800,500,80,25);
         passWordLabel=new JLabel("password");
-        passWordLabel.setBounds(10,50,80,25);
+        passWordLabel.setBounds(800,600,80,25);
         loginText=new JTextField(20);
-        loginText.setBounds(100, 20, 165, 25);
+        loginText.setBounds(900, 500, 165, 25);
         passwordText=new JPasswordField(20);
-        passwordText.setBounds(100, 50, 165, 25);
+        passwordText.setBounds(900, 600, 165, 25);
         panel.add(loginLabel);
         panel.add(passWordLabel);
         panel.add(loginText);
@@ -65,14 +65,30 @@ public class LoginPage extends MasterList implements ActionListener {
         success.setBounds(10,110,300,25);
         panel.add(success);
 
+JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
+        background1.setBounds(0, 0, 80, 80);
 
+
+        frame.add(background1);
+        frame.pack();
+        frame.setResizable(true);
+        frame.add(panel);
+
+        JLabel fondL= new JLabel("Sign in");
+        fondL.setBounds(900, 350, 1000, 200);
+        fondL.setForeground(Color.blue);
+
+        fondL.setFont(new Font("Verdera", Font.PLAIN,30));
+
+        panel.add(fondL);
+        
         button=new JButton("enter");
-        button.setBounds(10, 80, 80, 25);
+        button.setBounds(1000, 700, 100, 50);
         panel.add(button);
         button.addActionListener(new LoginPage());
 
         returnButton=new JButton("return");
-        returnButton.setBounds(350, 10, 80, 25);
+        returnButton.setBounds(800, 700, 100, 50);
         panel.add(returnButton);
         returnButton.addActionListener(new ActionReturn());
 
