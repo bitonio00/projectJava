@@ -7,6 +7,7 @@ package View;
 
 
 import Model.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -21,7 +22,7 @@ private static ArrayList<Offer>m_listOffer;
 private static ArrayList<RealEstateAgent>m_listRealEstateAgent;
 private static ArrayList<Visit>m_listVisit;
 
-public void loadGui()
+public void loadGui() throws IOException
 {
     TypePage a=new TypePage();
     a.LoadTypePage();
