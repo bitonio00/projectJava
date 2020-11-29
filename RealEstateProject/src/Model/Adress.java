@@ -40,4 +40,8 @@ public class Adress {
     return m_street;
 
     }
+    public String getFullAdress()
+    {
+        return m_country+" "+m_city+" "+m_street;
+    }
 }

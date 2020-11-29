@@ -93,6 +93,31 @@ aptconcerned.getAdress().getStreet(),aptconcerned.getPrice(),aptconcerned.getSel
        
        System.out.println("montant:"+m_montant+" estate:"+m_houseConcerned.getAdress().getStreet()+" buyer:"+m_buyer.getNom()+" type"+m_type);
    }
+   public int getId()
+   {
+       return m_id;
+   }
+   public Buyer getBuyer()
+   {
+       return m_buyer;
+   }
+   public Estate getEstate()
+   {
+       return m_houseConcerned;
+   }
+  public String getType()
+  {
+      return m_type;
+  }
+  public double getMontant()
+  {
+      return m_montant;
+  }
+  public String getFullOffer()
+  {
+      String string1=String.valueOf(getMontant());
+      return string1+"$ "+" in "+getType()+" on "+getEstate().getAdress().getFullAdress();
+  }
    
 
            }

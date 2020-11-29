@@ -16,7 +16,7 @@ import java.io.IOException;
  * @author benoi
  */
 public class Main {
-    
+
     public static void main(String[] args) throws IOException {
 
 //        a.interact();
@@ -26,12 +26,12 @@ public class Main {
         App a=new App();
         //a.display();
         MasterList m=new MasterList();
-        m.setList(a.getB(),a.getS(),a.getR(),a.getE());
-       // m.loadGui();
+        m.setList(a.getB(),a.getS(),a.getR(),a.getE(),a.getO(),a.getV());
+        m.loadGui();
      //TypePage h= new TypePage();
-     //h.LoadTypePage();
-        RegisterPage z= new RegisterPage();
-        z.loadRegisterPage();
+    // h.LoadTypePage();
+        //BuyerPage b=new BuyerPage();
+        //b.loadBuyerPage();
         //MasterList a=new MasterList();
        // a.setList(b.getBuyer(),b.getSeller(),b.getREA(),b.getEstate());
         //a.loadGui();
@@ -40,7 +40,7 @@ public class Main {
        //BuyerPage c=new BuyerPage();
        //c.loadBuyerPage();
 
-       
+
     }
-    
+
 }

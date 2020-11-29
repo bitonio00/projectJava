@@ -24,6 +24,7 @@ public class LoginPage extends MasterList implements ActionListener {
     private static JTextField loginText;
     private static JPasswordField passwordText;
     private static JButton button;
+    private static JButton returnButton;
     private static String password;
     private static int log;
     private static String m_type;
@@ -70,6 +71,11 @@ public class LoginPage extends MasterList implements ActionListener {
         panel.add(button);
         button.addActionListener(new LoginPage());
 
+        returnButton=new JButton("return");
+        returnButton.setBounds(350, 10, 80, 25);
+        panel.add(returnButton);
+        returnButton.addActionListener(new ActionReturn());
+
 
 
         frame.setVisible(true);
@@ -79,7 +85,9 @@ public class LoginPage extends MasterList implements ActionListener {
 
 
     public void actionPerformed(ActionEvent e) {
-                System.out.println(m_type);
+
+
+
                 String login=loginText.getText();
                  password=passwordText.getText();
 
@@ -89,17 +97,17 @@ public class LoginPage extends MasterList implements ActionListener {
                 {
                   for(int i=0; i<getBList().size(); ++i)
                {
-                   System.out.println(getBList().get(i).getLogin());
+
                       if(getBList().get(i).getLogin()==log && getBList().get(i).getPassword().equals(password))
                          {
-                          System.out.println("yeeeeeeeeeeeeees");
-                          JOptionPane.showMessageDialog(null,"lolo");
+                          setidUser(i);
+                          BuyerPage0 buyerpage0=new BuyerPage0();
+                          buyerpage0.loadBuyerPage0();
+
 
                          }
                        }
-                  //GUI a=new hhhuhug()
-                  //a.setEstate(listEstate)
-                  //a.loadPAGE()
+
 
                 }
                 else if(m_type.equals("Real Estate Agent"))
@@ -109,8 +117,7 @@ public class LoginPage extends MasterList implements ActionListener {
                   // System.out.print("ttt");
                       if(getREAList().get(i).getLogin()==log && getREAList().get(i).getPassword().equals(password))
                          {
-                          System.out.println("yeeeeeeeeeeeeees");
-                          JOptionPane.showMessageDialog(null,"lolo");
+                          setidUser(i);
                          }
                        }
                 }
@@ -121,15 +128,29 @@ public class LoginPage extends MasterList implements ActionListener {
                 //   System.out.print("ttt");
                       if(getSList().get(i).getLogin()==log && getSList().get(i).getPassword().equals(password))
                          {
-                          System.out.println("yeeeeeeeeeeeeees");
-                          JOptionPane.showMessageDialog(null,"lolo");
-                          
+                          setidUser(i);
+                          SellerPage sellerpage=new SellerPage();
+                          sellerpage.loadSellerPage();
                          }
                       //else ()message erreur
                        }
                 }
 
 
+                frame.setVisible(false);
+                frame.dispose();
+    }
+    public class ActionReturn implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            frame.setVisible(false);
+            frame.dispose();
+            TypePage typepage=new TypePage();
+            typepage.LoadTypePage();
+
+        }
 
     }
 }

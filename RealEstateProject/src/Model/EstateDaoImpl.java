@@ -98,6 +98,37 @@ public class EstateDaoImpl implements EstateDao{
         }
 
     }
+    
+    public void addAppart(Appartement estate)
+    {
+        int equiped=0;
+        int meubled=0;
+        int visavis=0;
+        
+           boolean b=false;
+           String s=" ";
+           if(estate.getEquiped()==true)
+               equiped=1;
+           if(estate.getvisavis()==true)
+               visavis=1;
+           if(estate.getMeubled()==true)
+                   meubled=1;
+    
+          Connection conn=null;
+        try
+        {
+           DataSource a=new DataSource();
+           conn=a.createConnection();
+           
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(estate_id,size,price,type,country,city,street,seller_id,estateag_id,number_of_floor,visavis,local_type,house_type,meubled,equiped,garden,number_of_room,number_of_bathroom ) VALUES('"+estate.getId()+"','"+estate.getSize()+"','"+estate.getPrice()+"','"+estate.getType()+"','"+estate.getAdress().getCountry()+"','"+estate.getAdress().getCity()+"','"+estate.getAdress().getStreet()+"','"+estate.getSeller().getLogin()+"','"+estate.getAgent().getLogin()+"','"+0+"','"+visavis+"','"+s+"','"+s+"','"+meubled+"','"+equiped+"','"+0+"','"+estate.getNor()+"','"+estate.getNob()+"')");
+            stmt.executeUpdate();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(""+e.getMessage());
+        }
+
+    }
     public void deleteEstate(Estate estate)
     {
         Connection conn=null;

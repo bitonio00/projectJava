@@ -21,74 +21,36 @@ private static ArrayList<Estate>m_listEstate;
 private static ArrayList<Offer>m_listOffer;
 private static ArrayList<RealEstateAgent>m_listRealEstateAgent;
 private static ArrayList<Visit>m_listVisit;
+private static int indexUser;
 
 public void loadGui() throws IOException
 {
     TypePage a=new TypePage();
     a.LoadTypePage();
 }
-public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayList<RealEstateAgent>listRealEstateAgent,ArrayList<Estate>listEstate)
+public void setidUser(int i)
 {
-    m_listBuyer=new ArrayList<Buyer>();
-        for(int i=0;i<listBuyer.size(); ++i)
-        {
-            //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String password
-            m_listBuyer.add(new Buyer(listBuyer.get(i).getNom(),listBuyer.get(i).getPrenom(), listBuyer.get(i).getDate(),  listBuyer.get(i).getAdress().getCountry(),
-             listBuyer.get(i).getAdress().getCity(), listBuyer.get(i).getAdress().getStreet(), listBuyer.get(i).getLogin(), listBuyer.get(i).getPassword()));
-        }
-        m_listSeller=new ArrayList<Seller>();
-        for(int i=0;i<listSeller.size(); ++i)
-        {
-           // String nom, String prenom,int year,int month,int day,   String country,String city,String street ,int login, String password
-            m_listSeller.add(new Seller(listSeller.get(i).getNom(),listSeller.get(i).getPrenom(), listSeller.get(i).getDate(),  listSeller.get(i).getAdress().getCountry(),
-             listSeller.get(i).getAdress().getCity(), listSeller.get(i).getAdress().getStreet(), listSeller.get(i).getLogin(), listSeller.get(i).getPassword()));
-        }
-        m_listRealEstateAgent=new ArrayList<RealEstateAgent>();
-        for(int i=0;i<listRealEstateAgent.size(); ++i)
-        {
-            //(int year,int month, int day, String nom, String prenom , int login, String password,double commission,String country,String city,String street
-        
-            m_listRealEstateAgent.add(new RealEstateAgent(listRealEstateAgent.get(i).getDate(), 
-                    listRealEstateAgent.get(i).getNom(),listRealEstateAgent.get(i).getPrenom(),listRealEstateAgent.get(i).getLogin(),listRealEstateAgent.get(i).getPassword(), listRealEstateAgent.get(i).getCommission(),
-                    listRealEstateAgent.get(i).getAdress().getCountry(), listRealEstateAgent.get(i).getAdress().getCity(), listRealEstateAgent.get(i).getAdress().getStreet()));
-        }
-        m_listEstate=new ArrayList<Estate>();
-        for(int i=0;i <listEstate.size();i++)
-        {
-            if(listEstate.get(i).getType().equals("house"))
-            {
-
-                m_listEstate.add(new House(listEstate.get(i).getId(),listEstate.get(i).getSize(),listEstate.get(i).getAdress().getCountry()
-                ,listEstate.get(i).getAdress().getCity(),listEstate.get(i).getAdress().getStreet()
-                ,listEstate.get(i).getPrice(),listEstate.get(i).getSeller(),listEstate.get(i).getAgent(),listEstate.get(i).getHouseType()
-                ,listEstate.get(i).getNOF(), listEstate.get(i).getMeubled(),listEstate.get(i).getEquiped(),listEstate.get(i).getGarden()
-                ,listEstate.get(i).getType(),listEstate.get(i).getNor(),listEstate.get(i).getNob()));
-
-            }
-
-                if(listEstate.get(i).getType().equals("appartement"))
-                {
-
-                    m_listEstate.add(new Appartement(listEstate.get(i).getId(),listEstate.get(i).getSize(),listEstate.get(i).getAdress().getCountry()
-                            ,listEstate.get(i).getAdress().getCity(),listEstate.get(i).getAdress().getStreet()
-                            ,listEstate.get(i).getPrice(),listEstate.get(i).getSeller(),listEstate.get(i).getAgent()
-                            ,listEstate.get(i).getNOF(), listEstate.get(i).getEquiped(),listEstate.get(i).getMeubled(),listEstate.get(i).getvisavis()
-                            ,listEstate.get(i).getType(),listEstate.get(i).getNor(),listEstate.get(i).getNob()));
-                }
-
-                if(listEstate.get(i).getType().equals("local"))
-                {
-
-                    m_listEstate.add(new Local(listEstate.get(i).getId(),listEstate.get(i).getSize(),listEstate.get(i).getAdress().getCountry()
-                    ,listEstate.get(i).getAdress().getCity(),listEstate.get(i).getAdress().getStreet()
-                    ,listEstate.get(i).getPrice(),listEstate.get(i).getSeller(),listEstate.get(i).getAgent(),listEstate.get(i).getLocalType()
-                    , listEstate.get(i).getEquiped(),listEstate.get(i).getMeubled(),listEstate.get(i).getNOF()
-                    ,listEstate.get(i).getType()));
-
-                }
-
-            }
+    indexUser=i;
 }
+public void setList(ArrayList<Buyer>listBuyer,ArrayList<Seller>listSeller,ArrayList<RealEstateAgent>listRealEstateAgent,ArrayList<Estate>listEstate,ArrayList<Offer>listOffer,ArrayList<Visit>listVisit)
+{
+        m_listBuyer=new ArrayList<Buyer>();
+        m_listBuyer=listBuyer;
+        m_listSeller=new ArrayList<Seller>();
+        m_listSeller=listSeller;
+        m_listRealEstateAgent=new ArrayList<RealEstateAgent>();
+        m_listRealEstateAgent=listRealEstateAgent;
+        m_listEstate=new ArrayList<Estate>();
+        m_listEstate=listEstate;
+        m_listOffer=new ArrayList<Offer>();
+        m_listOffer=listOffer;
+        m_listVisit=new ArrayList<Visit>();
+        m_listVisit=listVisit;
+       
+                
+
+ }
+
 
 
 public void addBuyer(Buyer a)
@@ -103,6 +65,14 @@ public void addSeller(Seller a)
 public void addREA(RealEstateAgent a)
 {
     m_listRealEstateAgent.add(a);
+}
+public void addOffer(Offer a)
+{
+    m_listOffer.add(a);
+}
+public void addVisit(Visit a)
+{
+    m_listVisit.add(a);
 }
 public ArrayList<Seller> getSList()
 {
@@ -129,7 +99,90 @@ public ArrayList<Visit> getVList()
 {
     return m_listVisit;
 }
+public int getIndexUser()
+{
+    return indexUser;
+}
+public int getIdLastOffer()
+{
+    int v=0;
+    if(m_listOffer==null)
+    {
+        v=1;
+        
+    }
+    else
+    {
+      for(int i=0;i<m_listOffer.size();++i)
+    {
+        v=m_listOffer.get(i).getId();
+        
+    } 
+      v=v+1;
+    }
+    
+    return v;
+}
 
-
+public int getIdLastEstate()
+{
+    int v=0;
+    if(m_listEstate==null)
+    {
+        v=4000;
+        
+    }
+    else
+    {
+      for(int i=0;i<m_listEstate.size();++i)
+    {
+        v=m_listEstate.get(i).getId();
+        
+    } 
+      v=v+1;
+    }
+    
+    return v;
+}
+public int getIdLastVisit()
+{
+    int v=0;
+    if(m_listVisit==null)
+    {
+        v=1;
+        
+    }
+    else
+    {
+      for(int i=0;i<m_listVisit.size();++i)
+    {
+        v=m_listVisit.get(i).getId();
+       
+    } 
+      v=v+1;
+    }
+    
+    return v;
+}
+public void removeVisit(Visit visit)
+{
+    m_listVisit.remove(visit);
+}
+public void removeOffer(Offer offer)
+{
+    m_listOffer.remove(offer);
+}
+public void removeBuyer(Buyer buyer)
+{
+    m_listBuyer.remove(buyer);
+}
+public void removeSeller(Seller seller)
+{
+    m_listSeller.remove(seller);
+}
+public void removeEstate(Estate estate)
+{
+    m_listEstate.remove(estate);
+}
     
 }

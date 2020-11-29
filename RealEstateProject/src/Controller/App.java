@@ -44,7 +44,7 @@ public App()
     
     m_listVisit=new ArrayList<Visit>();
     VisitDaoImpl v=new VisitDaoImpl();
-    m_listVisit=v.readVisit(m_listBuyer, m_listEstate, m_listRealEstateAgent);
+    m_listVisit=v.readVisit(m_listBuyer, m_listEstate);
     
     m_listOffer=new ArrayList<Offer>();
     OfferDaoImpl o=new OfferDaoImpl();
@@ -67,6 +67,14 @@ public ArrayList<Seller> getS()
 public ArrayList<RealEstateAgent> getR()
 {
     return m_listRealEstateAgent;
+}
+public ArrayList<Offer>getO()
+{
+    return m_listOffer;
+}
+public ArrayList<Visit>getV()
+{
+    return m_listVisit;
 }
 public void display()
 {
