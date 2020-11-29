@@ -6,6 +6,8 @@
 package View;
 
 import Model.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
@@ -50,15 +52,32 @@ public class SellerPage extends MasterList implements ActionListener{
         myEstateStrings = createMyEstateString();
         myEstateList = new JComboBox(myEstateStrings);
         myEstateList.setSelectedIndex(0);
-        myEstateList.setBounds(135, 20, 80, 25);
-        myEstateList.setSize(550, 30);
+        myEstateList.setBounds(700, 500, 400, 50);
+        //myEstateList.setSize(550, 30);
         panel.add(myEstateList);
         
         button1=new JButton("Introduce_new_Estate");
-        button1.setBounds(300,520,80,25);
+        button1.setBounds(700,720,100,50);
         button1.setSize(200, 50);
         panel.add(button1);
         button1.addActionListener(new IntroduceEstate());
+        
+        JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
+        background1.setBounds(0, 0, 80, 80);
+
+
+        frame.add(background1);
+        frame.pack();
+        frame.setResizable(true);
+        frame.add(panel);
+
+        JLabel fondL= new JLabel("Sell your estate");
+        fondL.setBounds(900, 350, 1000, 200);
+        fondL.setForeground(Color.blue);
+
+        fondL.setFont(new Font("Verdera", Font.PLAIN,30));
+
+        panel.add(fondL);
         
         frame.setVisible(true);
         
