@@ -6,9 +6,16 @@
 package Controller;
 
 import View.BuyerPage;
+import View.SellerPage;
+import View.SellerPage2;
+import View.BuyerPage0;
 import View.RegisterPage;
 import View.MasterList;
 import View.TypePage;
+import View.LoginPage;
+import View.BuyerPage2;
+import View.BuyerPage2Offer;
+import View.BuyerPage2Visit;
 import java.io.IOException;
 
 /**
@@ -28,6 +35,8 @@ public class Main {
         MasterList m=new MasterList();
         m.setList(a.getB(),a.getS(),a.getR(),a.getE(),a.getO(),a.getV());
         m.loadGui();
+        SellerPage2 w = new SellerPage2();
+        w.loadSellerPage2();
      //TypePage h= new TypePage();
     // h.LoadTypePage();
         //BuyerPage b=new BuyerPage();
