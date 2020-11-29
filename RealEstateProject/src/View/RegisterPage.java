@@ -250,12 +250,8 @@ panel.setLayout(null);
         frame.setVisible(false);
         frame.dispose();
         TypePage typePage=new TypePage();
-        try {
-            typePage.LoadTypePage();
-            //TypePage a=new TypePage();
-        } catch (IOException ex) {
-            Logger.getLogger(RegisterPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        typePage.LoadTypePage();
+        //TypePage a=new TypePage();
 
     }
 
