@@ -34,7 +34,7 @@ public class SellerPage2 extends MasterList implements ActionListener{
     private static JCheckBox visavisCheck;
     private static JCheckBox equipedCheck;
     private static JCheckBox meubledCheck;
-     private static JLabel nbrFloorLabel;
+    private static JLabel nbrFloorLabel;
     private static JLabel nbrBedRoomLabel;
     private static JLabel nbrBathRoomLabel;
     private static JLabel priceLabel;
@@ -134,40 +134,40 @@ public class SellerPage2 extends MasterList implements ActionListener{
         panel.add(countryText);
 
         cityLabel = new JLabel("City:");
-        cityLabel.setBounds(850, 550, 100, 50);
+        cityLabel.setBounds(850, 650, 100, 50);
         cityText = new JTextField(15);
-        cityText.setBounds(950, 550, 100, 50);
+        cityText.setBounds(950, 650, 100, 50);
         panel.add(cityLabel);
         panel.add(cityText);
 
         streetLabel = new JLabel("Street:");
-        streetLabel.setBounds(1100, 550, 100, 50);
+        streetLabel.setBounds(1100, 650, 100, 50);
         streetText = new JTextField(15);
-        streetText.setBounds(1200, 550, 100, 50);
+        streetText.setBounds(1200, 650, 100, 50);
         panel.add(streetLabel);
         panel.add(streetText);
 
         jardinCheck = new JCheckBox("Garden");
         jardinCheck.setSelected(false);
-        jardinCheck.setBounds(700, 650, 100, 50);
+        jardinCheck.setBounds(1380, 650, 100, 50);
         jardinCheck.addItemListener(new CheckBox());
         panel.add(jardinCheck);
 
         visavisCheck = new JCheckBox("VisaVis");
         visavisCheck.setSelected(false);
-        visavisCheck.setBounds(800, 650, 100, 50);
+        visavisCheck.setBounds(1450, 650, 100, 50);
         visavisCheck.addItemListener(new CheckBox());
         panel.add(visavisCheck);
 
         equipedCheck = new JCheckBox("equiped");
         equipedCheck.setSelected(false);
-        equipedCheck.setBounds(900, 650, 100, 50);
+        equipedCheck.setBounds(1550, 650, 100, 50);
         equipedCheck.addItemListener(new CheckBox());
         panel.add(equipedCheck);
 
         meubledCheck = new JCheckBox("meubled");
         meubledCheck.setSelected(false);
-        meubledCheck.setBounds(1000, 650, 100, 50);
+        meubledCheck.setBounds(1650, 650, 100, 50);
         meubledCheck.addItemListener(new CheckBox());
         panel.add(meubledCheck);
 
@@ -272,12 +272,42 @@ public class SellerPage2 extends MasterList implements ActionListener{
         EstateDaoImpl estateDao=new EstateDaoImpl();
         if(typeEstate.equals("appartement"))
         {
-            Appartement estate=new Appartement(getIdLastEstate(),size,country,city,street,price,getSList().get(getIndexUser()),getREAList().get(currentREA),nbrFloor,equiped,meubled,visavis,typeEstate,nbrBedRoom,nbrBathRoom);
-            estateDao.addAppart(estate);
+            Appartement app=new Appartement(getIdLastEstate(),size,country,city,street,price,getSList().get(getIndexUser()),getREAList().get(currentREA),nbrFloor,equiped,meubled,visavis,typeEstate,nbrBedRoom,nbrBathRoom);
+            estateDao.addAppart(app);
+            addEstate(app);
                     
                     //int id,int size,String country,String city, String street , double price,Seller seller,
             //RealEstateAgent realEstateAgent, int numberOfFloor, boolean equiped,boolean meubled,boolean visavis, String type, int nor, int nob
         }
+        else if(typeEstate.equals("maison")|| typeEstate.equals("manoir") || typeEstate.equals("villa") )
+        {
+            if(typeEstate.equals("maison"))
+            {
+                typeEstate=" ";
+               
+            }
+            House house=new House(getIdLastEstate(),size,country,city,street,price,getSList().get(getIndexUser()),getREAList().get(currentREA),typeEstate,nbrFloor,meubled,equiped,garden,"house",nbrBedRoom,nbrBathRoom);
+            estateDao.addHouse(house);
+            addEstate(house);
+            addEstate(house);
+            
+        }
+        else if(typeEstate.equals("local")|| typeEstate.equals("local_pro") || typeEstate.equals("local_perso") )
+        {
+            if(typeEstate.equals("local"))
+            {
+                typeEstate=" ";
+             //   int id,int size,String country,String city, String street , double price,Seller seller,
+       // RealEstateAgent realEstateAgent, String localType,boolean equiped, boolean meubled, int numberOfFloor, String type
+                Local local=new Local(getIdLastEstate(),size,country,city,street,price,getSList().get(getIndexUser()),getREAList().get(currentREA),typeEstate,equiped,meubled,nbrFloor,"local");
+                estateDao.addLocal(local);
+                addEstate(local);
+            }
+        }
+        frame.setVisible(false);
+        frame.dispose();
+        SellerPage sellerpage= new SellerPage();
+        sellerpage.loadSellerPage();
         
         
         
