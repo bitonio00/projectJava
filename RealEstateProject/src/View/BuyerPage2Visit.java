@@ -29,7 +29,13 @@ public class BuyerPage2Visit extends MasterList implements ActionListener {
     private static int indexVisitConcerned;
     private static int indexVisit;
     private static JButton returnButton;
-    
+    private ArrayList<Estate>m_listEstateConcerned;
+            
+    public void setListEstate(ArrayList<Estate>listEstateConcerned)
+    {
+        m_listEstateConcerned=new ArrayList<Estate>();
+        m_listEstateConcerned=listEstateConcerned;
+    }
     
     public BuyerPage2Visit()
     {
@@ -105,7 +111,11 @@ public class BuyerPage2Visit extends MasterList implements ActionListener {
         getVList().get(indexVisit).setBuyer(getBList().get( getIndexUser()));
         VisitDaoImpl a=new VisitDaoImpl();
         a.updateVisit( getVList().get(indexVisit));
-        getVList().get(indexVisit).display();
+        frame.setVisible(false);
+        frame.dispose();
+         BuyerPage2 buyerpage2=new BuyerPage2();
+         buyerpage2.setListEstate(m_listEstateConcerned);
+         buyerpage2.loadBuyerPage2();
     }
     
     public class ActionComboVisit implements  ActionListener
