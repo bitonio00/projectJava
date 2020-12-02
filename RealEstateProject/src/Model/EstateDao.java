@@ -16,4 +16,6 @@ public interface EstateDao {
     void addEstate(Estate estate);
     void deleteEstate(Estate estate);
     public void addAppart(Appartement estate);
+    public void addHouse(House estate);
+    public void sellEstate(Estate estate);
 }
