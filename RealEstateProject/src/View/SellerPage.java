@@ -81,7 +81,7 @@ public class SellerPage extends MasterList implements ActionListener{
         
         String[]myOfferStrings;
         
-        if(myEstates.isEmpty()==false)
+        if(myOffer.isEmpty()==false)
         {
             
             myOfferStrings = new String[myOffer.size()]; 
@@ -95,7 +95,7 @@ public class SellerPage extends MasterList implements ActionListener{
         myOfferList = new JComboBox(myOfferStrings);
         myOfferList.setSelectedIndex(0);
         myOfferList.setBounds(650, 500, 600, 50);
-        addVisitButton.addActionListener(new ActionComboOffer());
+        myOfferList.addActionListener(new ActionComboOffer());
         panel.add(myOfferList);
         
         deleteOfferButton=new JButton("delete_offer");
