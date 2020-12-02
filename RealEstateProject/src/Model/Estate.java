@@ -22,6 +22,7 @@ public abstract class Estate {
     private boolean m_meubled;
     private boolean m_equiped; 
     private String m_type;
+    private boolean m_sold;
 
 
 
@@ -38,12 +39,36 @@ m_size=size;
 
 m_price=price;
 m_seller= new Seller(seller.getNom(),seller.getPrenom(),seller.getDate(),
-        seller.getAdress().getCountry(),seller.getAdress().getCity(),seller.getAdress().getStreet(), seller.getLogin(),seller.getPassword());
+        seller.getAdress().getCountry(),seller.getAdress().getCity(),seller.getAdress().getStreet(), seller.getLogin(),seller.getPassword(),seller.getMail());
 m_RealEstateAgent=new RealEstateAgent(realEstateAgent.getDate(),
     realEstateAgent.getNom(),realEstateAgent.getPrenom(),realEstateAgent.getLogin(),realEstateAgent.getPassword(),realEstateAgent.getCommission(),realEstateAgent.getAdress().getCountry(),
-realEstateAgent.getAdress().getCity(),realEstateAgent.getAdress().getStreet());
+realEstateAgent.getAdress().getCity(),realEstateAgent.getAdress().getStreet(),realEstateAgent.getMail());
 
 m_adress= new Adress(country,city,street);
+
+m_sold=false;
+}
+
+public Estate(int id,int size,String country,String city, String street , double price,Seller seller, RealEstateAgent realEstateAgent,
+            int numberOfFloor,boolean equiped, boolean meubled,String type,boolean b)
+{
+    m_meubled=meubled;
+    m_equiped=equiped;
+    m_numberOfFloor=numberOfFloor;
+    m_id=id;
+    m_type=type;
+m_size=size;
+
+m_price=price;
+m_seller= new Seller(seller.getNom(),seller.getPrenom(),seller.getDate(),
+        seller.getAdress().getCountry(),seller.getAdress().getCity(),seller.getAdress().getStreet(), seller.getLogin(),seller.getPassword(),seller.getMail());
+m_RealEstateAgent=new RealEstateAgent(realEstateAgent.getDate(),
+    realEstateAgent.getNom(),realEstateAgent.getPrenom(),realEstateAgent.getLogin(),realEstateAgent.getPassword(),realEstateAgent.getCommission(),realEstateAgent.getAdress().getCountry(),
+realEstateAgent.getAdress().getCity(),realEstateAgent.getAdress().getStreet(),realEstateAgent.getMail());
+
+m_adress= new Adress(country,city,street);
+
+m_sold=b;
 }
 public int getSize()
 {
@@ -95,7 +120,17 @@ public String getFullSpec()
     String string1=String.valueOf(m_price);
     return m_adress.getFullAdress()+" price:"+string1;
 }
-    
+
+public boolean getSold()
+{
+    return m_sold;
+}
+public void soldEstate()
+{
+    m_sold=true;
+    EstateDaoImpl estate=new EstateDaoImpl();
+    estate.sellEstate(this);
+}
 
 public void display()
 {
