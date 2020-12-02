@@ -21,9 +21,9 @@ public class Buyer extends Personne{
 
 
 
-    public Buyer(String nom, String prenom, String date, String country,String city,String street,int login,String password)
+    public Buyer(String nom, String prenom, String date, String country,String city,String street,int login,String password,String mail)
     {
-        super(nom,prenom,date,login,password, country,city,street);
+        super(nom,prenom,date,login,password, country,city,street,mail);
 
 
 
