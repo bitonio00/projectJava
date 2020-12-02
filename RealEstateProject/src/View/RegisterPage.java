@@ -36,7 +36,7 @@ public class RegisterPage extends MasterList implements ActionListener{
     private static JLabel streetLabel;
     private static JLabel loginLabel;
     private static JTextField typeText;
-    private static JTextField loginText;
+    private static JTextField mailText;
     private static JTextField passwordText;
     private static JTextField nameText;
     private static JTextField fnameText;
@@ -61,6 +61,8 @@ public class RegisterPage extends MasterList implements ActionListener{
     private static String city;
     private static String street;
     private static String person;
+    
+    
 
     public void loadRegisterPage()
     {
@@ -107,12 +109,12 @@ panel.setLayout(null);
 
 
 
-        loginLabel=new JLabel("login:");
+        loginLabel=new JLabel("mail:");
         loginLabel.setBounds(10,600,100,50);
-        loginText= new JTextField(15);
-        loginText.setBounds(100,600,200,50);
+        mailText= new JTextField(15);
+        mailText.setBounds(100,600,200,50);
         panel.add(loginLabel);
-        panel.add(loginText);
+        panel.add(mailText);
 
         passwordLabel=new JLabel("Password:");
         passwordLabel.setBounds(400,600,100,50);
@@ -210,11 +212,20 @@ panel.setLayout(null);
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-
-         login= parseInt(loginText.getText());
-         // if tatirioeoe blinder
+        Boolean error=true;
+        
+         String mail= mailText.getText();
+         if(mail.contains("@")==false && mail.contains(".")==false )
+         {
+             error=false;
+         }
          pass=passwordText.getText();
+         if(pass.length()>15)
+         {
+             error=false;
+         }
          lname=nameText.getText();
+        
          fname=fnameText.getText();
          yb=parseInt(ybirthText.getText());
          mb=parseInt(mbirthText.getText());
@@ -228,7 +239,7 @@ panel.setLayout(null);
 
         if(person.equals("Seller"))
         {
-           Seller s=new Seller(lname,fname,birthDate,country,city,street,login,pass);
+           Seller s=new Seller(lname,fname,birthDate,country,city,street,getIdLastSeller(),pass,mail);
             addSeller(s);
             SellerDaoImpl sellerDao=new SellerDaoImpl();
             sellerDao.addSeller(s);
@@ -237,7 +248,7 @@ panel.setLayout(null);
 
         }
         else if(person.equals("Buyer"))
-        {  Buyer a=new Buyer(lname,fname,birthDate,country,city,street,login,pass);
+        {  Buyer a=new Buyer(lname,fname,birthDate,country,city,street,getIdLastBuyer(),pass,mail);
            System.out.print("aa"+a.getLogin());
            addBuyer(a);
            BuyerDaoImpl buyerDao=new BuyerDaoImpl();
