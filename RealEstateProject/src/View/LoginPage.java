@@ -21,6 +21,8 @@ public class LoginPage extends MasterList implements ActionListener {
     private static JLabel loginLabel;
     private static JLabel passWordLabel;
     private static JLabel success;
+    private static JLabel fondL;
+    private static JLabel errorLabel;
     private static JTextField loginText;
     private static JPasswordField passwordText;
     private static JButton button;
@@ -74,9 +76,14 @@ JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
         frame.setResizable(true);
         frame.add(panel);
 
-        JLabel fondL= new JLabel("Sign in");
+        fondL= new JLabel("Log in");
         fondL.setBounds(900, 350, 1000, 200);
         fondL.setForeground(Color.blue);
+        
+        errorLabel= new JLabel("");
+        errorLabel.setBounds(900, 700, 200, 50);
+        panel.add(errorLabel);
+       
 
         fondL.setFont(new Font("Verdera", Font.PLAIN,30));
 
@@ -107,54 +114,70 @@ JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
                 String login=loginText.getText();
                  password=passwordText.getText();
 
-                 log=Integer.parseInt(login);
+                 
              //   System.out.print(m_type);
                 if(m_type.equals("Buyer"))
                 {
+                    System.out.println("ee"+getBList().get(0).getMail());
                   for(int i=0; i<getBList().size(); ++i)
                {
 
-                      if(getBList().get(i).getLogin()==log && getBList().get(i).getPassword().equals(password))
+                      if(getBList().get(i).getMail().equals(login) && getBList().get(i).getPassword().equals(password))
                          {
                           setidUser(i);
                           BuyerPage0 buyerpage0=new BuyerPage0();
                           buyerpage0.loadBuyerPage0();
 
-
+                          frame.setVisible(false);
+                          frame.dispose();
                          }
                        }
-
-
+                  
+                  
                 }
                 else if(m_type.equals("Real Estate Agent"))
                 {
                   for(int i=0; i<getREAList().size(); ++i)
                {
                   // System.out.print("ttt");
-                      if(getREAList().get(i).getLogin()==log && getREAList().get(i).getPassword().equals(password))
+                      if(getREAList().get(i).getMail().equals(login)&& getREAList().get(i).getPassword().equals(password))
                          {
                           setidUser(i);
+                          AgentPage agentPage=new AgentPage();
+                          agentPage.loadAgentPage();
+                          frame.setVisible(false);
+                          frame.dispose();
                          }
                        }
+                  
+                  
                 }
                 else if(m_type.equals("Seller"))
                 {
                   for(int i=0; i<getSList().size(); ++i)
                {
                 //   System.out.print("ttt");
-                      if(getSList().get(i).getLogin()==log && getSList().get(i).getPassword().equals(password))
+                      if(getSList().get(i).getMail().equals(login) && getSList().get(i).getPassword().equals(password))
                          {
                           setidUser(i);
                           SellerPage sellerpage=new SellerPage();
                           sellerpage.loadSellerPage();
+                          frame.setVisible(false);
+                          frame.dispose();
                          }
                       //else ()message erreur
                        }
+                
                 }
+                
+                    
+                    errorLabel.setText("WRONG PASSWORD OR LOGIN");
+                    errorLabel.setForeground(Color.red);
+                
+                
 
 
-                frame.setVisible(false);
-                frame.dispose();
+                
     }
     public class ActionReturn implements ActionListener
     {
