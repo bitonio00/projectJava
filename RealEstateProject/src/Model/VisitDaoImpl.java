@@ -105,6 +105,7 @@ public class VisitDaoImpl implements VisitDao {
             stmt.setInt(1, visit.getBuyer().getLogin());
             stmt.setInt(2, visit.getId());
             stmt.executeUpdate();
+            conn.close();
 
         } catch (SQLException e) {
             System.out.println("" + e.getMessage());
@@ -119,7 +120,7 @@ public class VisitDaoImpl implements VisitDao {
             PreparedStatement stmt = conn.prepareStatement("update visit set buyer_id=0, reserved=0 where visit_id=?");
             stmt.setInt(1, visit.getId());
             stmt.executeUpdate();
-
+            conn.close();
         } catch (SQLException e) {
             System.out.println("" + e.getMessage());
         }
@@ -140,6 +141,23 @@ public class VisitDaoImpl implements VisitDao {
             conn.close();
         } catch (SQLException e) {
             System.out.println("" + e.getMessage());
+        }
+    }
+    public void addVisit(Visit visit)
+    {
+         Connection conn=null;
+        try
+        {
+           DataSource a=new DataSource();
+           conn=a.createConnection(); 
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  visit(visit_id,buyer_id,estate_id,agent_id,year,month,day,hour,minute,reserved) VALUES('"+visit.getId()+"','"+0+"','"+visit.getEstate().getId()+"','"+visit.getREA().getLogin()+"','"+visit.getYear()+"','"+visit.getMonth()+"','"+visit.getDay()+"','"+visit.getHour()+"','"+visit.getMinute()+"','"+0+"')");
+            stmt.executeUpdate();
+            conn.close();
+            
+      }
+        catch(SQLException e)
+        {
+            System.out.println(""+e.getMessage());
         }
     }
 
