@@ -37,12 +37,42 @@ public class Visit {
         if(reserved==true)
         {
              m_estatebuyer = new Buyer(buyer.getNom(), buyer.getPrenom(), buyer.getDate(),
-                buyer.getAdress().getCountry(), buyer.getAdress().getCity(), buyer.getAdress().getStreet(), buyer.getLogin(), buyer.getPassword());
+                buyer.getAdress().getCountry(), buyer.getAdress().getCity(), buyer.getAdress().getStreet(), buyer.getLogin(), buyer.getPassword(),buyer.getMail());
         }
         else
             m_estatebuyer=null;
        
         m_reserved=reserved;
+    }
+    public Visit(int year, int month, int day, int hour, int minute, int id,  Estate estateconcerned) {
+        m_id = id;
+        m_year = year;
+        m_month = month;
+        m_day = day;
+        m_hour = hour;
+        m_minute = minute;
+        if(estateconcerned.getType().equals("house"))
+        {
+             m_estateviewed = new House(estateconcerned.getId(), estateconcerned.getSize(), estateconcerned.getAdress().getCountry(), estateconcerned.getAdress().getCity(),
+                estateconcerned.getAdress().getStreet(), estateconcerned.getPrice(), estateconcerned.getSeller(), estateconcerned.getAgent(), estateconcerned.getHouseType(), estateconcerned.getNOF(), estateconcerned.getMeubled(),
+                estateconcerned.getEquiped(), estateconcerned.getGarden(), estateconcerned.getType(), estateconcerned.getNor(), estateconcerned.getNob()); 
+        }
+        else if(estateconcerned.getType().equals("local"))
+        {
+             m_estateviewed = new Local(estateconcerned.getId(), estateconcerned.getSize(), estateconcerned.getAdress().getCountry(), estateconcerned.getAdress().getCity(),
+                estateconcerned.getAdress().getStreet(), estateconcerned.getPrice(), estateconcerned.getSeller(), estateconcerned.getAgent(), estateconcerned.getLocalType(),
+                estateconcerned.getEquiped(), estateconcerned.getMeubled(), estateconcerned.getNOF(), estateconcerned.getType());
+        }
+        else if(estateconcerned.getType().equals("appartement"))
+        {
+            m_estateviewed = new Appartement(estateconcerned.getId(), estateconcerned.getSize(), estateconcerned.getAdress().getCountry(), estateconcerned.getAdress().getCity(),
+                estateconcerned.getAdress().getStreet(), estateconcerned.getPrice(), estateconcerned.getSeller(), estateconcerned.getAgent(), estateconcerned.getNOF(), estateconcerned.getEquiped(),
+                estateconcerned.getMeubled(), estateconcerned.getvisavis(), estateconcerned.getType(), estateconcerned.getNor(), estateconcerned.getNob());
+        }
+      
+       m_estatebuyer=null;
+       
+        m_reserved=false;
     }
 
     public Visit(int year, int month, int day, int hour, int minute, int id, Buyer buyer, Local localConcerned,boolean reserved) {
@@ -58,7 +88,7 @@ public class Visit {
         if(reserved==true)
         {
              m_estatebuyer = new Buyer(buyer.getNom(), buyer.getPrenom(), buyer.getDate(),
-                buyer.getAdress().getCountry(), buyer.getAdress().getCity(), buyer.getAdress().getStreet(), buyer.getLogin(), buyer.getPassword());
+                buyer.getAdress().getCountry(), buyer.getAdress().getCity(), buyer.getAdress().getStreet(), buyer.getLogin(), buyer.getPassword(),buyer.getMail());
         }
         else
             m_estatebuyer=null;
@@ -79,7 +109,7 @@ public class Visit {
         if(reserved==true)
         {
              m_estatebuyer = new Buyer(buyer.getNom(), buyer.getPrenom(), buyer.getDate(),
-                buyer.getAdress().getCountry(), buyer.getAdress().getCity(), buyer.getAdress().getStreet(), buyer.getLogin(), buyer.getPassword());
+                buyer.getAdress().getCountry(), buyer.getAdress().getCity(), buyer.getAdress().getStreet(), buyer.getLogin(), buyer.getPassword(),buyer.getMail());
         }
         else
             m_estatebuyer=null;
@@ -98,6 +128,10 @@ public class Visit {
     public Buyer getBuyer()
     {
         return m_estatebuyer;
+    }
+    public RealEstateAgent getREA()
+    {
+        return m_estateviewed.getAgent();
     }
     public int getId()
     {
@@ -133,14 +167,19 @@ public class Visit {
     }
     public String getFullVisit()
     {
-        
-        return m_estateviewed.getAdress().getFullAdress()+" visitBooked: "+getFullDate();
+        String s;
+        if(m_reserved==true)
+            s="reserved";
+        else
+            s="not_reserved";
+            
+        return s+" "+ m_estateviewed.getAdress().getFullAdress()+" visitBooked: "+getFullDate();
     }
     public void setBuyer(Buyer buyer)
     {
         m_reserved=true;
          m_estatebuyer = new Buyer(buyer.getNom(), buyer.getPrenom(), buyer.getDate(),
-                buyer.getAdress().getCountry(), buyer.getAdress().getCity(), buyer.getAdress().getStreet(), buyer.getLogin(), buyer.getPassword());
+                buyer.getAdress().getCountry(), buyer.getAdress().getCity(), buyer.getAdress().getStreet(), buyer.getLogin(), buyer.getPassword(),buyer.getMail());
         
     }
     public void cancelVisit()
