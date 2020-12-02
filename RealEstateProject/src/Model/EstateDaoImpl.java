@@ -152,7 +152,7 @@ public class EstateDaoImpl implements EstateDao{
            DataSource a=new DataSource();
            conn=a.createConnection();
            
-            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(estate_id,size,price,type,country,city,street,seller_id,estateag_id,number_of_floor,visavis,local_type,house_type,meubled,equiped,garden,number_of_room,number_of_bathroom,sold ) VALUES('"+estate.getId()+"','"+estate.getSize()+"','"+estate.getPrice()+"','"+estate.getType()+"','"+estate.getAdress().getCountry()+"','"+estate.getAdress().getCity()+"','"+estate.getAdress().getStreet()+"','"+estate.getSeller().getLogin()+"','"+estate.getAgent().getLogin()+"','"+0+"','"+0+"','"+s+"','"+estate.getHouseType()+"','"+meubled+"','"+equiped+"','"+garden+"','"+estate.getNor()+"','"+estate.getNob()+"',,'"+0+"')");
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(estate_id,size,price,type,country,city,street,seller_id,estateag_id,number_of_floor,visavis,local_type,house_type,meubled,equiped,garden,number_of_room,number_of_bathroom,sold ) VALUES('"+estate.getId()+"','"+estate.getSize()+"','"+estate.getPrice()+"','"+estate.getType()+"','"+estate.getAdress().getCountry()+"','"+estate.getAdress().getCity()+"','"+estate.getAdress().getStreet()+"','"+estate.getSeller().getLogin()+"','"+estate.getAgent().getLogin()+"','"+0+"','"+0+"','"+s+"','"+estate.getHouseType()+"','"+meubled+"','"+equiped+"','"+garden+"','"+estate.getNor()+"','"+estate.getNob()+"','"+0+"')");
             stmt.executeUpdate();
             conn.close();
         }
