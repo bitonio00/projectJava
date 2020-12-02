@@ -32,7 +32,7 @@ public class RealEstateAgentDaoImpl implements RealEstateAgentDao {
             while(rs.next())
             {
                m_listRealEstateAgent.add(new RealEstateAgent(rs.getString(5),rs.getString(3),rs.getString(4),rs.getInt(1),rs.getString(2),
-                       rs.getDouble(6),rs.getString(7),rs.getString(8),rs.getString(9)));
+                       rs.getDouble(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10)));
 
             }
             conn.close();
