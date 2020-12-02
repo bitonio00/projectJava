@@ -37,6 +37,9 @@ public class SellerPage extends MasterList implements ActionListener{
     private static JComboBox myOfferList;
     private static JComboBox myVisitList;
     
+    private static JLabel myMoneyLabel;
+    private static JLabel myMoneyLabel1;
+    
     private static int currentEstate;
     private static int currentOffer;
     private static int currentVisit;
@@ -107,6 +110,14 @@ public class SellerPage extends MasterList implements ActionListener{
         acceptOfferButton.setBounds(650, 600, 100, 50);
         panel.add(acceptOfferButton);
         acceptOfferButton.addActionListener(new ActionAcceptOffer());
+        
+        /*myMoneyLabel=new JLabel("you_have_won");
+        myMoneyLabel.setBounds(900, 200, 50, 50);
+        panel.add(myMoneyLabel);
+        
+        myMoneyLabel1=new JLabel("");
+        myMoneyLabel1.setBounds(1100, 200, 50, 50);
+        panel.add(myMoneyLabel1);*/
         
         String[]myVisitStrings;
         
@@ -316,10 +327,10 @@ public class SellerPage extends MasterList implements ActionListener{
         {
            stringOffer= new String[myOffer.size()];
         for (int i = 0; i < myOffer.size(); ++i) {
-            if(myOffer.get(i).getAccepted()==false)
-            {
+           // if(myOffer.get(i).getAccepted()==false)
+            //{
                stringOffer[i] =myOffer.get(i).getBuyer().getNom()+" ask " +myOffer.get(i).getFullOffer(); 
-            }
+            //}
             
         }
         
@@ -462,6 +473,7 @@ public class SellerPage extends MasterList implements ActionListener{
             frame.setVisible(false);
             frame.dispose();
             myOffer.get(currentOffer).acceptOffer();
+           
             
             SellerPage sellerPage=new SellerPage();
             sellerPage.loadSellerPage();
