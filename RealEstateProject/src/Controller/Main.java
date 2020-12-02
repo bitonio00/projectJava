@@ -35,8 +35,8 @@ public class Main {
         MasterList m=new MasterList();
         m.setList(a.getB(),a.getS(),a.getR(),a.getE(),a.getO(),a.getV());
         m.loadGui();
-       BuyerPage w = new BuyerPage();
-        w.loadBuyerPage();
+       //BuyerPage w = new BuyerPage();
+        //w.loadBuyerPage();
      //TypePage h= new TypePage();
     // h.LoadTypePage();
         //BuyerPage b=new BuyerPage();
