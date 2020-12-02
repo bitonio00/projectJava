@@ -34,7 +34,7 @@ public class BuyerDaoImpl implements BuyerDao{
 
             while(rs.next())
             {
-               m_listBuyer.add(new Buyer(rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getInt(1),rs.getString(2)));
+               m_listBuyer.add(new Buyer(rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getInt(1),rs.getString(2),rs.getString(9)));
 
             }
             conn.close();
@@ -53,8 +53,9 @@ public class BuyerDaoImpl implements BuyerDao{
         {
            DataSource a=new DataSource();
            conn=a.createConnection(); 
-            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  buyer(buyer_id,password,name,first_name,date_birth,country,city,adress) VALUES('"+buyer.getLogin()+"','"+buyer.getPassword()+"','"+buyer.getNom()+"','"+buyer.getPrenom()+"','"+buyer.getDate()+"','"+buyer.getAdress().getCountry()+"','"+buyer.getAdress().getCity()+"','"+buyer.getAdress().getStreet()+"')");
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  buyer(buyer_id,password,name,first_name,date_birth,country,city,adress,mail) VALUES('"+buyer.getLogin()+"','"+buyer.getPassword()+"','"+buyer.getNom()+"','"+buyer.getPrenom()+"','"+buyer.getDate()+"','"+buyer.getAdress().getCountry()+"','"+buyer.getAdress().getCity()+"','"+buyer.getAdress().getStreet()+"','"+buyer.getMail()+"')");
             stmt.executeUpdate();
+            conn.close();
  
       }
         catch(SQLException e)
