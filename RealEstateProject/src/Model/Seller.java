@@ -19,9 +19,9 @@ public class Seller extends Personne {
     
    
     private ArrayList<Estate>m_listEstate;
-    public Seller(String nom, String prenom,String date,   String country,String city,String street ,int login, String password)
+    public Seller(String nom, String prenom,String date,   String country,String city,String street ,int login, String password,String mail)
     {
-        super(nom,prenom,date,login,password,country,city,street);
+        super(nom,prenom,date,login,password,country,city,street,mail);
         
         
        
