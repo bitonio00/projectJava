@@ -259,7 +259,7 @@ public class BuyerPage extends MasterList implements ActionListener {
         if (typeEstate.equals("house")) {
             for (int i = 0; i < getEList().size(); ++i) {
 
-                if (getEList().get(i).getType().equals("house") ) {
+                if (getEList().get(i).getType().equals("house") && getEList().get(i).getSold()==false ) {
                     
                     if (getEList().get(i).getPrice() > minPrice && getEList().get(i).getPrice() < maxPrice) {
                         
@@ -271,7 +271,7 @@ public class BuyerPage extends MasterList implements ActionListener {
                                 if (getEList().get(i).getNOF() == nbrFloor && getEList().get(i).getNor() == nbrBedRoom && getEList().get(i).getNob() == nbrBathRoom) {
                                     
                                     if (getEList().get(i).getAdress().getCountry().equals(country) && getEList().get(i).getAdress().getCity().equals(city) && getEList().get(i).getAdress().getStreet().contains(street)==true) {
-                                        
+                                        System.out.println("ee");
                                         m_estateConcerned.add(getEList().get(i));
                                        
                                         
@@ -285,7 +285,7 @@ public class BuyerPage extends MasterList implements ActionListener {
         } else if (typeEstate.equals("manoir")) {
             for (int i = 0; i < getEList().size(); ++i) {
 
-                if (getEList().get(i).getType().equals("house") && getEList().get(i).getHouseType().equals("manoir")) {
+                if (getEList().get(i).getType().equals("house") && getEList().get(i).getHouseType().equals("manoir") && getEList().get(i).getSold()==false) {
                     
                     if (getEList().get(i).getPrice() > minPrice && getEList().get(i).getPrice() < maxPrice) {
                         
@@ -309,7 +309,7 @@ public class BuyerPage extends MasterList implements ActionListener {
         } else if (typeEstate.equals("villa")) {
             for (int i = 0; i < getEList().size(); ++i) {
 
-                if (getEList().get(i).getType().equals("house") && getEList().get(i).getHouseType().equals("manoir")) {
+                if (getEList().get(i).getType().equals("house") && getEList().get(i).getHouseType().equals("villa")  && getEList().get(i).getSold()==false) {
                     
                     if (getEList().get(i).getPrice() > minPrice && getEList().get(i).getPrice() < maxPrice) {
                         
@@ -335,7 +335,7 @@ public class BuyerPage extends MasterList implements ActionListener {
         else if (typeEstate.equals("local")) {
             for (int i = 0; i < getEList().size(); ++i) {
 
-                if (getEList().get(i).getType().equals("local")) {
+                if (getEList().get(i).getType().equals("local") && getEList().get(i).getSold()==false) {
                     
                     if (getEList().get(i).getPrice() > minPrice && getEList().get(i).getPrice() < maxPrice) {
                      
@@ -360,7 +360,7 @@ public class BuyerPage extends MasterList implements ActionListener {
         else if (typeEstate.equals("local_pro")) {
             for (int i = 0; i < getEList().size(); ++i) {
 
-                if (getEList().get(i).getType().equals("local") && getEList().get(i).getLocalType().equals("local_pro")) {
+                if (getEList().get(i).getType().equals("local") && getEList().get(i).getLocalType().equals("local_pro") && getEList().get(i).getSold()==false) {
            
                     if (getEList().get(i).getPrice() > minPrice && getEList().get(i).getPrice() < maxPrice) {
                  
@@ -381,10 +381,10 @@ public class BuyerPage extends MasterList implements ActionListener {
                 }
             }
            
-        }        else if (typeEstate.equals("local_erso")) {
+        }        else if (typeEstate.equals("local_perso")) {
             for (int i = 0; i < getEList().size(); ++i) {
 
-                if (getEList().get(i).getType().equals("local") && getEList().get(i).getLocalType().equals("local_perso")) {
+                if (getEList().get(i).getType().equals("local") && getEList().get(i).getLocalType().equals("local_perso") && getEList().get(i).getSold()==false) {
                
                     if (getEList().get(i).getPrice() > minPrice && getEList().get(i).getPrice() < maxPrice) {
                
@@ -409,7 +409,7 @@ public class BuyerPage extends MasterList implements ActionListener {
         else if (typeEstate.equals("appartement")) {
             for (int i = 0; i < getEList().size(); ++i) {
 
-                if (getEList().get(i).getType().equals("house") || getEList().get(i).getType().equals("manoir") || getEList().get(i).getType().equals("villa")) {
+                if ( getEList().get(i).getType().equals("appartement") && getEList().get(i).getSold()==false) {
       
                     if (getEList().get(i).getPrice() > minPrice && getEList().get(i).getPrice() < maxPrice) {
                
