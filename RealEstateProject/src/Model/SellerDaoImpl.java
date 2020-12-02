@@ -35,7 +35,7 @@ public class SellerDaoImpl implements SellerDao {
             while(rs.next())
             {
                m_listSeller.add(new Seller(rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),
-                       rs.getString(8),rs.getInt(1),rs.getString(2)));
+                       rs.getString(8),rs.getInt(1),rs.getString(2),rs.getString(9)));
 
             }
             conn.close();
@@ -54,8 +54,31 @@ public class SellerDaoImpl implements SellerDao {
         {
            DataSource a=new DataSource();
            conn=a.createConnection(); 
-            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  seller(seller_id,password,last_name,first_name,date_birth,country,city,street) VALUES('"+seller.getLogin()+"','"+seller.getPassword()+"','"+seller.getNom()+"','"+seller.getPrenom()+"','"+seller.getDate()+"','"+seller.getAdress().getCountry()+"','"+seller.getAdress().getCity()+"','"+seller.getAdress().getStreet()+"')");
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  seller(seller_id,password,last_name,first_name,date_birth,country,city,street,mail) VALUES('"+seller.getLogin()+"','"+seller.getPassword()+"','"+seller.getNom()+"','"+seller.getPrenom()+"','"+seller.getDate()+"','"+seller.getAdress().getCountry()+"','"+seller.getAdress().getCity()+"','"+seller.getAdress().getStreet()+"','"+seller.getMail()+"')");
             stmt.executeUpdate();
+            conn.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(""+e.getMessage());
+        }
+    }
+    
+    public void deleteSeller(Seller seller)
+    {
+        Connection conn=null;
+        try
+        {
+
+           DataSource a=new DataSource();
+           conn=a.createConnection(); 
+
+            PreparedStatement stmt=conn.prepareStatement("delete from seller where seller_id = ?");
+          // stmt.execute("DELETE FROM EMPLOYEE WHERE ID >= 1");
+           // stmt.execute("DELETE FROM BUYER WHERE buyer_id = 1001");
+            stmt.setInt(1,seller.getLogin());
+            stmt.executeUpdate();
+            conn.close();
         }
         catch(SQLException e)
         {
