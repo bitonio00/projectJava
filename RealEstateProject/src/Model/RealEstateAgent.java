@@ -21,9 +21,9 @@ public class RealEstateAgent extends Personne {
 
 
 public RealEstateAgent(String date, String nom, String prenom , int login, String password,double commission,String country,
-        String city,String street)
+        String city,String street,String mail)
 {
-    super(nom,prenom,date,login,password,country,city,street);
+    super(nom,prenom,date,login,password,country,city,street,mail);
     
     
 
