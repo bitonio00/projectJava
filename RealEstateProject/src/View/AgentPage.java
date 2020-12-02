@@ -7,6 +7,7 @@ package View;
 
 import Model.BuyerDaoImpl;
 import Model.Estate;
+import Model.EstateDaoImpl;
 import Model.Offer;
 import Model.OfferDaoImpl;
 import Model.SellerDaoImpl;
@@ -32,6 +33,7 @@ public class AgentPage extends MasterList implements ActionListener {
     private static JButton deleteBuyerButon;
     private static JButton deleteSellerButon;
     private static JButton addVisitButton;
+    private static JButton updateEstateButton;
 
     private static JTextField deleteBuyerText;
     private static JTextField deleteSellerText;
@@ -41,6 +43,8 @@ public class AgentPage extends MasterList implements ActionListener {
     private static JComboBox myVisitList;
     
     private static JButton deleteVisitButton;
+    private static JButton updateOfferButton;
+    private static JButton addEstateButton;
     
     private static ArrayList<Estate>myEstate;
     private static ArrayList<Offer>myOffer;
@@ -115,10 +119,16 @@ public class AgentPage extends MasterList implements ActionListener {
         myEstateList.addActionListener(new ActionComboEstate());
         panel.add(myEstateList);
         
+        updateEstateButton=new JButton("update_estate");
+        updateEstateButton.setBounds(100, 900, 100, 50);
+        panel.add(updateEstateButton);
+        updateEstateButton.addActionListener(new ActionUpdateEstate());
+        
         addVisitButton=new JButton("Add_visit");
         addVisitButton.setBounds(260, 900, 100, 50);
-        panel.add(addVisitButton);
         addVisitButton.addActionListener(new ActionAddVisit());
+        panel.add(addVisitButton);
+        
         
         String[]myOfferStrings;
         
@@ -138,6 +148,11 @@ public class AgentPage extends MasterList implements ActionListener {
         myOfferList.setBounds(610, 800, 500, 50);
         myOfferList.addActionListener(new ActionComboOffer());
         panel.add(myOfferList);
+        
+        updateOfferButton=new JButton("update_offer");
+        updateOfferButton.setBounds(900, 900, 100, 50);
+        panel.add(updateOfferButton);
+        updateOfferButton.addActionListener(new ActionUpdateOffer());
         
         String[]myVisitStrings;
         
@@ -162,6 +177,11 @@ public class AgentPage extends MasterList implements ActionListener {
         deleteVisitButton.setBounds(1450, 900, 100, 50);
         panel.add(deleteVisitButton);
         deleteVisitButton.addActionListener(new ActionDeleteVisit());
+        
+        addEstateButton=new JButton("add_estate");
+        addEstateButton.setBounds(1450, 500, 100, 50);
+        panel.add(addEstateButton);
+        addEstateButton.addActionListener(new ActionAddEstate());
 
         frame.setVisible(true);
     }
@@ -250,7 +270,7 @@ public class AgentPage extends MasterList implements ActionListener {
         {
            stringOffer= new String[myOffer.size()];
         for (int i = 0; i < myOffer.size(); ++i) {
-            if(myOffer.get(i).getAccepted()==false)
+            if(myOffer.get(i).getAccepted()==true)
             {
                stringOffer[i] =myOffer.get(i).getBuyer().getNom()+" ask " +myOffer.get(i).getFullOffer(); 
             }
@@ -503,9 +523,68 @@ public class AgentPage extends MasterList implements ActionListener {
         public void actionPerformed(ActionEvent ae) {
             frame.setVisible(false);
             frame.dispose();
-            SellerPageAddVisit pageaddvisit=new SellerPageAddVisit();
+            AgentPageAddVisit pageaddvisit=new AgentPageAddVisit();
             pageaddvisit.setIndex(currentEstate);
-            pageaddvisit.loadSellerPageAddVisit();
+            pageaddvisit.loadAgentPageAddVisit();
+            
+        }
+        
+    }
+    
+    public class ActionUpdateOffer implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            frame.setVisible(false);
+            frame.dispose();
+            OfferDaoImpl offerdao=new OfferDaoImpl();
+            offerdao.deleteOffer(getOList().get(currentOffer));
+            removeOffer(getOList().get(currentOffer));
+            AgentPage agentPage=new AgentPage();
+            agentPage.loadAgentPage();
+            
+        }
+        
+    }
+    
+    public class ActionUpdateEstate implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            
+            
+            if(getEList().get(currentEstate).getSold()==true)
+            {
+                frame.setVisible(false);
+                frame.dispose();
+               
+                EstateDaoImpl estatedao=new EstateDaoImpl();
+                estatedao.deleteEstate(getEList().get(currentEstate));
+                removeEstate(getEList().get(currentEstate));
+                AgentPage agentPage=new AgentPage();
+                agentPage.loadAgentPage();
+                
+            }
+        }
+        
+    }
+    
+    public class ActionAddEstate implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            
+            frame.setVisible(false);
+            frame.dispose();
+            AgentPage2 agentPage=new AgentPage2();
+            agentPage.loadAgentPage2();
+            
+            
+            
+                
             
         }
         
