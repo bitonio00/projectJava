@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
+import java.util.ArrayList;
 import javax.swing.*;
 
 /**
@@ -31,6 +32,13 @@ public class BuyerPage2Offer extends MasterList implements ActionListener {
     private static double montant;
     private static int indexEstateConcerned;
     private static JButton returnButton;
+    private ArrayList<Estate>m_listEstateConcerned;
+            
+    public void setListEstate(ArrayList<Estate>listEstateConcerned)
+    {
+        m_listEstateConcerned=new ArrayList<Estate>();
+        m_listEstateConcerned=listEstateConcerned;
+    }
     
     public BuyerPage2Offer()
     {
@@ -106,36 +114,15 @@ public class BuyerPage2Offer extends MasterList implements ActionListener {
         montant=parseDouble(montantS);
         Offer offer;
         OfferDaoImpl offerDaoImpl=new OfferDaoImpl();
+        offer=new Offer(getIdLastOffer(),montant,getBList().get(getIndexUser()),getEList().get(indexEstateConcerned),transactionType);
+        offerDaoImpl.addOffer(offer);
+        addOffer(offer);
         
-        if(getEList().get(indexEstateConcerned).getType().equals("house"))
-        {
-            
-             House houseConcerned = new House(getEList().get(indexEstateConcerned).getId(), getEList().get(indexEstateConcerned).getSize(),getEList().get(indexEstateConcerned).getAdress().getCountry(),getEList().get(indexEstateConcerned).getAdress().getCity(),
-                                             getEList().get(indexEstateConcerned).getAdress().getStreet(), getEList().get(indexEstateConcerned).getPrice(),getEList().get(indexEstateConcerned).getSeller(),getEList().get(indexEstateConcerned).getAgent(),getEList().get(indexEstateConcerned).getHouseType(),getEList().get(indexEstateConcerned).getNOF(),getEList().get(indexEstateConcerned).getMeubled(),
-                                             getEList().get(indexEstateConcerned).getEquiped(),getEList().get(indexEstateConcerned).getGarden(),getEList().get(indexEstateConcerned).getType(),getEList().get(indexEstateConcerned).getNor(),getEList().get(indexEstateConcerned).getNob());
-            offer=new Offer(getIdLastOffer(),montant,getBList().get(getIndexUser()),houseConcerned,transactionType);
-            offerDaoImpl.addOffer(offer);
-            addOffer(offer);
-            
-        }
-        else if(getEList().get(indexEstateConcerned).getType().equals("local"))
-        {
-            Local localConcerned = new Local(getEList().get(indexEstateConcerned).getId(),getEList().get(indexEstateConcerned).getSize(),getEList().get(indexEstateConcerned).getAdress().getCountry(),getEList().get(indexEstateConcerned).getAdress().getCity(),
-                                        getEList().get(indexEstateConcerned).getAdress().getStreet(),getEList().get(indexEstateConcerned).getPrice(),getEList().get(indexEstateConcerned).getSeller(),getEList().get(indexEstateConcerned).getAgent(),getEList().get(indexEstateConcerned).getLocalType(),
-                                         getEList().get(indexEstateConcerned).getEquiped(),getEList().get(indexEstateConcerned).getMeubled(),getEList().get(indexEstateConcerned).getNOF(),getEList().get(indexEstateConcerned).getType());
-             offer=new Offer(getIdLastOffer(),montant,getBList().get(getIndexUser()),localConcerned,transactionType);
-             offerDaoImpl.addOffer(offer);
-             addOffer(offer);
-        }
-        else if(getEList().get(indexEstateConcerned).getType().equals("appartement"))
-        {
-             Appartement appartConcerned = new Appartement(getEList().get(indexEstateConcerned).getId(),getEList().get(indexEstateConcerned).getSize(),getEList().get(indexEstateConcerned).getAdress().getCountry(),getEList().get(indexEstateConcerned).getAdress().getCity(),
-                                                getEList().get(indexEstateConcerned).getAdress().getStreet(),getEList().get(indexEstateConcerned).getPrice(),getEList().get(indexEstateConcerned).getSeller(),getEList().get(indexEstateConcerned).getAgent(),getEList().get(indexEstateConcerned).getNOF(),getEList().get(indexEstateConcerned).getEquiped(),
-                                                 getEList().get(indexEstateConcerned).getMeubled(),getEList().get(indexEstateConcerned).getvisavis(),getEList().get(indexEstateConcerned).getType(),getEList().get(indexEstateConcerned).getNor(),getEList().get(indexEstateConcerned).getNob());
-             offer=new Offer(getIdLastOffer(),montant,getBList().get(getIndexUser()),appartConcerned,transactionType);
-             offerDaoImpl.addOffer(offer);
-             addOffer(offer);
-        }
+        frame.setVisible(false);
+        frame.dispose();
+         BuyerPage2 buyerpage2=new BuyerPage2();
+         buyerpage2.setListEstate(m_listEstateConcerned);
+         buyerpage2.loadBuyerPage2();
         
         
         
@@ -159,6 +146,7 @@ public class BuyerPage2Offer extends MasterList implements ActionListener {
             frame.setVisible(false);
             frame.dispose();
             BuyerPage2 buyerPage2=new BuyerPage2();
+            buyerPage2.setListEstate(m_listEstateConcerned);
             buyerPage2.loadBuyerPage2();
             
             
