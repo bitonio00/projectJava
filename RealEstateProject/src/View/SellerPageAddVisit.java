@@ -47,35 +47,35 @@ public class SellerPageAddVisit extends MasterList implements ActionListener{
         yearLabel = new JLabel("YEAR:");
         yearLabel.setBounds(10, 10, 100, 50);
         yearText = new JTextField(15);
-        yearText.setBounds(100, 10, 100, 50);
+        yearText.setBounds(150, 10, 100, 50);
         panel.add(yearLabel);
         panel.add(yearText);
         
         monthLabel = new JLabel("MONTH:");
-        monthLabel.setBounds(200, 10, 100, 50);
+        monthLabel.setBounds(250, 10, 100, 50);
         monthText = new JTextField(15);
-        monthText.setBounds(280, 10, 100, 50);
+        monthText.setBounds(340, 10, 100, 50);
         panel.add(monthLabel);
         panel.add(monthText);
         
         dayLabel = new JLabel("DAY:");
-        dayLabel.setBounds(380, 10, 100, 50);
+        dayLabel.setBounds(450, 10, 100, 50);
         dayText = new JTextField(15);
-        dayText.setBounds(460, 10, 100, 50);
+        dayText.setBounds(550, 10, 100, 50);
         panel.add(dayLabel);
         panel.add(dayText);
         
         hoursLabel = new JLabel("HOURS:");
-        hoursLabel.setBounds(480, 10, 100, 50);
+        hoursLabel.setBounds(650, 10, 100, 50);
         hoursText = new JTextField(15);
-        hoursText.setBounds(560, 10, 100, 50);
+        hoursText.setBounds(750, 10, 100, 50);
         panel.add(hoursLabel);
         panel.add(hoursText);
         
         minuteLabel = new JLabel("MINUTES:");
-        minuteLabel.setBounds(490, 10, 100, 50);
+        minuteLabel.setBounds(850, 10, 100, 50);
         minuteText = new JTextField(15);
-        minuteText.setBounds(580, 10, 100, 50);
+        minuteText.setBounds(950, 10, 100, 50);
         panel.add(minuteLabel);
         panel.add(minuteText);
         
