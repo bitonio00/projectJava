@@ -52,7 +52,7 @@ public class OfferDaoImpl implements OfferDao {
                        m_listEstate.get(indicee).getMeubled(),m_listEstate.get(indicee).getvisavis(),m_listEstate.get(indicee).getType(),
                m_listEstate.get(indicee).getNor(),m_listEstate.get(indicee).getNob());
 
-                  m_listOffer.add(new Offer(rs.getInt(1),rs.getDouble(4), m_listBuyer.get(indiceb),a,rs.getString(5)));
+                  m_listOffer.add(new Offer(rs.getInt(1),rs.getDouble(4), m_listBuyer.get(indiceb),a,rs.getString(5),rs.getBoolean(6)));
                }
                if (m_listEstate.get(indicee).getType().equals("house"))
                {//public Offer( int id,double montant,Buyer buyer,House  houseconcerned,   String type)
@@ -64,7 +64,7 @@ public class OfferDaoImpl implements OfferDao {
                        m_listEstate.get(indicee).getType(),m_listEstate.get(indicee).getNor(),m_listEstate.get(indicee).getNob());
 
 
-                  m_listOffer.add(new Offer(rs.getInt(1),rs.getDouble(4), m_listBuyer.get(indiceb),a,rs.getString(5)));
+                  m_listOffer.add(new Offer(rs.getInt(1),rs.getDouble(4), m_listBuyer.get(indiceb),a,rs.getString(5),rs.getBoolean(6)));
                }
                 if (m_listEstate.get(indicee).getType().equals("local"))
                {
@@ -76,7 +76,7 @@ public class OfferDaoImpl implements OfferDao {
 
 /*public Local(int id,int size,String country,String city, String street , double price,Seller seller,
         RealEstateAgent realEstateAgent, String localType,boolean equiped, boolean meubled, int numberOfFloor, String type)*/
-                  m_listOffer.add(new Offer(rs.getInt(1),rs.getDouble(4), m_listBuyer.get(indiceb),a,rs.getString(5)));
+                  m_listOffer.add(new Offer(rs.getInt(1),rs.getDouble(4), m_listBuyer.get(indiceb),a,rs.getString(5),rs.getBoolean(6)));
                }
             }
             conn.close();
@@ -94,8 +94,9 @@ public class OfferDaoImpl implements OfferDao {
         {
            DataSource a=new DataSource();
            conn=a.createConnection(); 
-            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  offer(offer_id,buyer_id,estate_id,offer_amount,type) VALUES('"+offer.getId()+"','"+offer.getBuyer().getLogin()+"','"+offer.getEstate().getId()+"','"+offer.getMontant()+"','"+offer.getType()+"')");
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  offer(offer_id,buyer_id,estate_id,offer_amount,type,accepted) VALUES('"+offer.getId()+"','"+offer.getBuyer().getLogin()+"','"+offer.getEstate().getId()+"','"+offer.getMontant()+"','"+offer.getType()+"','"+0+"')");
             stmt.executeUpdate();
+            conn.close();
  
       }
         catch(SQLException e)
@@ -125,6 +126,21 @@ public class OfferDaoImpl implements OfferDao {
         }
     }
     
+    public void acceptOffer(Offer aThis)
+    {
+        Connection conn = null;
+        try {
+            DataSource a = new DataSource();
+            conn = a.createConnection();
+            PreparedStatement stmt = conn.prepareStatement("update offer set accepted=1 where offer_id=?");
+            stmt.setInt(1, aThis.getId());
+            stmt.executeUpdate();
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("" + e.getMessage());
+        }
+    }
+    
     public int findEstate(int id)
 {
     int v=0;
@@ -149,6 +165,8 @@ public class OfferDaoImpl implements OfferDao {
     }
     return v;
 }
+
+    
 }
 
 
