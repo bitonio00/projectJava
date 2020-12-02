@@ -49,7 +49,7 @@ public class EstateDaoImpl implements EstateDao{
                  int indicee= findEstateAgent(rs.getInt(9));
                     m_listEstate.add(new Local(rs.getInt(1),rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
                  , rs.getDouble(3), m_listSeller.get(indices),m_listRealEstateAgent.get(indicee),
-                    rs.getString(12), rs.getBoolean(15), rs.getBoolean(14),rs.getInt(10),rs.getString(4)));
+                    rs.getString(12), rs.getBoolean(15), rs.getBoolean(14),rs.getInt(10),rs.getString(4),rs.getBoolean(19)));
                 }
 
                 if (rs.getString(4).equals("house") )
@@ -58,7 +58,7 @@ public class EstateDaoImpl implements EstateDao{
                  int indicee= findEstateAgent(rs.getInt(9));
                     m_listEstate.add(new House(rs.getInt(1),rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
                  , rs.getDouble(3), m_listSeller.get(indices),m_listRealEstateAgent.get(indicee),
-                    rs.getString(13),rs.getInt(10), rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(16),rs.getString(4),rs.getInt(17),rs.getInt(18)));
+                    rs.getString(13),rs.getInt(10), rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(16),rs.getString(4),rs.getInt(17),rs.getInt(18),rs.getBoolean(19)));
                 }
 
                 if (rs.getString(4).equals("appartement") )
@@ -67,7 +67,7 @@ public class EstateDaoImpl implements EstateDao{
                  int indicee= findEstateAgent(rs.getInt(9));
                     m_listEstate.add(new Appartement(rs.getInt(1),rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(7)
                  , rs.getDouble(3), m_listSeller.get(indices),m_listRealEstateAgent.get(indicee),rs.getInt(10)
-                    , rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(11),rs.getString(4),rs.getInt(17),rs.getInt(18)));
+                    , rs.getBoolean(14), rs.getBoolean(15),rs.getBoolean(11),rs.getString(4),rs.getInt(17),rs.getInt(18),rs.getBoolean(19)));
                 }
 
 
@@ -91,6 +91,7 @@ public class EstateDaoImpl implements EstateDao{
            conn=a.createConnection();
             PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(estate_id,size,price,type,country,city,adress,seller_id,estatag_id,number_of_floor,visavis,local_type,house_type,meubled,equiped,garden,number_of_room,number_of_bathroom ) VALUES('"+estate.getId()+"','"+estate.getSize()+"','"+estate.getPrice()+"','"+estate.getType()+"','"+estate.getAdress().getCountry()+"','"+estate.getAdress().getCity()+"','"+estate.getAdress().getStreet()+"','"+estate.getSeller().getLogin()+"','"+estate.getAgent().getLogin()+"','"+estate.getNOF()+"','"+estate.getvisavis()+"','"+estate.getLocalType()+"','"+estate.getHouseType()+"','"+estate.getMeubled()+"','"+estate.getEquiped()+"','"+estate.getGarden()+"','"+estate.getNor()+"','"+estate.getNob()+"')");
             stmt.executeUpdate();
+            conn.close();
         }
         catch(SQLException e)
         {
@@ -120,8 +121,70 @@ public class EstateDaoImpl implements EstateDao{
            DataSource a=new DataSource();
            conn=a.createConnection();
            
-            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(estate_id,size,price,type,country,city,street,seller_id,estateag_id,number_of_floor,visavis,local_type,house_type,meubled,equiped,garden,number_of_room,number_of_bathroom ) VALUES('"+estate.getId()+"','"+estate.getSize()+"','"+estate.getPrice()+"','"+estate.getType()+"','"+estate.getAdress().getCountry()+"','"+estate.getAdress().getCity()+"','"+estate.getAdress().getStreet()+"','"+estate.getSeller().getLogin()+"','"+estate.getAgent().getLogin()+"','"+0+"','"+visavis+"','"+s+"','"+s+"','"+meubled+"','"+equiped+"','"+0+"','"+estate.getNor()+"','"+estate.getNob()+"')");
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(estate_id,size,price,type,country,city,street,seller_id,estateag_id,number_of_floor,visavis,local_type,house_type,meubled,equiped,garden,number_of_room,number_of_bathroom,sold ) VALUES('"+estate.getId()+"','"+estate.getSize()+"','"+estate.getPrice()+"','"+estate.getType()+"','"+estate.getAdress().getCountry()+"','"+estate.getAdress().getCity()+"','"+estate.getAdress().getStreet()+"','"+estate.getSeller().getLogin()+"','"+estate.getAgent().getLogin()+"','"+0+"','"+visavis+"','"+s+"','"+s+"','"+meubled+"','"+equiped+"','"+0+"','"+estate.getNor()+"','"+estate.getNob()+"','"+0+"')");
             stmt.executeUpdate();
+            conn.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(""+e.getMessage());
+        }
+
+    }
+    public void addHouse(House estate)
+    {
+        int equiped=0;
+        int meubled=0;
+        int garden=0;
+        
+           boolean b=false;
+           String s=" ";
+           if(estate.getEquiped()==true)
+               equiped=1;
+           if(estate.getGarden()==true)
+               garden=1;
+           if(estate.getMeubled()==true)
+                   meubled=1;
+    
+          Connection conn=null;
+        try
+        {
+           DataSource a=new DataSource();
+           conn=a.createConnection();
+           
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(estate_id,size,price,type,country,city,street,seller_id,estateag_id,number_of_floor,visavis,local_type,house_type,meubled,equiped,garden,number_of_room,number_of_bathroom,sold ) VALUES('"+estate.getId()+"','"+estate.getSize()+"','"+estate.getPrice()+"','"+estate.getType()+"','"+estate.getAdress().getCountry()+"','"+estate.getAdress().getCity()+"','"+estate.getAdress().getStreet()+"','"+estate.getSeller().getLogin()+"','"+estate.getAgent().getLogin()+"','"+0+"','"+0+"','"+s+"','"+estate.getHouseType()+"','"+meubled+"','"+equiped+"','"+garden+"','"+estate.getNor()+"','"+estate.getNob()+"',,'"+0+"')");
+            stmt.executeUpdate();
+            conn.close();
+        }
+        catch(SQLException e)
+        {
+            System.out.println(""+e.getMessage());
+        }
+
+    }
+    public void addLocal(Local estate)
+    {
+        int equiped=0;
+        int meubled=0;
+        
+        
+           boolean b=false;
+           String s=" ";
+           if(estate.getEquiped()==true)
+               equiped=1;
+           
+           if(estate.getMeubled()==true)
+                   meubled=1;
+    
+          Connection conn=null;
+        try
+        {
+           DataSource a=new DataSource();
+           conn=a.createConnection();
+           
+            PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(estate_id,size,price,type,country,city,street,seller_id,estateag_id,number_of_floor,visavis,local_type,house_type,meubled,equiped,garden,number_of_room,number_of_bathroom ,sold) VALUES('"+estate.getId()+"','"+estate.getSize()+"','"+estate.getPrice()+"','"+estate.getType()+"','"+estate.getAdress().getCountry()+"','"+estate.getAdress().getCity()+"','"+estate.getAdress().getStreet()+"','"+estate.getSeller().getLogin()+"','"+estate.getAgent().getLogin()+"','"+0+"','"+0+"','"+estate.getLocalType()+"','"+s+"','"+meubled+"','"+equiped+"','"+0+"','"+estate.getNor()+"','"+estate.getNob()+"','"+0+"')");
+            stmt.executeUpdate();
+            conn.close();
         }
         catch(SQLException e)
         {
@@ -148,6 +211,21 @@ public class EstateDaoImpl implements EstateDao{
         catch(SQLException e)
         {
             System.out.println(""+e.getMessage());
+        }
+    }
+    
+    public void sellEstate(Estate estate)
+    {
+        Connection conn = null;
+        try {
+            DataSource a = new DataSource();
+            conn = a.createConnection();
+            PreparedStatement stmt = conn.prepareStatement("update estate set sold=1 where estate_id=?");
+            stmt.setInt(1, estate.getId());
+            stmt.executeUpdate();
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("" + e.getMessage());
         }
     }
 
