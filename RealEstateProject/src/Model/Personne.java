@@ -18,7 +18,8 @@ public abstract class Personne {
     private int m_login;
      private Adress m_adress;
      private String m_password;
-    public Personne(String nom, String prenom, String date, int login,String password,String country,String city, String street)
+     private String m_mail;
+    public Personne(String nom, String prenom, String date, int login,String password,String country,String city, String street,String mail)
     {
         m_password=password;
         m_login=login;
@@ -26,6 +27,7 @@ public abstract class Personne {
         m_prenom=prenom;
        m_ddn=date;
        m_adress= new Adress(country,city,street);
+       m_mail=mail;
     }
     
    
@@ -46,7 +48,11 @@ public abstract class Personne {
     {
         return m_ddn;
     
-    } 
+    }
+    public String getMail()
+    {
+        return m_mail;
+    }
   
     public int getLogin()
     {
