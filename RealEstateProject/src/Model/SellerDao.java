@@ -14,4 +14,5 @@ import java.util.ArrayList;
 public interface SellerDao {
     ArrayList<Seller>readSeller();
     void addSeller(Seller seller);
+    void deleteSeller(Seller seller);
 }
