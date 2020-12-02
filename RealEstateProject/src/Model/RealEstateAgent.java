@@ -41,4 +41,9 @@ public double getCommission()
 {
   return m_commission ; 
 }
+public void addCommision(int i)
+{
+    m_commission+=i;
+}
+
 }
