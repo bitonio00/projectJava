@@ -66,6 +66,18 @@ public void addREA(RealEstateAgent a)
 {
     m_listRealEstateAgent.add(a);
 }
+public void addEstate(Appartement a)
+{
+    m_listEstate.add(a);
+}
+public void addEstate(House a)
+{
+    m_listEstate.add(a);
+}
+public void addEstate(Local a)
+{
+    m_listEstate.add(a);
+}
 public void addOffer(Offer a)
 {
     m_listOffer.add(a);
@@ -74,6 +86,7 @@ public void addVisit(Visit a)
 {
     m_listVisit.add(a);
 }
+
 public ArrayList<Seller> getSList()
 {
     return m_listSeller;
@@ -164,6 +177,48 @@ public int getIdLastVisit()
     
     return v;
 }
+
+public int getIdLastBuyer()
+{
+    int v=0;
+    if(m_listBuyer==null)
+    {
+        v=1;
+        
+    }
+    else
+    {
+      for(int i=0;i<m_listBuyer.size();++i)
+    {
+        v=m_listBuyer.get(i).getLogin();
+       
+    } 
+      v=v+1;
+    }
+    
+    return v;
+}
+public int getIdLastSeller()
+{
+    int v=0;
+    if(m_listSeller==null)
+    {
+        v=1;
+        
+    }
+    else
+    {
+      for(int i=0;i<m_listSeller.size();++i)
+    {
+        v=m_listSeller.get(i).getLogin();
+       
+    } 
+      v=v+1;
+    }
+    
+    return v;
+}
+
 public void removeVisit(Visit visit)
 {
     m_listVisit.remove(visit);
