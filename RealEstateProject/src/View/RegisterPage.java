@@ -212,18 +212,26 @@ panel.setLayout(null);
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        Boolean error=true;
+        Boolean error=false;
         
          String mail= mailText.getText();
-         if(mail.contains("@")==false && mail.contains(".")==false )
+         if(mail.contains("@")==false && mail.contains(".")==false || mail.equals(" ") )
          {
-             error=false;
+             mailText.setForeground(Color.red);
+             error=true;
          }
+         else
+              mailText.setForeground(Color.black);
+         
          pass=passwordText.getText();
          if(pass.length()>15)
          {
-             error=false;
+             error=true;
+             passwordText.setForeground(Color.red);
          }
+         else
+             passwordText.setForeground(Color.black);
+         
          lname=nameText.getText();
         
          fname=fnameText.getText();
@@ -234,10 +242,9 @@ panel.setLayout(null);
          country=countryText.getText();
          city=cityText.getText();
          street=streetText.getText();
-         System.out.println(person);
-
-
-        if(person.equals("Seller"))
+         if(error==false)
+         {
+            if(person.equals("Seller"))
         {
            Seller s=new Seller(lname,fname,birthDate,country,city,street,getIdLastSeller(),pass,mail);
             addSeller(s);
@@ -262,7 +269,11 @@ panel.setLayout(null);
         frame.dispose();
         TypePage typePage=new TypePage();
         typePage.LoadTypePage();
-        //TypePage a=new TypePage();
+        //TypePage a=new TypePage();  
+         }
+
+
+       
 
     }
 
