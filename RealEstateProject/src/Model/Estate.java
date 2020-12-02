@@ -116,9 +116,15 @@ return m_type;
 }
 
 public String getFullSpec()
-{
+{   String string0="vendu";
     String string1=String.valueOf(m_price);
-    return m_adress.getFullAdress()+" price:"+string1;
+    if(m_sold==false)
+    {
+     return m_adress.getFullAdress()+" price:"+string1;   
+    }
+    else
+        return  m_adress.getFullAdress()+" price:"+string1+" "+string0;
+    
 }
 
 public boolean getSold()
