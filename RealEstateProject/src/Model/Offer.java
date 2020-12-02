@@ -164,8 +164,15 @@ aptconcerned.getAdress().getStreet(),aptconcerned.getPrice(),aptconcerned.getSel
   }
   public String getFullOffer()
   {
+      String string0="accepted";
       String string1=String.valueOf(getMontant());
-      return string1+"$ "+" in "+getType()+" on "+getEstate().getAdress().getFullAdress();
+      if(m_accepted==false)
+      {
+        return string1+"$ "+" in "+getType()+" on "+getEstate().getAdress().getFullAdress();  
+      }
+      else
+          return string1+"$ "+" in "+getType()+" on "+getEstate().getAdress().getFullAdress()+" "+string0;
+      
   }
    
 
