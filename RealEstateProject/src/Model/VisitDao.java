@@ -16,4 +16,5 @@ public interface VisitDao {
     void updateVisit(Visit visit);
     void cancelVisit(Visit visit);
     void deleteVisit(Visit visit);
+    void addVisit(Visit visit);
 }
