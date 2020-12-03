@@ -235,7 +235,7 @@ panel.setLayout(null);
          lname=nameText.getText();
         
          fname=fnameText.getText();
-         yb=parseInt(ybirthText.getText());
+          yb=parseInt(ybirthText.getText());
          mb=parseInt(mbirthText.getText());
          db=parseInt(dbirthText.getText());
         String birthDate=ybirthText.getText()+" "+mbirthText.getText()+" "+dbirthText.getText();

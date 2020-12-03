@@ -118,7 +118,7 @@ JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
              //   System.out.print(m_type);
                 if(m_type.equals("Buyer"))
                 {
-                    System.out.println("ee"+getBList().get(0).getMail());
+                    
                   for(int i=0; i<getBList().size(); ++i)
                {
 
@@ -155,7 +155,7 @@ JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
                 else if(m_type.equals("Seller"))
                 {
                   for(int i=0; i<getSList().size(); ++i)
-               {
+                     {
                 //   System.out.print("ttt");
                       if(getSList().get(i).getMail().equals(login) && getSList().get(i).getPassword().equals(password))
                          {
@@ -165,7 +165,7 @@ JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
                           frame.setVisible(false);
                           frame.dispose();
                          }
-                      //else ()message erreur
+                     
                        }
                 
                 }

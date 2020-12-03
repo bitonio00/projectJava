@@ -273,14 +273,17 @@ public class BuyerPage0 extends MasterList implements ActionListener {
         }
 
         public void findIdOfferConcerned() {
-                
-            for (int i = 0; i < getOList().size(); ++i) {
+            if(getOList().isEmpty()==false)    
+            {
+              for (int i = 0; i < getOList().size(); ++i) {
                 if (getOList().get(i).getId() == myOffer.get(indexOfferConcerned).getId()) {
                     currentIndexOffer = i;
 
                 }
 
+            }  
             }
+            
 
         }
 
