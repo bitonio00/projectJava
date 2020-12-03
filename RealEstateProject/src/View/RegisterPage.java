@@ -224,7 +224,7 @@ panel.setLayout(null);
               mailText.setForeground(Color.black);
          
          pass=passwordText.getText();
-         if(pass.length()>15)
+         if(pass.length()<15)
          {
              error=true;
              passwordText.setForeground(Color.red);
