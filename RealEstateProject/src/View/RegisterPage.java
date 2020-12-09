@@ -123,35 +123,35 @@ panel.setLayout(null);
         panel.add(passwordLabel);
         panel.add(passwordText);
 
-        nameLabel=new JLabel("last_Name:");
+        nameLabel=new JLabel("lastName:");
         nameLabel.setBounds(800,600,100,50);
         nameText= new JTextField(15);
         nameText.setBounds(900,600,200,50);
         panel.add(nameLabel);
         panel.add(nameText);
 
-        fnameLabel=new JLabel("first_Name:");
+        fnameLabel=new JLabel("firstName:");
         fnameLabel.setBounds(1200,600,100,50);
         fnameText= new JTextField(15);
         fnameText.setBounds(1300,600,200,50);
         panel.add(fnameLabel);
         panel.add(fnameText);
 
-        ybirthLabel=new JLabel("birth_year:");
+        ybirthLabel=new JLabel("birthyear:");
         ybirthLabel.setBounds(1600,600,100,50);
         ybirthText= new JTextField(15);
         ybirthText.setBounds(1700,600,200,50);
         panel.add(ybirthLabel);
         panel.add(ybirthText);
 
-        mbirthLabel=new JLabel("birth_month:");
+        mbirthLabel=new JLabel("birthmonth:");
         mbirthLabel.setBounds(10,800,80,25);
         mbirthText= new JTextField(15);
         mbirthText.setBounds(100,800,200,50);
         panel.add(mbirthLabel);
         panel.add(mbirthText);
 
-        dbirthLabel=new JLabel("birth_day:");
+        dbirthLabel=new JLabel("birthday:");
         dbirthLabel.setBounds(400,800,100,50);
         dbirthText= new JTextField(15);
         dbirthText.setBounds(500,800,200,50);
@@ -185,7 +185,7 @@ panel.setLayout(null);
         button1.addActionListener(new RegisterPage());
 
         returnButton=new JButton("return");
-        returnButton.setBounds(350, 10, 80, 25);
+        returnButton.setBounds(650, 900, 100, 50);
         panel.add(returnButton);
         returnButton.addActionListener(new ActionReturn());
 
@@ -224,24 +224,91 @@ panel.setLayout(null);
               mailText.setForeground(Color.black);
          
          pass=passwordText.getText();
-         if(pass.length()<15)
+         if(pass.length()>25 || pass.length()<6)
          {
              error=true;
              passwordText.setForeground(Color.red);
          }
          else
              passwordText.setForeground(Color.black);
-         
-         lname=nameText.getText();
-        
          fname=fnameText.getText();
+         
+         if(fname.contains("0")==true || fname.contains("1")==true || fname.contains("2")==true || fname.contains("3")==true ||
+                 fname.contains("4")==true || fname.contains("5")==true || fname.contains("6")==true || fname.contains("7")==true ||
+                 fname.contains("8")==true ||fname.contains("9")==true ||fname.equals("") || fname.length()>25)
+         {
+         error=true;
+       fnameText.setForeground(Color.red);
+         }
+         else
+             fnameText.setForeground(Color.black);
+        
+         lname=nameText.getText();
+          if(lname.contains("0")==true || lname.contains("1")==true || lname.contains("2")==true || lname.contains("3")==true ||
+                 lname.contains("4")==true || lname.contains("5")==true || lname.contains("6")==true || lname.contains("7")==true ||
+                 lname.contains("8")==true ||lname.contains("9")==true ||lname.equals("")|| lname.length()>25 )
+         {
+         error=true;
+       nameText.setForeground(Color.red);
+         }
+          else
+             nameText.setForeground(Color.black);
           yb=parseInt(ybirthText.getText());
+          
+          if(yb<1900 || yb>2020  )
+          {
+           error=true;
+            ybirthText.setForeground(Color.red);
+            }
+          else
+            ybirthText.setForeground(Color.black);
+          
          mb=parseInt(mbirthText.getText());
+         
+         if(mb<1 || mb>12)
+         {
+          error=true;
+         mbirthText.setForeground(Color.red);
+         }
+         else
+             mbirthText.setForeground(Color.black);
          db=parseInt(dbirthText.getText());
+         if(db<1 || db>31)
+         {
+             error=true;
+            dbirthText.setForeground(Color.red);
+         }
+         else
+             dbirthText.setForeground(Color.black);
         String birthDate=ybirthText.getText()+" "+mbirthText.getText()+" "+dbirthText.getText();
-         country=countryText.getText();
+         
+        country=countryText.getText();
+         if(country.contains("0")==true || country.contains("1")==true || country.contains("2")==true || country.contains("3")==true ||
+                 country.contains("4")==true || country.contains("5")==true || country.contains("6")==true || country.contains("7")==true ||
+                 country.contains("8")==true ||country.contains("9")==true ||country.equals("") || country.length()>25)
+         {
+          error=true;
+            countryText.setForeground(Color.red);
+         }else
+             countryText.setForeground(Color.black);
          city=cityText.getText();
+         if(city.contains("0")==true || city.contains("1")==true || city.contains("2")==true || city.contains("3")==true ||
+                 city.contains("4")==true || city.contains("5")==true || city.contains("6")==true || city.contains("7")==true ||
+                 city.contains("8")==true ||city.contains("9")==true ||city.equals("") || city.length()>25)
+         {
+          error=true;
+            cityText.setForeground(Color.red);
+         }else
+             cityText.setForeground(Color.black);
          street=streetText.getText();
+         
+         if( street.equals("") || street.length()>25)
+         {
+          error=true;
+            streetText.setForeground(Color.red);
+           //streetLabel.setBackground(Color.red);
+         }else
+             streetText.setForeground(Color.black);
          if(error==false)
          {
             if(person.equals("Seller"))
