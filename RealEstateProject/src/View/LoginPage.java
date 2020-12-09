@@ -76,7 +76,7 @@ JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
         frame.setResizable(true);
         frame.add(panel);
 
-        fondL= new JLabel("Log in");
+        fondL= new JLabel("Login");
         fondL.setBounds(900, 350, 1000, 200);
         fondL.setForeground(Color.blue);
         
