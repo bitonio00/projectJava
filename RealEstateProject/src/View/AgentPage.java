@@ -13,6 +13,7 @@ import Model.OfferDaoImpl;
 import Model.SellerDaoImpl;
 import Model.Visit;
 import Model.VisitDaoImpl;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class AgentPage extends MasterList implements ActionListener {
     private static JButton addVisitButton;
     private static JButton updateEstateButton;
 
+        
     private static JTextField deleteBuyerText;
     private static JTextField deleteSellerText;
     
@@ -45,6 +47,7 @@ public class AgentPage extends MasterList implements ActionListener {
     private static JButton deleteVisitButton;
     private static JButton updateOfferButton;
     private static JButton addEstateButton;
+    private static JButton returnButton;
     
     private static ArrayList<Estate>myEstate;
     private static ArrayList<Offer>myOffer;
@@ -74,7 +77,7 @@ public class AgentPage extends MasterList implements ActionListener {
         frame.setResizable(true);
         frame.add(panel);
 
-        deleteBuyerLabel = new JLabel("mail_Buyer:");
+        deleteBuyerLabel = new JLabel("mail of the Buyer:");
         deleteBuyerLabel.setBounds(10, 500, 50, 50);
         panel.add(deleteBuyerLabel);
 
@@ -82,12 +85,12 @@ public class AgentPage extends MasterList implements ActionListener {
         deleteBuyerText.setBounds(100, 500, 100, 50);
         panel.add(deleteBuyerText);
 
-        deleteBuyerButon = new JButton("Delete Buyer");
+        deleteBuyerButon = new JButton("Delete a Buyer");
         deleteBuyerButon.setBounds(200, 500, 100, 50);
         deleteBuyerButon.addActionListener(new ActionDeleteBuyer());
         panel.add(deleteBuyerButon);
 
-        deleteSellerLabel = new JLabel("mail_Seller:");
+        deleteSellerLabel = new JLabel("mail of Seller:");
         deleteSellerLabel.setBounds(300, 500, 50, 50);
         panel.add(deleteSellerLabel);
 
@@ -95,7 +98,7 @@ public class AgentPage extends MasterList implements ActionListener {
         deleteSellerText.setBounds(450, 500, 100, 50);
         panel.add(deleteSellerText);
 
-        deleteSellerButon = new JButton("Delete Seller");
+        deleteSellerButon = new JButton("Delete a Seller");
         deleteSellerButon.setBounds(550, 500, 100, 50);
         deleteSellerButon.addActionListener(new ActionDeleteSeller());
         panel.add(deleteSellerButon);
@@ -119,12 +122,12 @@ public class AgentPage extends MasterList implements ActionListener {
         myEstateList.addActionListener(new ActionComboEstate());
         panel.add(myEstateList);
         
-        updateEstateButton=new JButton("update_estate");
+        updateEstateButton=new JButton("update an estate");
         updateEstateButton.setBounds(100, 900, 100, 50);
         panel.add(updateEstateButton);
         updateEstateButton.addActionListener(new ActionUpdateEstate());
         
-        addVisitButton=new JButton("Add_visit");
+        addVisitButton=new JButton("Add a visit");
         addVisitButton.setBounds(260, 900, 100, 50);
         addVisitButton.addActionListener(new ActionAddVisit());
         panel.add(addVisitButton);
@@ -149,7 +152,7 @@ public class AgentPage extends MasterList implements ActionListener {
         myOfferList.addActionListener(new ActionComboOffer());
         panel.add(myOfferList);
         
-        updateOfferButton=new JButton("update_offer");
+        updateOfferButton=new JButton("update an offer");
         updateOfferButton.setBounds(900, 900, 100, 50);
         panel.add(updateOfferButton);
         updateOfferButton.addActionListener(new ActionUpdateOffer());
@@ -173,16 +176,21 @@ public class AgentPage extends MasterList implements ActionListener {
         myVisitList.addActionListener(new ActionComboVisit());
         panel.add(myVisitList);
         
-        deleteVisitButton=new JButton("delete_visit");
+        deleteVisitButton=new JButton("delete a visit");
         deleteVisitButton.setBounds(1450, 900, 100, 50);
         panel.add(deleteVisitButton);
         deleteVisitButton.addActionListener(new ActionDeleteVisit());
         
-        addEstateButton=new JButton("add_estate");
+        addEstateButton=new JButton("add an estate");
         addEstateButton.setBounds(1450, 500, 100, 50);
         panel.add(addEstateButton);
         addEstateButton.addActionListener(new ActionAddEstate());
 
+        returnButton=new JButton("return");
+        returnButton.setBounds(650, 950, 200, 50);
+        panel.add(returnButton);
+        returnButton.addActionListener(new AgentPage.ActionReturn());
+        
         frame.setVisible(true);
     }
     public void findMyEstate()
@@ -296,8 +304,31 @@ public class AgentPage extends MasterList implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
-
+            boolean error=false;
             String mailBuyer = deleteBuyerText.getText();
+            if(mailBuyer.contains("@")==false && mailBuyer.contains(".")==false || mailBuyer.equals(" ") )
+         {
+             deleteBuyerText.setForeground(Color.red);
+             error=true;
+         }
+         else
+              deleteBuyerText.setForeground(Color.black);
+            
+         int s=0;
+        for(int i=0; i<getBList().size(); ++i)
+        {
+        if (getBList().get(i).getMail().equals(mailBuyer))
+        {
+         s+=s;
+         }
+         }
+    if(s==0)
+    {  deleteBuyerText.setForeground(Color.red);
+    error=true;
+    }
+            else 
+              deleteBuyerText.setForeground(Color.black);
+            
 
             for (int i = 0; i < getBList().size(); ++i) {
 
@@ -384,9 +415,30 @@ public class AgentPage extends MasterList implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
-
+            boolean error=false;
             String mailSeller = deleteSellerText.getText();
-
+ if(mailSeller.contains("@")==false && mailSeller.contains(".")==false || mailSeller.equals(" ")  )
+         {
+             deleteSellerText.setForeground(Color.red);
+             error=true;
+         }
+ else 
+              deleteSellerText.setForeground(Color.black);
+  int s=0;
+ for(int i=0; i<getSList().size(); ++i)
+ {
+  if (getSList().get(i).getMail().equals(mailSeller))
+  {
+      s+=s;
+  }
+ }
+ if(s==0)
+ {deleteSellerText.setForeground(Color.red);
+ error=true;
+ }
+ else 
+              deleteSellerText.setForeground(Color.black);
+            
             for (int i = 0; i < getSList().size(); ++i) {
 
                 if (getSList().get(i).getMail().equals(mailSeller)) {
@@ -589,6 +641,21 @@ public class AgentPage extends MasterList implements ActionListener {
         }
         
     }
+    
+     public class ActionReturn implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            frame.setVisible(false);
+            frame.dispose();
+            LoginPage sellerpage=new LoginPage ();
+         sellerpage.LoadLoginPage();
+
+        }
+
+    }
+
 
 
 
