@@ -7,6 +7,8 @@ package View;
 
 
 import Model.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class BuyerPage2Visit extends MasterList implements ActionListener {
     private static int indexVisitConcerned;
     private static int indexVisit;
     private static JButton returnButton;
+    private static JLabel textLabel;
     private ArrayList<Estate>m_listEstateConcerned;
             
     public void setListEstate(ArrayList<Estate>listEstateConcerned)
@@ -52,24 +55,45 @@ public class BuyerPage2Visit extends MasterList implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel.setLayout(null);
         frame.add(panel);
+         JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
+        background1.setBounds(0, 0, 80, 80);
+
+
+        frame.add(background1);
+        frame.pack();
+        frame.setResizable(true);
+        frame.add(panel);
+        
+         JLabel fondL= new JLabel("CasaDelSol");
+        fondL.setBounds(820, 450, 1000, 200);
+        fondL.setForeground(Color.blue);
+
+        fondL.setFont(new Font("Verdera", Font.PLAIN,45));
+
+        panel.add(fondL);
+
+        textLabel=new JLabel("Connect As");
+        textLabel.setBounds(850,600,200,200);
+        textLabel.setForeground(Color.blue);
+        textLabel.setFont(new Font("Verdera", Font.PLAIN,35));
         
         String[] visitStrings = new String[listVisitConcerned.size()];
         visitStrings=createStringVisit();
         visitList = new JComboBox(visitStrings);
         visitList.setSelectedIndex(0);
-        visitList.setBounds(10, 20, 80, 25);
-        visitList.setSize(500, 30);
+        visitList.setBounds(500, 600, 500, 25);
+        //visitList.setSize(500, 30);
         visitList.addActionListener(new ActionComboVisit());
         panel.add(visitList);
         
-        button1=new JButton("Book_Visit");
-        button1.setBounds(300,520,80,25);
-        button1.setSize(200, 50);
+        button1=new JButton("Book a Visit");
+        button1.setBounds(1100,600,100,50);
+       // button1.setSize(200, 50);
         panel.add(button1);
         button1.addActionListener(new BuyerPage2Visit());
         
         returnButton=new JButton("return");
-        returnButton.setBounds(800, 10, 80, 25);
+        returnButton.setBounds(400, 900, 100, 50);
         panel.add(returnButton);
         returnButton.addActionListener(new ActionReturn());
         
@@ -113,9 +137,9 @@ public class BuyerPage2Visit extends MasterList implements ActionListener {
         a.updateVisit( getVList().get(indexVisit));
         frame.setVisible(false);
         frame.dispose();
-         BuyerPage2 buyerpage2=new BuyerPage2();
-         buyerpage2.setListEstate(m_listEstateConcerned);
-         buyerpage2.loadBuyerPage2();
+        BuyerPage0 buyerpage= new BuyerPage0();
+        buyerpage.loadBuyerPage0();
+         
     }
     
     public class ActionComboVisit implements  ActionListener
@@ -174,9 +198,9 @@ public class BuyerPage2Visit extends MasterList implements ActionListener {
         public void actionPerformed(ActionEvent ae) {
             frame.setVisible(false);
             frame.dispose();
-            BuyerPage2 buyerPage2=new BuyerPage2();
-            buyerPage2.loadBuyerPage2();
-            
+            BuyerPage buyerpage= new BuyerPage();
+           buyerpage.loadBuyerPage();
+                        
         }
         
     }
