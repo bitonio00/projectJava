@@ -8,12 +8,16 @@ package Controller;
 import View.BuyerPage;
 import View.SellerPage;
 import View.SellerPage2;
+import View.SellerPageAddVisit;
 import View.BuyerPage0;
 import View.RegisterPage;
 import View.MasterList;
 import View.TypePage;
 import View.LoginPage;
 import View.BuyerPage2;
+import View.AgentPage;
+import View.AgentPage2;
+import View.AgentPageAddVisit;
 import View.BuyerPage2Offer;
 import View.BuyerPage2Visit;
 import java.io.IOException;
@@ -34,7 +38,9 @@ public class Main {
         //a.display();
         MasterList m=new MasterList();
         m.setList(a.getB(),a.getS(),a.getR(),a.getE(),a.getO(),a.getV());
-        m.loadGui();
+       m.loadGui();
+       // SellerPage2 h= new  SellerPage2();
+       // h.loadSellerPage2();
        //BuyerPage w = new BuyerPage();
         //w.loadBuyerPage();
      //TypePage h= new TypePage();
@@ -48,6 +54,28 @@ public class Main {
         //c.loadBuyerPage();
        //BuyerPage c=new BuyerPage();
        //c.loadBuyerPage();
+      // AgentPage b= new AgentPage();
+       //b.loadAgentPage();
+//AgentPage2 c= new AgentPage2();
+//c.loadAgentPage2();
+//AgentPageAddVisit d= new AgentPageAddVisit();
+//d.loadAgentPageAddVisit();
+//SellerPage e = new SellerPage();
+//e.loadSellerPage();
+//SellerPage2 f= new SellerPage2();
+// nf.loadSellerPage2();
+//SellerPageAddVisit g= new SellerPageAddVisit();
+//g.loadSellerPageAddVisit();
+BuyerPage q =new BuyerPage();
+//q.loadBuyerPage();
+BuyerPage0 s= new BuyerPage0();
+//s.loadBuyerPage0();
+BuyerPage2 w= new BuyerPage2();
+//w.loadBuyerPage2();
+BuyerPage2Offer n= new BuyerPage2Offer();
+//n.loadBuyerPage2Offer();
+BuyerPage2Visit k = new BuyerPage2Visit();
+//k.loadBuyerPage2Visit();
 
 
     }
