@@ -120,10 +120,9 @@ public class BuyerPage2Offer extends MasterList implements ActionListener {
         
         frame.setVisible(false);
         frame.dispose();
-         BuyerPage2 buyerpage2=new BuyerPage2();
-         buyerpage2.setListEstate(m_listEstateConcerned);
-         buyerpage2.loadBuyerPage2();
-        
+          BuyerPage0 buyerpage= new BuyerPage0();
+        buyerpage.loadBuyerPage0();
+         
         
         
         
@@ -145,9 +144,8 @@ public class BuyerPage2Offer extends MasterList implements ActionListener {
         public void actionPerformed(ActionEvent ae) {
             frame.setVisible(false);
             frame.dispose();
-            BuyerPage2 buyerPage2=new BuyerPage2();
-            buyerPage2.setListEstate(m_listEstateConcerned);
-            buyerPage2.loadBuyerPage2();
+           BuyerPage buyerpage= new BuyerPage();
+           buyerpage.loadBuyerPage();
             
             
         }
