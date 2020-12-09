@@ -27,6 +27,7 @@ public class SellerPage extends MasterList implements ActionListener{
     private static JButton deleteVisitButton;
     private static JButton deleteOfferButton;
     private static JButton acceptOfferButton;
+       private static JButton returnButton;
             
     private static ArrayList<Estate>myEstates;
     private static ArrayList<Offer>myOffer;
@@ -77,7 +78,7 @@ public class SellerPage extends MasterList implements ActionListener{
         myEstateList.addActionListener(new ActionComboEstate());
         panel.add(myEstateList);
         
-        addVisitButton=new JButton("Add_visit");
+        addVisitButton=new JButton("Add a visit");
         addVisitButton.setBounds(300, 600, 100, 50);
         panel.add(addVisitButton);
         addVisitButton.addActionListener(new ActionAddVisit());
@@ -101,12 +102,12 @@ public class SellerPage extends MasterList implements ActionListener{
         myOfferList.addActionListener(new ActionComboOffer());
         panel.add(myOfferList);
         
-        deleteOfferButton=new JButton("delete_offer");
+        deleteOfferButton=new JButton("delete an offer");
         deleteOfferButton.setBounds(850, 600, 100, 50);
         panel.add(deleteOfferButton);
         deleteOfferButton.addActionListener(new ActionDeleteOffer());
         
-        acceptOfferButton=new JButton("accept_offer");
+        acceptOfferButton=new JButton("accept an offer");
         acceptOfferButton.setBounds(650, 600, 100, 50);
         panel.add(acceptOfferButton);
         acceptOfferButton.addActionListener(new ActionAcceptOffer());
@@ -138,12 +139,12 @@ public class SellerPage extends MasterList implements ActionListener{
         myVisitList.addActionListener(new ActionComboVisit());
         panel.add(myVisitList);
         
-        deleteVisitButton=new JButton("delete_visit");
+        deleteVisitButton=new JButton("delete a visit");
         deleteVisitButton.setBounds(1600, 600, 100, 50);
         panel.add(deleteVisitButton);
         deleteVisitButton.addActionListener(new ActionDeleteVisit());
         
-        button1=new JButton("Introduce_new_Estate");
+        button1=new JButton("Introduce a new Estate");
         button1.setBounds(700,720,100,50);
         button1.setSize(200, 50);
         panel.add(button1);
@@ -158,13 +159,19 @@ public class SellerPage extends MasterList implements ActionListener{
         frame.setResizable(true);
         frame.add(panel);
 
-        JLabel fondL= new JLabel("Sell your estate");
+        JLabel fondL= new JLabel("avec benoit");
         fondL.setBounds(900, 350, 1000, 200);
         fondL.setForeground(Color.blue);
 
         fondL.setFont(new Font("Verdera", Font.PLAIN,30));
 
         panel.add(fondL);
+        
+        
+        returnButton=new JButton("return");
+        returnButton.setBounds(650, 950, 200, 50);
+        panel.add(returnButton);
+        returnButton.addActionListener(new SellerPage.ActionReturn());
         
         frame.setVisible(true);
         
@@ -489,5 +496,17 @@ public class SellerPage extends MasterList implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+     public class ActionReturn implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            frame.setVisible(false);
+            frame.dispose();
+            LoginPage sellerpage=new LoginPage ();
+         sellerpage.LoadLoginPage();
+
+        }
+
+    }
 }
