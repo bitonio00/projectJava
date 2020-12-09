@@ -65,8 +65,8 @@ public class BuyerPage0 extends MasterList implements ActionListener {
 
         panel.add(fondL);
         
-        offerLabel = new JLabel("Vos_Offres:");
-        offerLabel.setBounds(10, 475, 125, 25);
+        offerLabel = new JLabel("Your offer :");
+        offerLabel.setBounds(10, 500, 200, 50);
         panel.add(offerLabel);
         String [] myOfferStrings;
         if(myOffer.isEmpty()==false)
@@ -81,13 +81,13 @@ public class BuyerPage0 extends MasterList implements ActionListener {
         myOfferStrings = createStringmyOffer();
         myOfferList = new JComboBox(myOfferStrings);
         myOfferList.setSelectedIndex(0);
-        myOfferList.setBounds(40, 500, 600, 50);
+        myOfferList.setBounds(150, 500, 600, 50);
         //myOfferList.setSize(550, 30);
         myOfferList.addActionListener(new ActionComboOffer());
         panel.add(myOfferList);
         
-        button1 = new JButton("Cancel_Offer");
-        button1.setBounds(700, 500, 200, 50);
+        button1 = new JButton("Cancel an Offer");
+        button1.setBounds(800, 500, 200, 50);
         panel.add(button1);
         button1.addActionListener(new ActionOfferCancel());
         
@@ -104,16 +104,16 @@ public class BuyerPage0 extends MasterList implements ActionListener {
         myOfferAcceptedStrings = createStringmyOfferAccepted();
         myOfferAcceptedList = new JComboBox(myOfferAcceptedStrings);
         myOfferAcceptedList.setSelectedIndex(0);
-        myOfferAcceptedList.setBounds(1250, 500, 600, 50);
+        myOfferAcceptedList.setBounds(250, 800, 600, 50);
         //myOfferList.setSize(550, 30);
         panel.add(myOfferAcceptedList);
         
-        acceptedOfferLabel = new JLabel("Vos_Offre_Accepte:");
-        acceptedOfferLabel.setBounds(900, 500, 125, 25);
+        acceptedOfferLabel = new JLabel("Accepted offer(s):");
+        acceptedOfferLabel.setBounds(10, 800, 600, 50);
         panel.add(acceptedOfferLabel);
         
-        visitLabel = new JLabel("Vos_Visit:");
-        visitLabel.setBounds(500, 600, 125, 25);
+        visitLabel = new JLabel("visit(s) planned :");
+        visitLabel.setBounds(10, 700, 200, 50);
         panel.add(visitLabel);
         String[] myVisitStrings;
         if(myVisit.isEmpty()==false)
@@ -127,17 +127,17 @@ public class BuyerPage0 extends MasterList implements ActionListener {
         myVisitStrings = createMyVisitString();
         myVisitList = new JComboBox(myVisitStrings);
         myVisitList.setSelectedIndex(0);
-        myVisitList.setBounds(650, 600, 100, 50);
+        myVisitList.setBounds(150, 700, 600, 50);
         //myVisitList.setSize(550, 30);
         myVisitList.addActionListener(new ActionComboVisit());
         panel.add(myVisitList);
 
-        button2 = new JButton("Cancel_Visit");
-        button2.setBounds(790, 600, 200, 50);
+        button2 = new JButton("Cancel a Visit");
+        button2.setBounds(800, 700, 200, 50);
         panel.add(button2);
         button2.addActionListener(new ActionVisitCancel());
 
-        button3 = new JButton("Find_Estate");
+        button3 = new JButton("Find an Estate");
         button3.setBounds(700,900, 100, 50);
         panel.add(button3);
         button3.addActionListener(new BuyerPage0());
