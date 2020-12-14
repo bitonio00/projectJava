@@ -30,6 +30,9 @@ public class AgentPage extends MasterList implements ActionListener {
 
     private static JLabel deleteBuyerLabel;
     private static JLabel deleteSellerLabel;
+    private static JLabel offerLabel;
+    private static JLabel myVisitLabel;
+    private static JLabel estateLabel;
 
     private static JButton deleteBuyerButon;
     private static JButton deleteSellerButon;
@@ -78,30 +81,34 @@ public class AgentPage extends MasterList implements ActionListener {
         frame.add(panel);
 
         deleteBuyerLabel = new JLabel("mail of the Buyer:");
-        deleteBuyerLabel.setBounds(10, 500, 50, 50);
+        deleteBuyerLabel.setBounds(10, 500, 100, 50);
         panel.add(deleteBuyerLabel);
 
         deleteBuyerText = new JTextField(30);
-        deleteBuyerText.setBounds(100, 500, 100, 50);
+        deleteBuyerText.setBounds(110, 500, 100, 50);
         panel.add(deleteBuyerText);
 
         deleteBuyerButon = new JButton("Delete a Buyer");
-        deleteBuyerButon.setBounds(200, 500, 100, 50);
+        deleteBuyerButon.setBounds(210, 500, 150, 50);
         deleteBuyerButon.addActionListener(new ActionDeleteBuyer());
         panel.add(deleteBuyerButon);
 
         deleteSellerLabel = new JLabel("mail of Seller:");
-        deleteSellerLabel.setBounds(300, 500, 50, 50);
+        deleteSellerLabel.setBounds(370, 500, 100, 50);
         panel.add(deleteSellerLabel);
 
         deleteSellerText = new JTextField(30);
-        deleteSellerText.setBounds(450, 500, 100, 50);
+        deleteSellerText.setBounds(470, 500, 100, 50);
         panel.add(deleteSellerText);
 
         deleteSellerButon = new JButton("Delete a Seller");
-        deleteSellerButon.setBounds(550, 500, 100, 50);
+        deleteSellerButon.setBounds(570, 500, 150, 50);
         deleteSellerButon.addActionListener(new ActionDeleteSeller());
         panel.add(deleteSellerButon);
+        
+        estateLabel = new JLabel("Estate:");
+        estateLabel.setBounds(10, 750, 100, 50);
+        panel.add(estateLabel);
         
         String[]myEstateStrings;
         
@@ -122,8 +129,8 @@ public class AgentPage extends MasterList implements ActionListener {
         myEstateList.addActionListener(new ActionComboEstate());
         panel.add(myEstateList);
         
-        updateEstateButton=new JButton("update an estate");
-        updateEstateButton.setBounds(100, 900, 100, 50);
+        updateEstateButton=new JButton("Update an estate");
+        updateEstateButton.setBounds(10, 900, 175, 50);
         panel.add(updateEstateButton);
         updateEstateButton.addActionListener(new ActionUpdateEstate());
         
@@ -132,6 +139,9 @@ public class AgentPage extends MasterList implements ActionListener {
         addVisitButton.addActionListener(new ActionAddVisit());
         panel.add(addVisitButton);
         
+        offerLabel = new JLabel("Offer:");
+        offerLabel.setBounds(610, 750, 100, 50);
+        panel.add(offerLabel);
         
         String[]myOfferStrings;
         
@@ -152,10 +162,14 @@ public class AgentPage extends MasterList implements ActionListener {
         myOfferList.addActionListener(new ActionComboOffer());
         panel.add(myOfferList);
         
-        updateOfferButton=new JButton("update an offer");
-        updateOfferButton.setBounds(900, 900, 100, 50);
+        updateOfferButton=new JButton("Update an offer");
+        updateOfferButton.setBounds(850, 900, 175, 50);
         panel.add(updateOfferButton);
         updateOfferButton.addActionListener(new ActionUpdateOffer());
+        
+        myVisitLabel = new JLabel("Visit:");
+        myVisitLabel.setBounds(1200, 750, 100, 50);
+        panel.add(myVisitLabel);
         
         String[]myVisitStrings;
         
@@ -176,18 +190,18 @@ public class AgentPage extends MasterList implements ActionListener {
         myVisitList.addActionListener(new ActionComboVisit());
         panel.add(myVisitList);
         
-        deleteVisitButton=new JButton("delete a visit");
-        deleteVisitButton.setBounds(1450, 900, 100, 50);
+        deleteVisitButton=new JButton("Delete a visit");
+        deleteVisitButton.setBounds(1450, 900, 178, 50);
         panel.add(deleteVisitButton);
         deleteVisitButton.addActionListener(new ActionDeleteVisit());
         
-        addEstateButton=new JButton("add an estate");
-        addEstateButton.setBounds(1450, 500, 100, 50);
+        addEstateButton=new JButton("Add an estate");
+        addEstateButton.setBounds(750, 500, 175, 50);
         panel.add(addEstateButton);
         addEstateButton.addActionListener(new ActionAddEstate());
 
         returnButton=new JButton("return");
-        returnButton.setBounds(650, 950, 200, 50);
+        returnButton.setBounds(650, 950, 175, 50);
         panel.add(returnButton);
         returnButton.addActionListener(new AgentPage.ActionReturn());
         
