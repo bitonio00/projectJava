@@ -64,14 +64,14 @@ public class BuyerPage2Offer extends MasterList implements ActionListener {
 
         JLabel fondL= new JLabel("Make your offer");
         fondL.setBounds(900, 350, 1000, 200);
-        fondL.setForeground(Color.blue);
+        fondL.setForeground(Color.black);
 
         fondL.setFont(new Font("Verdera", Font.PLAIN,30));
 
         panel.add(fondL);
         
         montantLabel = new JLabel("Montant:");
-        montantLabel.setBounds(900, 500, 100, 50);
+        montantLabel.setBounds(900, 550, 100, 50);
         montantText=new JTextField(15);
         montantText.setBounds(900, 600, 100, 50);
         panel.add(montantLabel);
