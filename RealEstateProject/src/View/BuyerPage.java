@@ -145,23 +145,23 @@ public class BuyerPage extends MasterList implements ActionListener {
         panel.add(maxsizeText);
 
         countryLabel = new JLabel("Country:");
-        countryLabel.setBounds(400, 650, 100, 50);
+        countryLabel.setBounds(450, 650, 100, 50);
         countryText = new JTextField(15);
         countryText.setBounds(500, 650, 100, 50);
         panel.add(countryLabel);
         panel.add(countryText);
 
         cityLabel = new JLabel("City:");
-        cityLabel.setBounds(600, 650, 100, 50);
+        cityLabel.setBounds(620, 650, 100, 50);
         cityText = new JTextField(15);
-        cityText.setBounds(700, 650, 100, 50);
+        cityText.setBounds(670, 650, 100, 50);
         panel.add(cityLabel);
         panel.add(cityText);
 
         streetLabel = new JLabel("Street:");
-        streetLabel.setBounds(800, 650, 100, 50);
+        streetLabel.setBounds(790, 650, 100, 50);
         streetText = new JTextField(15);
-        streetText.setBounds(900, 650, 100, 50);
+        streetText.setBounds(840, 650, 100, 50);
         panel.add(streetLabel);
         panel.add(streetText);
 
