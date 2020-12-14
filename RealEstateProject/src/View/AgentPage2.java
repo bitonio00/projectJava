@@ -106,9 +106,9 @@ public class AgentPage2 extends MasterList implements ActionListener{
         frame.setResizable(true);
         frame.add(panel);
 
-        JLabel fondL= new JLabel("Submit your estate");
+        JLabel fondL= new JLabel("SUBMIT YOUR ESTATE");
         fondL.setBounds(900, 350, 1000, 200);
-        fondL.setForeground(Color.blue);
+        fondL.setForeground(Color.black);
 
         fondL.setFont(new Font("Verdera", Font.PLAIN,30));
 
@@ -159,23 +159,23 @@ public class AgentPage2 extends MasterList implements ActionListener{
 
         jardinCheck = new JCheckBox("Garden");
         jardinCheck.setSelected(false);
-        jardinCheck.setBounds(1380, 750, 100, 50);
+        jardinCheck.setBounds(1340, 750, 100, 50);
         jardinCheck.addItemListener(new CheckBox());
         panel.add(jardinCheck);
 
         visavisCheck = new JCheckBox("VisaVis");
         visavisCheck.setSelected(false);
-        visavisCheck.setBounds(1450, 750, 100, 50);
+        visavisCheck.setBounds(1440, 750, 100, 50);
         visavisCheck.addItemListener(new CheckBox());
         panel.add(visavisCheck);
 
-        equipedCheck = new JCheckBox("equiped");
+        equipedCheck = new JCheckBox("Equiped");
         equipedCheck.setSelected(false);
-        equipedCheck.setBounds(1550, 750, 100, 50);
+        equipedCheck.setBounds(1540, 750, 100, 50);
         equipedCheck.addItemListener(new CheckBox());
         panel.add(equipedCheck);
 
-        meubledCheck = new JCheckBox("meubled");
+        meubledCheck = new JCheckBox("Meubled");
         meubledCheck.setSelected(false);
         meubledCheck.setBounds(1650, 750, 100, 50);
         meubledCheck.addItemListener(new CheckBox());

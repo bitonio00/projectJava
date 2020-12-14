@@ -21,6 +21,8 @@ import javax.swing.*;
 public class SellerPage extends MasterList implements ActionListener{
 
     private static JPanel panel;
+    
+    
     private static JFrame frame;
     private static JButton button1;
     private static JButton addVisitButton;
@@ -40,6 +42,9 @@ public class SellerPage extends MasterList implements ActionListener{
     
     private static JLabel myMoneyLabel;
     private static JLabel myMoneyLabel1;
+    private static JLabel offerLabel;
+    private static JLabel visitLabel;
+    private static JLabel estateLabel;
     
     private static int currentEstate;
     private static int currentOffer;
@@ -59,6 +64,9 @@ public class SellerPage extends MasterList implements ActionListener{
         panel.setLayout(null);
         frame.add(panel);
         
+        estateLabel=new JLabel("Estate:");
+        estateLabel.setBounds(10, 450, 50, 50);
+        panel.add(estateLabel);
         String[]myEstateStrings;
         
         if(myEstates.isEmpty()==false)
@@ -82,6 +90,10 @@ public class SellerPage extends MasterList implements ActionListener{
         addVisitButton.setBounds(300, 600, 100, 50);
         panel.add(addVisitButton);
         addVisitButton.addActionListener(new ActionAddVisit());
+       
+        offerLabel=new JLabel("Offer:");
+        offerLabel.setBounds(650, 450, 50, 50);
+        panel.add(offerLabel);
         
         String[]myOfferStrings;
         
@@ -112,13 +124,9 @@ public class SellerPage extends MasterList implements ActionListener{
         panel.add(acceptOfferButton);
         acceptOfferButton.addActionListener(new ActionAcceptOffer());
         
-        /*myMoneyLabel=new JLabel("you_have_won");
-        myMoneyLabel.setBounds(900, 200, 50, 50);
-        panel.add(myMoneyLabel);
-        
-        myMoneyLabel1=new JLabel("");
-        myMoneyLabel1.setBounds(1100, 200, 50, 50);
-        panel.add(myMoneyLabel1);*/
+        visitLabel=new JLabel("Visit:");
+        visitLabel.setBounds(1325, 450, 50, 50);
+        panel.add(visitLabel);
         
         String[]myVisitStrings;
         
