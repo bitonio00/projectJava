@@ -81,7 +81,7 @@ JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
         fondL.setForeground(Color.black);
         
         errorLabel= new JLabel("");
-        errorLabel.setBounds(900, 700, 200, 50);
+        errorLabel.setBounds(900, 650, 200, 50);
         panel.add(errorLabel);
        
 
@@ -90,12 +90,12 @@ JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
         panel.add(fondL);
         
         button=new JButton("enter");
-        button.setBounds(1000, 700, 100, 50);
+        button.setBounds(1000, 725, 100, 50);
         panel.add(button);
         button.addActionListener(new LoginPage());
 
         returnButton=new JButton("return");
-        returnButton.setBounds(800, 700, 100, 50);
+        returnButton.setBounds(800, 725, 100, 50);
         panel.add(returnButton);
         returnButton.addActionListener(new ActionReturn());
 

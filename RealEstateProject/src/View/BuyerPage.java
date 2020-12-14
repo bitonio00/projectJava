@@ -99,9 +99,9 @@ public class BuyerPage extends MasterList implements ActionListener {
         frame.setResizable(true);
         frame.add(panel);
 
-        JLabel fondL= new JLabel("What are you looking for ?");
+        JLabel fondL= new JLabel("FIND AN ESTATE");
         fondL.setBounds(900, 350, 1000, 200);
-        fondL.setForeground(Color.blue);
+        fondL.setForeground(Color.black);
 
         fondL.setFont(new Font("Verdera", Font.PLAIN,30));
 
