@@ -171,7 +171,7 @@ public class SellerPageAddVisit extends MasterList implements ActionListener{
           minuteText.setForeground(Color.black);
          
         //int year, int month, int day, int hour, int minute, int id, Buyer buyer, House houseconcerned,boolean reserved
-        
+        if(error == false){
         Visit visit=new Visit(year,month,day,hours,minute,getIdLastVisit(),getEList().get(indexEstateConcerned));
         addVisit(visit);
         VisitDaoImpl visitDao=new VisitDaoImpl();
@@ -179,7 +179,7 @@ public class SellerPageAddVisit extends MasterList implements ActionListener{
         frame.setVisible(false);
         frame.dispose();
         SellerPage page=new SellerPage();
-        page.loadSellerPage();
+        page.loadSellerPage();}
     
     }
     
