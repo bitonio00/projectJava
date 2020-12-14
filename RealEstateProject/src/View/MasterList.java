@@ -239,5 +239,15 @@ public void removeEstate(Estate estate)
 {
     m_listEstate.remove(estate);
 }
+public void setSoldEstate(int id)
+{
+for (int i=0;i<m_listEstate.size(); i++)
+{
+if(id== m_listEstate.get(i).getId())
+{
+m_listEstate.get(i).setSold();
+}
+}
+    }
     
 }
