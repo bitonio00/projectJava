@@ -81,18 +81,18 @@ public class BuyerPage2   extends MasterList implements ActionListener {
         frame.setResizable(true);
         frame.add(panel);
         
-         JLabel fondL= new JLabel("CasaDelSol");
-        fondL.setBounds(820, 450, 1000, 200);
-        fondL.setForeground(Color.blue);
+         JLabel fondL= new JLabel(" ESTATE FOUND");
+        fondL.setBounds(820, 380, 1000, 200);
+        fondL.setForeground(Color.black);
 
-        fondL.setFont(new Font("Verdera", Font.PLAIN,45));
+        fondL.setFont(new Font("Verdera", Font.PLAIN,30));
 
         panel.add(fondL);
 
-        textLabel=new JLabel("Connect As");
+        /*textLabel=new JLabel("Connect As");
         textLabel.setBounds(850,400,200,200);
         textLabel.setForeground(Color.blue);
-        textLabel.setFont(new Font("Verdera", Font.PLAIN,35));
+        textLabel.setFont(new Font("Verdera", Font.PLAIN,35));*/
         String[] estateStrings;
         if(m_listEstateConcerned.isEmpty()==false)
         {
@@ -103,7 +103,7 @@ public class BuyerPage2   extends MasterList implements ActionListener {
         estateStrings=createStringEstate();
         estateList = new JComboBox(estateStrings);
         estateList.setSelectedIndex(0);
-        estateList.setBounds(1500, 930, 80, 25);
+        estateList.setBounds(1000, 630, 600, 50);
         //estateList.setSize(500, 30);
         estateList.addActionListener(new ActionComboEstate());
         panel.add(estateList);
@@ -137,35 +137,35 @@ public class BuyerPage2   extends MasterList implements ActionListener {
         panel.add(sizeRepLabel);
         
         nbrFloorLabel = new JLabel("number of Floor:");
-        nbrFloorLabel.setBounds(10, 730, 80, 25);
+        nbrFloorLabel.setBounds(10, 730, 200,25);
         nbrFloorRepLabel=new JLabel("");
-        nbrFloorRepLabel.setBounds(70, 730, 80, 25);
+        nbrFloorRepLabel.setBounds(230, 730, 80, 25);
         panel.add(nbrFloorLabel);
         panel.add(nbrFloorRepLabel);
         
         nbrBedRoomLabel = new JLabel("number of BedRoom:");
-        nbrBedRoomLabel.setBounds(110, 730, 80, 25);
+        nbrBedRoomLabel.setBounds(320, 730, 200, 25);
         nbrBedRoomRepLabel=new JLabel("");
-        nbrBedRoomRepLabel.setBounds(190, 730, 80, 25);
+        nbrBedRoomRepLabel.setBounds(535, 730, 80, 25);
         panel.add(nbrBedRoomLabel);
         panel.add(nbrBedRoomRepLabel);
         
         nbrBathRoomLabel = new JLabel("number of BathRoom:");
-        nbrBathRoomLabel.setBounds(230, 730, 80, 25);
+        nbrBathRoomLabel.setBounds(645, 730, 200, 25);
         nbrBathRoomRepLabel=new JLabel("");
-        nbrBathRoomRepLabel.setBounds(300, 730, 80, 25);
+        nbrBathRoomRepLabel.setBounds(860, 730, 80, 25);
         panel.add(nbrBathRoomLabel);
         panel.add(nbrBathRoomRepLabel);
         
         gardenLabel = new JLabel("Garden:");
-        gardenLabel.setBounds(10, 730, 80, 25);
+        gardenLabel.setBounds(10, 830, 80, 25);
         gardenRepLabel=new JLabel("");
         gardenRepLabel.setBounds(70, 730, 80, 25);
         panel.add(gardenLabel);
         panel.add(gardenRepLabel);
         
         meubledLabel = new JLabel("Meubled:");
-        meubledLabel.setBounds(130, 810, 80, 25);
+        meubledLabel.setBounds(130, 830, 80, 25);
         meubledRepLabel=new JLabel("");
         meubledRepLabel.setBounds(200, 810, 80, 25);
         panel.add(meubledLabel);
@@ -186,13 +186,13 @@ public class BuyerPage2   extends MasterList implements ActionListener {
         panel.add(visavisRepLabel);
         
         button1=new JButton("Make an Offer");
-        button1.setBounds(50,930,80,25);
+        button1.setBounds(150,930,300,50);
         //button1.setSize(200, 50);
         panel.add(button1);
         button1.addActionListener(new BuyerPage2());
         
         button2=new JButton("Book a Visit");
-        button2.setBounds(300,930,80,25);
+        button2.setBounds(500,930,300,50);
         //button2.setSize(200, 50);
         panel.add(button2);
         button2.addActionListener(new BuyerPage2());
