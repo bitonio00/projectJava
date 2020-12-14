@@ -42,10 +42,12 @@ public class TypePage extends MasterList implements ActionListener  {
 
 
         panel=new JPanel();
+        
+       // panel2= new JPanel();
         frame= new JFrame();
         frame.setSize(2000, 2000);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+      //  frame.add(panel2);
         frame.add(panel);
 
 
