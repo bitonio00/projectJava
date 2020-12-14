@@ -104,16 +104,16 @@ public class SellerPage2 extends MasterList implements ActionListener{
         frame.setResizable(true);
         frame.add(panel);
 
-        JLabel fondL= new JLabel("Submit your estate");
+        JLabel fondL= new JLabel("SUBMIT YOUR ESTATE");
         fondL.setBounds(900, 350, 1000, 200);
-        fondL.setForeground(Color.blue);
+        fondL.setForeground(Color.black);
 
         fondL.setFont(new Font("Verdera", Font.PLAIN,30));
 
         panel.add(fondL);
         
         realestateagent = new JLabel("Agent:");
-       realestateagent .setBounds(950, 550, 100, 50);
+       realestateagent .setBounds(975, 550, 100, 50);
        panel.add(realestateagent);
        
         reaList = new JComboBox(reaStrings);
@@ -123,15 +123,15 @@ public class SellerPage2 extends MasterList implements ActionListener{
         reaList.addActionListener(new ActionComboREA());
         panel.add(reaList);
 
-        priceLabel = new JLabel("PRICE:");
+        priceLabel = new JLabel("Price:");
         priceLabel.setBounds(700, 650, 100, 50);
         priceText = new JTextField(15);
         priceText.setBounds(800, 650, 100, 50);
         panel.add(priceLabel);
         panel.add(priceText);
         
-        sizeLabel = new JLabel("SIZE:");
-        sizeLabel.setBounds(900, 650, 100, 50);
+        sizeLabel = new JLabel("Size:");
+        sizeLabel.setBounds(950, 650, 100, 50);
         sizeText = new JTextField(15);
         sizeText.setBounds(1000, 650, 100, 50);
         panel.add(sizeLabel);
@@ -193,8 +193,8 @@ public class SellerPage2 extends MasterList implements ActionListener{
         panel.add(nbrFloorLabel);
         panel.add(nbrFloorList);
 
-        nbrBedRoomLabel = new JLabel("number of BedRoom:");
-        nbrBedRoomLabel.setBounds(850, 850, 100, 50);
+        nbrBedRoomLabel = new JLabel("Number of BedRoom:");
+        nbrBedRoomLabel.setBounds(850, 850, 120, 50);
         String[] nbrBedRoomStrings = {"1", "2", "3", "4", "5", "6", "7", "8"};
         nbrBedRoomList = new JComboBox(nbrBedRoomStrings);
         nbrBedRoomList.setSelectedIndex(0);
@@ -203,8 +203,8 @@ public class SellerPage2 extends MasterList implements ActionListener{
         panel.add(nbrBedRoomLabel);
         panel.add(nbrBedRoomList);
 
-        nbrBathRoomLabel = new JLabel("number of BathRoom:");
-        nbrBathRoomLabel.setBounds(1150, 850, 100, 50);
+        nbrBathRoomLabel = new JLabel("Number of BathRoom:");
+        nbrBathRoomLabel.setBounds(1150, 850, 120, 50);
         String[] nbrBathRoomStrings = {"1", "2", "3", "4", "5", "6", "7", "8"};
         nbrBathRoomList = new JComboBox(nbrBathRoomStrings);
         nbrBathRoomList.setSelectedIndex(0);
