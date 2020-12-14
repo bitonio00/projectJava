@@ -49,14 +49,6 @@ public class TypePage extends MasterList implements ActionListener  {
         frame.add(panel);
 
 
-
-         //ImageIcon icon = new ImageIcon("imtest.jpg");
-         //rame.add(new JLabel(icon));
-        // frame.pack();
-
-
-
-
         panel.setLayout(null);
         JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
         background1.setBounds(0, 0, 80, 80);
@@ -67,9 +59,7 @@ public class TypePage extends MasterList implements ActionListener  {
         frame.setResizable(true);
         frame.add(panel);
 
-        //image =new JLabel("background.png");
-        //image.setBounds(0, 0, 4000, 4000);
-       // panel.add(image);
+        
         JLabel fondL= new JLabel("CASA DEL SOL");
         fondL.setBounds(820, 450, 1000, 200);
         fondL.setForeground(Color.black);
@@ -85,12 +75,6 @@ public class TypePage extends MasterList implements ActionListener  {
 
         panel.add(textLabel);
 
-
-        //BufferedImage img = ImageIO.read(new File("test.png"));
-       // JLabel pic = new JLabel(new ImageIcon(img));
-        //panel.add(pic);
-        //frame.add(panel);
-        //frame.setSize(400, 400);
 
 
 
@@ -156,35 +140,4 @@ public class TypePage extends MasterList implements ActionListener  {
     }
 
 }
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author moule
- */
-
-
-
- /*   ImagePanel()
- {
-  try
-  {
-   JFrame f = new JFrame("Ajouter une image dans JPanel");
-   JPanel panel = new JPanel();
-   panel.setBounds(50, 50, 250, 250);
-   BufferedImage img = ImageIO.read(new File("test.png"));
-   JLabel pic = new JLabel(new ImageIcon(img));
-   panel.add(pic);
-   f.add(panel);
-   f.setSize(400, 400);
-   f.setLayout(null);
-   f.setVisible(true);
-  }
-  catch (IOException e) {}
- }
-
-}*/
