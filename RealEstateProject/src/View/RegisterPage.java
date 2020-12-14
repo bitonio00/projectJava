@@ -99,7 +99,7 @@ panel.setLayout(null);
         frame.setResizable(true);
         frame.add(panel);
 
-        JLabel fondL= new JLabel("Register");
+        JLabel fondL= new JLabel("REGISTER");
         fondL.setBounds(900, 350, 1000, 200);
         fondL.setForeground(Color.black);
 
