@@ -56,9 +56,9 @@ public class SellerPageAddVisit extends MasterList implements ActionListener{
         frame.setResizable(true);
         frame.add(panel);
         
-         JLabel fondL= new JLabel("CasaDelSol");
+         JLabel fondL= new JLabel("ADD A VISIT");
         fondL.setBounds(820, 450, 1000, 200);
-        fondL.setForeground(Color.blue);
+        fondL.setForeground(Color.black);
 
         fondL.setFont(new Font("Verdera", Font.PLAIN,45));
 
