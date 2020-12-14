@@ -77,7 +77,16 @@ public class BuyerPage2Visit extends MasterList implements ActionListener {
         textLabel.setForeground(Color.blue);
         textLabel.setFont(new Font("Verdera", Font.PLAIN,35));
         
-        String[] visitStrings = new String[listVisitConcerned.size()];
+        String[] visitStrings ;
+        if(listVisitConcerned.isEmpty()==false)
+        {
+            visitStrings = new String[listVisitConcerned.size()]; 
+        }
+        else
+        {
+           visitStrings = new String[1];  
+        }   
+
         visitStrings=createStringVisit();
         visitList = new JComboBox(visitStrings);
         visitList.setSelectedIndex(0);
@@ -121,11 +130,16 @@ public class BuyerPage2Visit extends MasterList implements ActionListener {
     }
     public String[]createStringVisit()
     {
-        String[]stringEstate=new String[listVisitConcerned.size()];
-        for(int i=0;i<listVisitConcerned.size();++i)
+        String[]stringEstate;
+        if(listVisitConcerned.isEmpty()== false){
+        stringEstate= new String[listVisitConcerned.size()];
+            for(int i=0;i<listVisitConcerned.size();++i)
         {
             stringEstate[i]=listVisitConcerned.get(i).getEstate().getAdress().getFullAdress()+" date:"+listVisitConcerned.get(i).getYear()+"/"+listVisitConcerned.get(i).getMonth()+"/"+listVisitConcerned.get(i).getDay()+" "+listVisitConcerned.get(i).getHour()+"H"+listVisitConcerned.get(i).getMinute();
-        }
+        }}
+        else 
+                                    { stringEstate= new String[1] ;
+                                    stringEstate[0]="";}
         return stringEstate;
     }
 
