@@ -104,102 +104,102 @@ public class BuyerPage2   extends MasterList implements ActionListener {
         estateStrings=createStringEstate();
         estateList = new JComboBox(estateStrings);
         estateList.setSelectedIndex(0);
-        estateList.setBounds(1000, 630, 600, 50);
+        estateList.setBounds(600, 550, 600, 50);
         //estateList.setSize(500, 30);
         estateList.addActionListener(new ActionComboEstate());
         panel.add(estateList);
         
         typeLabel = new JLabel("EstateType:");
-        typeLabel.setBounds(10, 630, 80, 25);
+        typeLabel.setBounds(600, 630, 80, 25);
         typeRepLabel=new JLabel("");
-        typeRepLabel.setBounds(90, 630, 80, 25);
+        typeRepLabel.setBounds(690, 630, 80, 25);
         panel.add(typeLabel);
         panel.add(typeRepLabel);
         
         typeSpecLabel = new JLabel("EstateSpec:");
-        typeSpecLabel.setBounds(160, 630, 80, 25);
+        typeSpecLabel.setBounds(780, 630, 80, 25);
         typeSpecRepLabel=new JLabel("");
-        typeSpecRepLabel.setBounds(230, 630, 80, 25);
+        typeSpecRepLabel.setBounds(850, 630, 80, 25);
         panel.add(typeSpecLabel);
         panel.add(typeSpecRepLabel);
         
         priceLabel = new JLabel("Price:");
-        priceLabel.setBounds(300, 630, 80, 25);
+        priceLabel.setBounds(940, 630, 80, 25);
         priceRepLabel=new JLabel("");
-        priceRepLabel.setBounds(350, 630, 80, 25);
+        priceRepLabel.setBounds(1030, 630, 80, 25);
         panel.add(priceLabel);
         panel.add(priceRepLabel);
         
         sizeLabel = new JLabel("Size:");
-        sizeLabel.setBounds(440, 630, 80, 25);
+        sizeLabel.setBounds(1120, 630, 80, 25);
         sizeRepLabel=new JLabel("");
-        sizeRepLabel.setBounds(490, 630, 80, 25);
+        sizeRepLabel.setBounds(1200, 630, 80, 25);
         panel.add(sizeLabel);
         panel.add(sizeRepLabel);
         
         nbrFloorLabel = new JLabel("number of Floor:");
-        nbrFloorLabel.setBounds(10, 730, 200,25);
+        nbrFloorLabel.setBounds(600, 730, 200,25);
         nbrFloorRepLabel=new JLabel("");
-        nbrFloorRepLabel.setBounds(230, 730, 80, 25);
+        nbrFloorRepLabel.setBounds(750, 730, 80, 25);
         panel.add(nbrFloorLabel);
         panel.add(nbrFloorRepLabel);
         
         nbrBedRoomLabel = new JLabel("number of BedRoom:");
-        nbrBedRoomLabel.setBounds(320, 730, 200, 25);
+        nbrBedRoomLabel.setBounds(900, 730, 200, 25);
         nbrBedRoomRepLabel=new JLabel("");
-        nbrBedRoomRepLabel.setBounds(535, 730, 80, 25);
+        nbrBedRoomRepLabel.setBounds(1050, 730, 80, 25);
         panel.add(nbrBedRoomLabel);
         panel.add(nbrBedRoomRepLabel);
         
         nbrBathRoomLabel = new JLabel("number of BathRoom:");
-        nbrBathRoomLabel.setBounds(645, 730, 200, 25);
+        nbrBathRoomLabel.setBounds(1200, 730, 200, 25);
         nbrBathRoomRepLabel=new JLabel("");
-        nbrBathRoomRepLabel.setBounds(860, 730, 80, 25);
+        nbrBathRoomRepLabel.setBounds(1350, 730, 80, 25);
         panel.add(nbrBathRoomLabel);
         panel.add(nbrBathRoomRepLabel);
         
         gardenLabel = new JLabel("Garden:");
-        gardenLabel.setBounds(10, 830, 80, 25);
+        gardenLabel.setBounds(610, 830, 80, 25);
         gardenRepLabel=new JLabel("");
-        gardenRepLabel.setBounds(70, 730, 80, 25);
+        gardenRepLabel.setBounds(690, 830, 80, 25);
         panel.add(gardenLabel);
         panel.add(gardenRepLabel);
         
         meubledLabel = new JLabel("Meubled:");
-        meubledLabel.setBounds(130, 830, 80, 25);
+        meubledLabel.setBounds(770, 830, 80, 25);
         meubledRepLabel=new JLabel("");
-        meubledRepLabel.setBounds(200, 810, 80, 25);
+        meubledRepLabel.setBounds(860, 830, 80, 25);
         panel.add(meubledLabel);
         panel.add(meubledRepLabel);
         
         equipedLabel = new JLabel("Equiped:");
-        equipedLabel.setBounds(250, 830, 80, 25);
+        equipedLabel.setBounds(950, 830, 80, 25);
         equipedRepLabel=new JLabel("");
-        equipedRepLabel.setBounds(320, 830, 80, 25);
+        equipedRepLabel.setBounds(1040, 830, 80, 25);
         panel.add(equipedLabel);
         panel.add(equipedRepLabel);
         
         visavisLabel = new JLabel("VisaVis:");
-        visavisLabel.setBounds(370, 830, 80, 25);
+        visavisLabel.setBounds(1130, 830, 80, 25);
         visavisRepLabel=new JLabel("");
-        visavisRepLabel.setBounds(430, 830, 80, 25);
+        visavisRepLabel.setBounds(1220, 830, 80, 25);
         panel.add(visavisLabel);
         panel.add(visavisRepLabel);
         
         button1=new JButton("Make an Offer");
-        button1.setBounds(150,930,300,50);
+        button1.setBounds(550,930,300,50);
         //button1.setSize(200, 50);
         panel.add(button1);
         button1.addActionListener(new BuyerPage2());
         
         button2=new JButton("Book a Visit");
-        button2.setBounds(500,930,300,50);
+        button2.setBounds(900,930,300,50);
         //button2.setSize(200, 50);
         panel.add(button2);
         button2.addActionListener(new BuyerPage2());
         
         returnButton=new JButton("return");
-        returnButton.setBounds(500, 900, 100, 50);
+        returnButton.setBounds(1250, 930, 100, 50);
         panel.add(returnButton);
         returnButton.addActionListener(new ActionReturn());
         
