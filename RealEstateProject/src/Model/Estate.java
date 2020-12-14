@@ -42,7 +42,7 @@ m_seller= new Seller(seller.getNom(),seller.getPrenom(),seller.getDate(),
         seller.getAdress().getCountry(),seller.getAdress().getCity(),seller.getAdress().getStreet(), seller.getLogin(),seller.getPassword(),seller.getMail());
 m_RealEstateAgent=new RealEstateAgent(realEstateAgent.getDate(),
     realEstateAgent.getNom(),realEstateAgent.getPrenom(),realEstateAgent.getLogin(),realEstateAgent.getPassword(),realEstateAgent.getCommission(),realEstateAgent.getAdress().getCountry(),
-realEstateAgent.getAdress().getCity(),realEstateAgent.getAdress().getStreet(),realEstateAgent.getMail());
+realEstateAgent.getAdress().getCity(),realEstateAgent.getAdress().getStreet(),realEstateAgent.getMail());// on copie les 2 objets envoye en parametre
 
 m_adress= new Adress(country,city,street);
 
@@ -50,7 +50,7 @@ m_sold=false;
 }
 
 public Estate(int id,int size,String country,String city, String street , double price,Seller seller, RealEstateAgent realEstateAgent,
-            int numberOfFloor,boolean equiped, boolean meubled,String type,boolean b)
+            int numberOfFloor,boolean equiped, boolean meubled,String type,boolean b) //surcharge du constructeur
 {
     m_meubled=meubled;
     m_equiped=equiped;
