@@ -306,7 +306,7 @@ public class AgentPage extends MasterList implements ActionListener {
         public void actionPerformed(ActionEvent ae) {
             boolean error=false;
             String mailBuyer = deleteBuyerText.getText();
-            if(mailBuyer.contains("@")==false && mailBuyer.contains(".")==false || mailBuyer.equals(" ") )
+            if(mailBuyer.contains("@")==false || mailBuyer.contains(".")==false || mailBuyer.equals(" ") )
          {
              deleteBuyerText.setForeground(Color.red);
              error=true;
@@ -319,7 +319,7 @@ public class AgentPage extends MasterList implements ActionListener {
         {
         if (getBList().get(i).getMail().equals(mailBuyer))
         {
-         s+=s;
+         s=1;
          }
          }
     if(s==0)
@@ -329,7 +329,7 @@ public class AgentPage extends MasterList implements ActionListener {
             else 
               deleteBuyerText.setForeground(Color.black);
             
-
+if(error==false){
             for (int i = 0; i < getBList().size(); ++i) {
 
                 if (getBList().get(i).getMail().equals(mailBuyer)) {
@@ -362,6 +362,11 @@ public class AgentPage extends MasterList implements ActionListener {
 
             }
 
+frame.setVisible(false);
+frame.dispose();
+AgentPage y = new AgentPage();
+      y.loadAgentPage();
+}
         }
     }
     
@@ -417,8 +422,8 @@ public class AgentPage extends MasterList implements ActionListener {
         public void actionPerformed(ActionEvent ae) {
             boolean error=false;
             String mailSeller = deleteSellerText.getText();
- if(mailSeller.contains("@")==false && mailSeller.contains(".")==false || mailSeller.equals(" ")  )
-         {
+ if(mailSeller.contains("@")==false || mailSeller.contains(".")==false || mailSeller.equals(" ")  )
+         { 
              deleteSellerText.setForeground(Color.red);
              error=true;
          }
@@ -429,7 +434,8 @@ public class AgentPage extends MasterList implements ActionListener {
  {
   if (getSList().get(i).getMail().equals(mailSeller))
   {
-      s+=s;
+      s=1;
+    
   }
  }
  if(s==0)
@@ -438,7 +444,7 @@ public class AgentPage extends MasterList implements ActionListener {
  }
  else 
               deleteSellerText.setForeground(Color.black);
-            
+       if (error==false) {   
             for (int i = 0; i < getSList().size(); ++i) {
 
                 if (getSList().get(i).getMail().equals(mailSeller)) {
@@ -469,6 +475,12 @@ public class AgentPage extends MasterList implements ActionListener {
                 }
 
             }
+       frame.setVisible(false);
+       frame.dispose();
+       AgentPage y = new AgentPage();
+      y.loadAgentPage();
+       
+       }
 
         }
 
