@@ -64,12 +64,6 @@ public class SellerPageAddVisit extends MasterList implements ActionListener{
 
         panel.add(fondL);
 
-        textLabel=new JLabel("Connect As");
-        textLabel.setBounds(850,600,200,200);
-        textLabel.setForeground(Color.blue);
-        textLabel.setFont(new Font("Verdera", Font.PLAIN,35));
-
-        panel.add(textLabel);
  
         yearLabel = new JLabel("YEAR:");
         yearLabel.setBounds(10, 700, 100, 50);
@@ -107,7 +101,7 @@ public class SellerPageAddVisit extends MasterList implements ActionListener{
         panel.add(minuteText);
         
         button1 = new JButton("SUBMIT");
-        button1.setBounds(100, 900, 200, 50);
+        button1.setBounds(1110, 700, 200, 50);
         panel.add(button1);
         button1.addActionListener(new SellerPageAddVisit());
         
