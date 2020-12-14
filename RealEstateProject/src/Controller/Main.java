@@ -30,15 +30,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-//        a.interact();
-     //   a.displayOffer();
-     //   a.delateBuyer(1001);
-        //RealEstateAgency b=new RealEstateAgency("pp","nn");
+
         App a=new App();
-        //a.display();
         MasterList m=new MasterList();
         m.setList(a.getB(),a.getS(),a.getR(),a.getE(),a.getO(),a.getV());
-       m.loadGui();
+        m.loadGui();
       
 
 
