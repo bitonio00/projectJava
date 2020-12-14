@@ -70,7 +70,7 @@ public class AgentPageAddVisit extends MasterList implements ActionListener {
 
         textLabel=new JLabel("Add a visit");
         textLabel.setBounds(850,400,200,200);
-        textLabel.setForeground(Color.blue);
+        textLabel.setForeground(Color.black);
         textLabel.setFont(new Font("Verdera", Font.PLAIN,25));
         panel.add(textLabel);
         
