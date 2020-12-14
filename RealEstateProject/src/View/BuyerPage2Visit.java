@@ -64,9 +64,9 @@ public class BuyerPage2Visit extends MasterList implements ActionListener {
         frame.setResizable(true);
         frame.add(panel);
         
-         JLabel fondL= new JLabel("CasaDelSol");
-        fondL.setBounds(820, 450, 1000, 200);
-        fondL.setForeground(Color.blue);
+         JLabel fondL= new JLabel("BOOK A VISIT");
+        fondL.setBounds(820, 400, 1000, 200);
+        fondL.setForeground(Color.black);
 
         fondL.setFont(new Font("Verdera", Font.PLAIN,45));
 
@@ -90,19 +90,19 @@ public class BuyerPage2Visit extends MasterList implements ActionListener {
         visitStrings=createStringVisit();
         visitList = new JComboBox(visitStrings);
         visitList.setSelectedIndex(0);
-        visitList.setBounds(500, 600, 500, 25);
+        visitList.setBounds(500, 560, 500, 55);
         //visitList.setSize(500, 30);
         visitList.addActionListener(new ActionComboVisit());
         panel.add(visitList);
         
         button1=new JButton("Book a Visit");
-        button1.setBounds(1100,600,100,50);
+        button1.setBounds(1100,560,200,50);
        // button1.setSize(200, 50);
         panel.add(button1);
         button1.addActionListener(new BuyerPage2Visit());
         
         returnButton=new JButton("return");
-        returnButton.setBounds(400, 900, 100, 50);
+        returnButton.setBounds(800, 700, 100, 50);
         panel.add(returnButton);
         returnButton.addActionListener(new ActionReturn());
         
