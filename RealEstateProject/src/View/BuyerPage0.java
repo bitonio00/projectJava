@@ -104,12 +104,12 @@ public class BuyerPage0 extends MasterList implements ActionListener {
         myOfferAcceptedStrings = createStringmyOfferAccepted();
         myOfferAcceptedList = new JComboBox(myOfferAcceptedStrings);
         myOfferAcceptedList.setSelectedIndex(0);
-        myOfferAcceptedList.setBounds(150, 800, 600, 50);
+        myOfferAcceptedList.setBounds(150, 700, 600, 50);
         //myOfferList.setSize(550, 30);
         panel.add(myOfferAcceptedList);
         
         acceptedOfferLabel = new JLabel("Accepted offer(s):");
-        acceptedOfferLabel.setBounds(10, 800, 600, 50);
+        acceptedOfferLabel.setBounds(10, 600, 600, 50);
         panel.add(acceptedOfferLabel);
         
         visitLabel = new JLabel("visit(s) planned :");
@@ -127,18 +127,18 @@ public class BuyerPage0 extends MasterList implements ActionListener {
         myVisitStrings = createMyVisitString();
         myVisitList = new JComboBox(myVisitStrings);
         myVisitList.setSelectedIndex(0);
-        myVisitList.setBounds(150, 700, 600, 50);
+        myVisitList.setBounds(150, 600, 600, 50);
         //myVisitList.setSize(550, 30);
         myVisitList.addActionListener(new ActionComboVisit());
         panel.add(myVisitList);
 
         button2 = new JButton("Cancel a Visit");
-        button2.setBounds(800, 700, 200, 50);
+        button2.setBounds(800, 600, 200, 50);
         panel.add(button2);
         button2.addActionListener(new ActionVisitCancel());
 
         button3 = new JButton("Find an Estate");
-        button3.setBounds(700,900, 100, 50);
+        button3.setBounds(700,900, 200, 50);
         panel.add(button3);
         button3.addActionListener(new BuyerPage0());
         
