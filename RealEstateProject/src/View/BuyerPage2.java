@@ -50,6 +50,7 @@ public class BuyerPage2   extends MasterList implements ActionListener {
     private static JComboBox estateList;
     private static int indexEstateConcern;
     private static int indexEstate;
+    private static JButton returnButton;
     
     private static String estateType;
     
@@ -197,6 +198,11 @@ public class BuyerPage2   extends MasterList implements ActionListener {
         panel.add(button2);
         button2.addActionListener(new BuyerPage2());
         
+        returnButton=new JButton("return");
+        returnButton.setBounds(500, 900, 100, 50);
+        panel.add(returnButton);
+        returnButton.addActionListener(new ActionReturn());
+        
         
         
         
@@ -205,6 +211,20 @@ public class BuyerPage2   extends MasterList implements ActionListener {
         
         frame.setVisible(true);
 
+    }
+    
+    public class ActionReturn implements ActionListener
+    {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            frame.setVisible(false);
+            frame.dispose();
+            BuyerPage buyerpage=new BuyerPage();
+            buyerpage.loadBuyerPage();
+            
+        }
+        
     }
     public String [] createStringEstate()
     {
@@ -337,6 +357,8 @@ public class BuyerPage2   extends MasterList implements ActionListener {
             }
             
         }
+        
+        
         
     
 }
