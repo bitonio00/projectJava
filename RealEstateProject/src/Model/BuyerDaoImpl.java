@@ -17,32 +17,32 @@ import java.util.ArrayList;
  *
  * @author benoi
  */
-public class BuyerDaoImpl implements BuyerDao{
+public class BuyerDaoImpl implements BuyerDao{ 
     public  ArrayList<Buyer>readBuyer()
     {
         ArrayList<Buyer>m_listBuyer=new ArrayList<Buyer>();
          Connection conn=null;
-        try
+        try ///try catch exception si le chemin de la bdd n'est pas la bonne
         {
            DataSource a=new DataSource();
-           conn=a.createConnection(); 
-           Statement stmt=conn.createStatement();
+           conn=a.createConnection();   //on cree la connection
+           Statement stmt=conn.createStatement();  
 
            
-            //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String Password)
+            
             ResultSet rs=stmt.executeQuery("select * from buyer ");
 
-            while(rs.next())
+            while(rs.next()) //on lit les attribut de la table 1 par 1
             {
                m_listBuyer.add(new Buyer(rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getInt(1),rs.getString(2),rs.getString(9)));
 
             }
-            conn.close();
+            conn.close(); //fermeture de la connection
             
         }
         catch(SQLException e)
         {
-            System.out.println(""+e.getMessage());
+            System.out.println(""+e.getMessage()); //on print l'erreur
         }
         return m_listBuyer;
     }
@@ -72,11 +72,9 @@ public class BuyerDaoImpl implements BuyerDao{
            DataSource a=new DataSource();
            conn=a.createConnection(); 
 
-            PreparedStatement stmt=conn.prepareStatement("delete from buyer where buyer_id = ?");
-          // stmt.execute("DELETE FROM EMPLOYEE WHERE ID >= 1");
-           // stmt.execute("DELETE FROM BUYER WHERE buyer_id = 1001");
+            PreparedStatement stmt=conn.prepareStatement("delete from buyer where buyer_id = ?"); //on supprime l'instance de la table ou l'id est envoyer en parametre
             stmt.setInt(1,buyer.getLogin());
-            stmt.executeUpdate();
+            stmt.executeUpdate(); 
             conn.close();
         }
         catch(SQLException e)

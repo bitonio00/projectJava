@@ -23,7 +23,7 @@ public Local(int id,int size,String country,String city, String street , double 
 m_localType= localType;
 }
 public Local(int id,int size,String country,String city, String street , double price,Seller seller,
-        RealEstateAgent realEstateAgent, String localType,boolean equiped, boolean meubled, int numberOfFloor, String type,boolean b)
+        RealEstateAgent realEstateAgent, String localType,boolean equiped, boolean meubled, int numberOfFloor, String type,boolean b)//surcharge constructeur
 {
        
            super( id,size,country,city,street,price,seller,realEstateAgent,numberOfFloor,equiped,meubled,type,b);

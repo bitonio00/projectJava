@@ -36,15 +36,14 @@ public class OfferDaoImpl implements OfferDao {
             DataSource m=new DataSource();
             conn=m.createConnection(); 
             Statement stmt=conn.createStatement();
-            //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String Password)
-            ResultSet rs=stmt.executeQuery("select * from offer ");// c pa une faute tu la appelr comme sa sur php
+            ResultSet rs=stmt.executeQuery("select * from offer ");
 
             while(rs.next())
             {
                 int indiceb=findBuyer(rs.getInt(2));
                 int indicee= findEstate(rs.getInt(3));
                if (m_listEstate.get(indicee).getType().equals("appartement"))
-               {//public Offer( int id,double montant,Buyer buyer,House  houseconcerned,   String type)
+               {
                Appartement a= new Appartement(m_listEstate.get(indicee).getId(),m_listEstate.get(indicee).getSize(),
                        m_listEstate.get(indicee).getAdress().getCountry(),m_listEstate.get(indicee).getAdress().getCity(),
                        m_listEstate.get(indicee).getAdress().getStreet(),m_listEstate.get(indicee).getPrice(),m_listEstate.get(indicee).getSeller()
@@ -55,7 +54,7 @@ public class OfferDaoImpl implements OfferDao {
                   m_listOffer.add(new Offer(rs.getInt(1),rs.getDouble(4), m_listBuyer.get(indiceb),a,rs.getString(5),rs.getBoolean(6)));
                }
                if (m_listEstate.get(indicee).getType().equals("house"))
-               {//public Offer( int id,double montant,Buyer buyer,House  houseconcerned,   String type)
+               {
                House a= new House(m_listEstate.get(indicee).getId(),m_listEstate.get(indicee).getSize(),
                        m_listEstate.get(indicee).getAdress().getCountry(),m_listEstate.get(indicee).getAdress().getCity(),
                        m_listEstate.get(indicee).getAdress().getStreet(),m_listEstate.get(indicee).getPrice(),m_listEstate.get(indicee).getSeller()
@@ -74,8 +73,8 @@ public class OfferDaoImpl implements OfferDao {
                ,m_listEstate.get(indicee).getAgent(),m_listEstate.get(indicee).getLocalType(),
                        m_listEstate.get(indicee).getEquiped(),m_listEstate.get(indicee).getMeubled(), m_listEstate.get(indicee).getNOF(),m_listEstate.get(indicee).getType());
 
-/*public Local(int id,int size,String country,String city, String street , double price,Seller seller,
-        RealEstateAgent realEstateAgent, String localType,boolean equiped, boolean meubled, int numberOfFloor, String type)*/
+
+    
                   m_listOffer.add(new Offer(rs.getInt(1),rs.getDouble(4), m_listBuyer.get(indiceb),a,rs.getString(5),rs.getBoolean(6)));
                }
             }
@@ -114,8 +113,6 @@ public class OfferDaoImpl implements OfferDao {
            conn=a.createConnection(); 
 
             PreparedStatement stmt=conn.prepareStatement("delete from offer where offer_id = ?");
-          // stmt.execute("DELETE FROM EMPLOYEE WHERE ID >= 1");
-           // stmt.execute("DELETE FROM BUYER WHERE buyer_id = 1001");
             stmt.setInt(1,offer.getId());
             stmt.executeUpdate();
             conn.close();

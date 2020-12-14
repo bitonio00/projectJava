@@ -26,8 +26,7 @@ public class RealEstateAgentDaoImpl implements RealEstateAgentDao {
             DataSource a=new DataSource();
             conn=a.createConnection(); 
            Statement stmt=conn.createStatement();
-            //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String Password)
-            ResultSet rs=stmt.executeQuery("select * from estate_angent ");// c pa une faute tu la appelr comme sa sur php
+            ResultSet rs=stmt.executeQuery("select * from estate_angent ");
 
             while(rs.next())
             {

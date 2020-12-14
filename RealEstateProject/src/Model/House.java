@@ -32,7 +32,7 @@ public class House extends Estate {
     
     public House(int id,int size,String country,String city, String street ,
             double price,Seller seller, RealEstateAgent realEstateAgent, String houseType,
-            int numberOfFloor, boolean meubled,boolean equiped,boolean garden,String type, int nor, int nob,boolean b)
+            int numberOfFloor, boolean meubled,boolean equiped,boolean garden,String type, int nor, int nob,boolean b)//on surchage le constructeur
     {
     super(id,size,country,city,street,price,seller,realEstateAgent,numberOfFloor,equiped,meubled,type,b);
     m_nor=nor;

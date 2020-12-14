@@ -29,7 +29,6 @@ public class SellerDaoImpl implements SellerDao {
             DataSource a=new DataSource();
             conn=a.createConnection(); 
            Statement stmt=conn.createStatement();
-            //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String Password)
             ResultSet rs=stmt.executeQuery("select * from seller ");
 
             while(rs.next())
@@ -74,8 +73,6 @@ public class SellerDaoImpl implements SellerDao {
            conn=a.createConnection(); 
 
             PreparedStatement stmt=conn.prepareStatement("delete from seller where seller_id = ?");
-          // stmt.execute("DELETE FROM EMPLOYEE WHERE ID >= 1");
-           // stmt.execute("DELETE FROM BUYER WHERE buyer_id = 1001");
             stmt.setInt(1,seller.getLogin());
             stmt.executeUpdate();
             conn.close();

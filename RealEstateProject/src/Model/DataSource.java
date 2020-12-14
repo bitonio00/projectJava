@@ -22,19 +22,19 @@ public class DataSource {
     try
     {
           // db parameters
-        String url="jdbc:mysql://localhost:3306/estate_agency";
-        String user="root";
+        String url="jdbc:mysql://localhost:3306/estate_agency"; //chemin de notre bdd
+        String user="root"; //nom
         String password="";
 
         // create a connection to the database
-        conn = DriverManager.getConnection(url, user, password);
+        conn = DriverManager.getConnection(url, user, password); //on cree la connection avec la bdd
 
     }
     catch( Exception e )
     {
       System.out.println("Error Occured " + e.toString());
     }
-    return conn;
+    return conn; //on return la connection
   }
 }
 

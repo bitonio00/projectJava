@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public interface BuyerDao {
     ArrayList<Buyer>readBuyer();
-    void addBuyer(Buyer a);
+    void addBuyer(Buyer a);  
     void deleteBuyer(Buyer a);
     
     

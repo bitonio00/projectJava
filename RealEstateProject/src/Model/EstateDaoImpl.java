@@ -43,7 +43,7 @@ public class EstateDaoImpl implements EstateDao{
 
             while(rs.next())
             {
-                if (rs.getString(4).equals("local") )
+                if (rs.getString(4).equals("local") )//on differentie le type de l'estate
                 {
                  int indices= findSeller(rs.getInt(8));
                  int indicee= findEstateAgent(rs.getInt(9));
@@ -90,7 +90,7 @@ public class EstateDaoImpl implements EstateDao{
            DataSource a=new DataSource();
            conn=a.createConnection();
             PreparedStatement stmt=conn.prepareStatement("INSERT INTO  estate(estate_id,size,price,type,country,city,adress,seller_id,estatag_id,number_of_floor,visavis,local_type,house_type,meubled,equiped,garden,number_of_room,number_of_bathroom ) VALUES('"+estate.getId()+"','"+estate.getSize()+"','"+estate.getPrice()+"','"+estate.getType()+"','"+estate.getAdress().getCountry()+"','"+estate.getAdress().getCity()+"','"+estate.getAdress().getStreet()+"','"+estate.getSeller().getLogin()+"','"+estate.getAgent().getLogin()+"','"+estate.getNOF()+"','"+estate.getvisavis()+"','"+estate.getLocalType()+"','"+estate.getHouseType()+"','"+estate.getMeubled()+"','"+estate.getEquiped()+"','"+estate.getGarden()+"','"+estate.getNor()+"','"+estate.getNob()+"')");
-            stmt.executeUpdate();
+            stmt.executeUpdate();//on insert dans la bdd le nouveau estate
             conn.close();
         }
         catch(SQLException e)
@@ -201,7 +201,7 @@ public class EstateDaoImpl implements EstateDao{
            DataSource a=new DataSource();
            conn=a.createConnection();
 
-            PreparedStatement stmt=conn.prepareStatement("delete from estate where estate_id = ?");
+            PreparedStatement stmt=conn.prepareStatement("delete from estate where estate_id = ?"); //on delete l'instance avec l'id correspondante
           // stmt.execute("DELETE FROM EMPLOYEE WHERE ID >= 1");
            // stmt.execute("DELETE FROM BUYER WHERE buyer_id = 1001");
             stmt.setInt(1,estate.getId());
@@ -220,7 +220,7 @@ public class EstateDaoImpl implements EstateDao{
         try {
             DataSource a = new DataSource();
             conn = a.createConnection();
-            PreparedStatement stmt = conn.prepareStatement("update estate set sold=1 where estate_id=?");
+            PreparedStatement stmt = conn.prepareStatement("update estate set sold=1 where estate_id=?"); //on change un attribut d'un instance de la table 
             stmt.setInt(1, estate.getId());
             stmt.executeUpdate();
             conn.close();

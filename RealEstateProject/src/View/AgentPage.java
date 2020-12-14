@@ -70,7 +70,7 @@ public class AgentPage extends MasterList implements ActionListener {
         panel = new JPanel();
         frame = new JFrame();
         frame.setSize(4000, 4000);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//fermeture de la frame
         panel.setLayout(null);
         frame.add(panel);
 
@@ -122,7 +122,7 @@ public class AgentPage extends MasterList implements ActionListener {
         
         String[]myEstateStrings;
         
-        if(myEstate.isEmpty()==false)
+        if(myEstate.isEmpty()==false)//si la chaine est vide on remplie le comboBox avec un string vide 
         {
             
             myEstateStrings = new String[myEstate.size()]; 
@@ -217,7 +217,7 @@ public class AgentPage extends MasterList implements ActionListener {
         
         frame.setVisible(true);
     }
-    public void findMyEstate()
+    public void findMyEstate()  //on rempli les estates du buyer
     {
        myEstate=new ArrayList<Estate>();
        
@@ -230,7 +230,7 @@ public class AgentPage extends MasterList implements ActionListener {
         } 
     }
     
-    public void findMyOffer()
+    public void findMyOffer()  
     {
         myOffer=new ArrayList<Offer>();
         

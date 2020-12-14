@@ -36,14 +36,12 @@ public class VisitDaoImpl implements VisitDao {
             DataSource m = new DataSource();
             conn = m.createConnection();
             Statement stmt = conn.createStatement();
-            //String nom, String prenom, int year,int month,int day, String country,String city,String street,int login,String Password)
-            ResultSet rs = stmt.executeQuery("select * from visit ");// c pa une faute tu la appelr comme sa sur php
-//public Visit(Date date,int id, Buyer buyer, RealEstateAgent agent,House houseconcerned )
+            ResultSet rs = stmt.executeQuery("select * from visit ");
             while (rs.next()) {
                 int indiceb = findBuyer(rs.getInt(2));
                 int indicee = findEstate(rs.getInt(3));
 
-                if (m_listEstate.get(indicee).getType().equals("appartement")) {//public Offer( int id,double montant,Buyer buyer,House  houseconcerned,   String type)
+                if (m_listEstate.get(indicee).getType().equals("appartement")) {
                     Appartement a = new Appartement(m_listEstate.get(indicee).getId(), m_listEstate.get(indicee).getSize(),
                             m_listEstate.get(indicee).getAdress().getCountry(), m_listEstate.get(indicee).getAdress().getCity(),
                             m_listEstate.get(indicee).getAdress().getStreet(), m_listEstate.get(indicee).getPrice(), m_listEstate.get(indicee).getSeller(),
@@ -101,7 +99,7 @@ public class VisitDaoImpl implements VisitDao {
         try {
             DataSource a = new DataSource();
             conn = a.createConnection();
-            PreparedStatement stmt = conn.prepareStatement("update visit set buyer_id=?, reserved=1 where visit_id=?");
+            PreparedStatement stmt = conn.prepareStatement("update visit set buyer_id=?, reserved=1 where visit_id=?");//on update le reserved
             stmt.setInt(1, visit.getBuyer().getLogin());
             stmt.setInt(2, visit.getId());
             stmt.executeUpdate();
@@ -134,8 +132,6 @@ public class VisitDaoImpl implements VisitDao {
             conn = a.createConnection();
 
             PreparedStatement stmt = conn.prepareStatement("delete from visit where visit_id = ?");
-            // stmt.execute("DELETE FROM EMPLOYEE WHERE ID >= 1");
-            // stmt.execute("DELETE FROM BUYER WHERE buyer_id = 1001");
             stmt.setInt(1, visit.getId());
             stmt.executeUpdate();
             conn.close();

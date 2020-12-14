@@ -12,8 +12,8 @@ import java.util.ArrayList;
  * @author benoi
  */
 public interface EstateDao {
-    ArrayList<Estate>readEstate(ArrayList<RealEstateAgent>m_listRealEstateAgent,ArrayList<Seller>m_listSeller);
-    void addEstate(Estate estate);
+    ArrayList<Estate>readEstate(ArrayList<RealEstateAgent>m_listRealEstateAgent,ArrayList<Seller>m_listSeller);//necessite une liste d'state agent et de seller
+    void addEstate(Estate estate);   
     void deleteEstate(Estate estate);
     public void addAppart(Appartement estate);
     public void addHouse(House estate);
