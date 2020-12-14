@@ -480,7 +480,7 @@ public class SellerPage extends MasterList implements ActionListener{
             frame.setVisible(false);
             frame.dispose();
             myOffer.get(currentOffer).acceptOffer();
-           
+           setSoldEstate( myOffer.get(currentOffer).getEstate().getId());
             
             SellerPage sellerPage=new SellerPage();
             sellerPage.loadSellerPage();
