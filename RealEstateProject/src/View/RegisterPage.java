@@ -101,7 +101,7 @@ panel.setLayout(null);
 
         JLabel fondL= new JLabel("Register");
         fondL.setBounds(900, 350, 1000, 200);
-        fondL.setForeground(Color.blue);
+        fondL.setForeground(Color.black);
 
         fondL.setFont(new Font("Verdera", Font.PLAIN,30));
 
