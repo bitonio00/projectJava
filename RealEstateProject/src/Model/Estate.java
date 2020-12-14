@@ -138,6 +138,11 @@ public void soldEstate()
     estate.sellEstate(this);
 }
 
+public void setSold()
+{
+m_sold=true;
+}
+
 public void display()
 {
     System.out.println( "size: "+m_size+"adress: "+m_adress+"price: "+m_price+"seller: "+m_seller.getPrenom()+
