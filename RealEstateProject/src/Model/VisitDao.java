@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public interface VisitDao {
     ArrayList<Visit>readVisit(ArrayList<Buyer>listBuyer,ArrayList<Estate>listEstate);
-    void updateVisit(Visit visit);
+    void updateVisit(Visit visit);// permet que la visite apparaissent en booker sur la bdd
     void cancelVisit(Visit visit);
     void deleteVisit(Visit visit);
     void addVisit(Visit visit);
