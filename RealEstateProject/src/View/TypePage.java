@@ -70,17 +70,17 @@ public class TypePage extends MasterList implements ActionListener  {
         //image =new JLabel("background.png");
         //image.setBounds(0, 0, 4000, 4000);
        // panel.add(image);
-        JLabel fondL= new JLabel("CasaDelSol");
+        JLabel fondL= new JLabel("CASA DEL SOL");
         fondL.setBounds(820, 450, 1000, 200);
-        fondL.setForeground(Color.blue);
+        fondL.setForeground(Color.black);
 
         fondL.setFont(new Font("Verdera", Font.PLAIN,45));
 
         panel.add(fondL);
 
         textLabel=new JLabel("Connect As");
-        textLabel.setBounds(850,600,200,200);
-        textLabel.setForeground(Color.blue);
+        textLabel.setBounds(900,600,200,200);
+        textLabel.setForeground(Color.black);
         textLabel.setFont(new Font("Verdera", Font.PLAIN,35));
 
         panel.add(textLabel);
