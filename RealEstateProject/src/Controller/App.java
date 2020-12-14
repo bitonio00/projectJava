@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class App {
 
 private  ArrayList<Buyer>m_listBuyer;
-private  ArrayList<Seller>m_listSeller  ;
+private  ArrayList<Seller>m_listSeller  ; 
 private  ArrayList<Estate>m_listEstate  ;
 private  ArrayList<Offer>m_listOffer;
 private  ArrayList<RealEstateAgent>m_listRealEstateAgent;
@@ -27,8 +27,8 @@ private  ArrayList<Visit>m_listVisit;
 public App()
 {
     m_listBuyer=new ArrayList<Buyer>();
-    BuyerDaoImpl b=new BuyerDaoImpl();
-    m_listBuyer=b.readBuyer();
+    BuyerDaoImpl b=new BuyerDaoImpl(); //on passe par le dao pour lire notre bdd
+    m_listBuyer=b.readBuyer();//on remplit nos listes
     
     m_listSeller=new ArrayList<Seller>();
     SellerDaoImpl s=new SellerDaoImpl();
