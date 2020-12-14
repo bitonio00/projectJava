@@ -14,6 +14,7 @@ import Model.SellerDaoImpl;
 import Model.Visit;
 import Model.VisitDaoImpl;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class AgentPage extends MasterList implements ActionListener {
     private static JLabel offerLabel;
     private static JLabel myVisitLabel;
     private static JLabel estateLabel;
+    private static JLabel titlepage;
 
     private static JButton deleteBuyerButon;
     private static JButton deleteSellerButon;
@@ -79,30 +81,38 @@ public class AgentPage extends MasterList implements ActionListener {
         frame.pack();
         frame.setResizable(true);
         frame.add(panel);
+        
+        titlepage= new JLabel("MY AREA");
+        titlepage.setBounds(600,450 ,200 ,45 );
+         titlepage.setForeground(Color.black);
 
+        titlepage.setFont(new Font("Verdera", Font.PLAIN,30));
+
+        panel.add(titlepage);
+        
         deleteBuyerLabel = new JLabel("mail of the Buyer:");
         deleteBuyerLabel.setBounds(10, 500, 100, 50);
         panel.add(deleteBuyerLabel);
 
         deleteBuyerText = new JTextField(30);
-        deleteBuyerText.setBounds(110, 500, 100, 50);
+        deleteBuyerText.setBounds(110, 500, 200, 50);
         panel.add(deleteBuyerText);
 
         deleteBuyerButon = new JButton("Delete a Buyer");
-        deleteBuyerButon.setBounds(210, 500, 150, 50);
+        deleteBuyerButon.setBounds(350, 500, 150, 50);
         deleteBuyerButon.addActionListener(new ActionDeleteBuyer());
         panel.add(deleteBuyerButon);
 
         deleteSellerLabel = new JLabel("mail of Seller:");
-        deleteSellerLabel.setBounds(370, 500, 100, 50);
+        deleteSellerLabel.setBounds(520, 500, 100, 50);
         panel.add(deleteSellerLabel);
 
         deleteSellerText = new JTextField(30);
-        deleteSellerText.setBounds(470, 500, 100, 50);
+        deleteSellerText.setBounds(655, 500, 200, 50);
         panel.add(deleteSellerText);
 
         deleteSellerButon = new JButton("Delete a Seller");
-        deleteSellerButon.setBounds(570, 500, 150, 50);
+        deleteSellerButon.setBounds(890, 500, 150, 50);
         deleteSellerButon.addActionListener(new ActionDeleteSeller());
         panel.add(deleteSellerButon);
         
@@ -196,7 +206,7 @@ public class AgentPage extends MasterList implements ActionListener {
         deleteVisitButton.addActionListener(new ActionDeleteVisit());
         
         addEstateButton=new JButton("Add an estate");
-        addEstateButton.setBounds(750, 500, 175, 50);
+        addEstateButton.setBounds(1100, 500, 175, 50);
         panel.add(addEstateButton);
         addEstateButton.addActionListener(new ActionAddEstate());
 
