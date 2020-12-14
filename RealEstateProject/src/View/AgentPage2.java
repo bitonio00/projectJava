@@ -107,7 +107,7 @@ public class AgentPage2 extends MasterList implements ActionListener{
         frame.add(panel);
 
         JLabel fondL= new JLabel("SUBMIT YOUR ESTATE");
-        fondL.setBounds(900, 350, 1000, 200);
+        fondL.setBounds(820, 350, 1000, 200);
         fondL.setForeground(Color.black);
 
         fondL.setFont(new Font("Verdera", Font.PLAIN,30));
@@ -181,8 +181,8 @@ public class AgentPage2 extends MasterList implements ActionListener{
         meubledCheck.addItemListener(new CheckBox());
         panel.add(meubledCheck);
 
-        nbrFloorLabel = new JLabel("nbrFloor:");
-        nbrFloorLabel.setBounds(550, 850, 100, 50);
+        nbrFloorLabel = new JLabel("number of floor:");
+        nbrFloorLabel.setBounds(550, 850, 150, 50);
         String[] numberFloorStrings = {"0", "1", "2", "3", "4", "5"};
         nbrFloorList = new JComboBox(numberFloorStrings);
         nbrFloorList.setSelectedIndex(0);
@@ -191,8 +191,8 @@ public class AgentPage2 extends MasterList implements ActionListener{
         panel.add(nbrFloorLabel);
         panel.add(nbrFloorList);
 
-        nbrBedRoomLabel = new JLabel("nbrBedRoom:");
-        nbrBedRoomLabel.setBounds(850, 850, 100, 50);
+        nbrBedRoomLabel = new JLabel("number of bedroom:");
+        nbrBedRoomLabel.setBounds(850, 850, 150, 50);
         String[] nbrBedRoomStrings = {"1", "2", "3", "4", "5", "6", "7", "8"};
         nbrBedRoomList = new JComboBox(nbrBedRoomStrings);
         nbrBedRoomList.setSelectedIndex(0);
@@ -201,8 +201,8 @@ public class AgentPage2 extends MasterList implements ActionListener{
         panel.add(nbrBedRoomLabel);
         panel.add(nbrBedRoomList);
 
-        nbrBathRoomLabel = new JLabel("nbrBathRoom:");
-        nbrBathRoomLabel.setBounds(1150, 850, 100, 50);
+        nbrBathRoomLabel = new JLabel("number of bathroom:");
+        nbrBathRoomLabel.setBounds(1150, 850, 150, 50);
         String[] nbrBathRoomStrings = {"1", "2", "3", "4", "5", "6", "7", "8"};
         nbrBathRoomList = new JComboBox(nbrBathRoomStrings);
         nbrBathRoomList.setSelectedIndex(0);
