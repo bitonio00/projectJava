@@ -50,9 +50,9 @@ public class LoginPage extends MasterList implements ActionListener {
         frame.add(panel);
 
         panel.setLayout(null);
-        loginLabel=new JLabel("login");
+        loginLabel=new JLabel("login:");
         loginLabel.setBounds(800,500,80,25);
-        passWordLabel=new JLabel("password");
+        passWordLabel=new JLabel("password:");
         passWordLabel.setBounds(800,600,80,25);
         loginText=new JTextField(20);
         loginText.setBounds(900, 500, 165, 25);
@@ -76,9 +76,9 @@ JLabel background1 = new JLabel(new ImageIcon("fondp1.png"));
         frame.setResizable(true);
         frame.add(panel);
 
-        fondL= new JLabel("Login");
-        fondL.setBounds(900, 350, 1000, 200);
-        fondL.setForeground(Color.blue);
+        fondL= new JLabel("LOGIN");
+        fondL.setBounds(925, 350, 1000, 200);
+        fondL.setForeground(Color.black);
         
         errorLabel= new JLabel("");
         errorLabel.setBounds(900, 700, 200, 50);
