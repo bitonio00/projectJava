@@ -27,7 +27,7 @@ public class SellerPage extends MasterList implements ActionListener{
     private static JButton deleteVisitButton;
     private static JButton deleteOfferButton;
     private static JButton acceptOfferButton;
-       private static JButton returnButton;
+    private static JButton returnButton;
             
     private static ArrayList<Estate>myEstates;
     private static ArrayList<Offer>myOffer;
@@ -103,12 +103,12 @@ public class SellerPage extends MasterList implements ActionListener{
         panel.add(myOfferList);
         
         deleteOfferButton=new JButton("delete an offer");
-        deleteOfferButton.setBounds(850, 600, 100, 50);
+        deleteOfferButton.setBounds(900, 600, 150, 50);
         panel.add(deleteOfferButton);
         deleteOfferButton.addActionListener(new ActionDeleteOffer());
         
         acceptOfferButton=new JButton("accept an offer");
-        acceptOfferButton.setBounds(650, 600, 100, 50);
+        acceptOfferButton.setBounds(700, 600, 150, 50);
         panel.add(acceptOfferButton);
         acceptOfferButton.addActionListener(new ActionAcceptOffer());
         
@@ -135,17 +135,17 @@ public class SellerPage extends MasterList implements ActionListener{
         myVisitStrings = createVisitString();
         myVisitList = new JComboBox(myVisitStrings);
         myVisitList.setSelectedIndex(0);
-        myVisitList.setBounds(1350, 500, 600, 50);
+        myVisitList.setBounds(1325, 500, 600, 50);
         myVisitList.addActionListener(new ActionComboVisit());
         panel.add(myVisitList);
         
         deleteVisitButton=new JButton("delete a visit");
-        deleteVisitButton.setBounds(1600, 600, 100, 50);
+        deleteVisitButton.setBounds(1600, 600, 150, 50);
         panel.add(deleteVisitButton);
         deleteVisitButton.addActionListener(new ActionDeleteVisit());
         
         button1=new JButton("Introduce a new Estate");
-        button1.setBounds(700,720,100,50);
+        button1.setBounds(770,720,100,50);
         button1.setSize(200, 50);
         panel.add(button1);
         button1.addActionListener(new IntroduceEstate());
@@ -159,9 +159,9 @@ public class SellerPage extends MasterList implements ActionListener{
         frame.setResizable(true);
         frame.add(panel);
 
-        JLabel fondL= new JLabel("avec benoit");
+        JLabel fondL= new JLabel("MY AREA");
         fondL.setBounds(900, 350, 1000, 200);
-        fondL.setForeground(Color.blue);
+        fondL.setForeground(Color.black);
 
         fondL.setFont(new Font("Verdera", Font.PLAIN,30));
 
@@ -169,7 +169,7 @@ public class SellerPage extends MasterList implements ActionListener{
         
         
         returnButton=new JButton("return");
-        returnButton.setBounds(650, 950, 200, 50);
+        returnButton.setBounds(770, 850, 200, 50);
         panel.add(returnButton);
         returnButton.addActionListener(new SellerPage.ActionReturn());
         
