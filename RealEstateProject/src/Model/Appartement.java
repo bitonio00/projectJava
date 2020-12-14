@@ -25,9 +25,9 @@ public class Appartement extends Estate   {
     m_nor=nor;
     }
     public Appartement(int id,int size,String country,String city, String street , double price,Seller seller,
-            RealEstateAgent realEstateAgent, int numberOfFloor, boolean equiped,boolean meubled,boolean visavis, String type, int nor, int nob,boolean b)
+            RealEstateAgent realEstateAgent, int numberOfFloor, boolean equiped,boolean meubled,boolean visavis, String type, int nor, int nob,boolean b)  //on surchage le constructeurs
     {
-        super(id,size,country,city,street,price,seller,realEstateAgent,numberOfFloor,equiped,meubled,type,b);
+        super(id,size,country,city,street,price,seller,realEstateAgent,numberOfFloor,equiped,meubled,type,b); //appelle constructeur class mere
    
     m_visavis=visavis;
     m_nob=nob;
