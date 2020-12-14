@@ -143,12 +143,12 @@ public class SellerPage extends MasterList implements ActionListener{
         myVisitStrings = createVisitString();
         myVisitList = new JComboBox(myVisitStrings);
         myVisitList.setSelectedIndex(0);
-        myVisitList.setBounds(1325, 500, 600, 50);
+        myVisitList.setBounds(1255, 500, 600, 50);
         myVisitList.addActionListener(new ActionComboVisit());
         panel.add(myVisitList);
         
         deleteVisitButton=new JButton("delete a visit");
-        deleteVisitButton.setBounds(1600, 600, 150, 50);
+        deleteVisitButton.setBounds(1500, 600, 150, 50);
         panel.add(deleteVisitButton);
         deleteVisitButton.addActionListener(new ActionDeleteVisit());
         
