@@ -57,9 +57,9 @@ public class BuyerPage0 extends MasterList implements ActionListener {
         frame.setResizable(true);
         frame.add(panel);
 
-        JLabel fondL= new JLabel("what do you want to do ?");
+        JLabel fondL= new JLabel("MY AREA");
         fondL.setBounds(900, 350, 1000, 200);
-        fondL.setForeground(Color.blue);
+        fondL.setForeground(Color.black);
 
         fondL.setFont(new Font("Verdera", Font.PLAIN,30));
 
@@ -104,7 +104,7 @@ public class BuyerPage0 extends MasterList implements ActionListener {
         myOfferAcceptedStrings = createStringmyOfferAccepted();
         myOfferAcceptedList = new JComboBox(myOfferAcceptedStrings);
         myOfferAcceptedList.setSelectedIndex(0);
-        myOfferAcceptedList.setBounds(250, 800, 600, 50);
+        myOfferAcceptedList.setBounds(150, 800, 600, 50);
         //myOfferList.setSize(550, 30);
         panel.add(myOfferAcceptedList);
         
