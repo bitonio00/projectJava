@@ -224,7 +224,14 @@ public class AgentPage2 extends MasterList implements ActionListener{
         
         frame.setVisible(true);
     }
+    public void initi(){
+    currentSeller=0;
+    nbrFloor=0;
+    nbrBedRoom=1;
+    nbrBathRoom=1;
+    typeEstate= "house";
     
+    }
     public String[] createSeller() {
        String[] stringSeller;
         if(getSList().isEmpty()==false)
@@ -322,9 +329,9 @@ public class AgentPage2 extends MasterList implements ActionListener{
                     //int id,int size,String country,String city, String street , double price,Seller seller,
             //RealEstateAgent realEstateAgent, int numberOfFloor, boolean equiped,boolean meubled,boolean visavis, String type, int nor, int nob
         }
-        else if(typeEstate.equals("maison")|| typeEstate.equals("manoir") || typeEstate.equals("villa") )
+        else if(typeEstate.equals("house")|| typeEstate.equals("manoir") || typeEstate.equals("villa") )
         {
-            if(typeEstate.equals("maison"))
+            if(typeEstate.equals("house"))
             {
                 typeEstate=" ";
                
@@ -340,13 +347,14 @@ public class AgentPage2 extends MasterList implements ActionListener{
             if(typeEstate.equals("local"))
             {
                 typeEstate=" ";
-             //   int id,int size,String country,String city, String street , double price,Seller seller,
-       // RealEstateAgent realEstateAgent, String localType,boolean equiped, boolean meubled, int numberOfFloor, String type
+            }
+             
                 Local local=new Local(getIdLastEstate(),size,country,city,street,price,getSList().get(getIndexUser()),getREAList().get(currentSeller),typeEstate,equiped,meubled,nbrFloor,"local");
                 estateDao.addLocal(local);
                 addEstate(local);
-            }
+            
         }
+        
         frame.setVisible(false);
         frame.dispose();
         AgentPage agentpage= new AgentPage();
