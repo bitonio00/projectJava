@@ -106,7 +106,7 @@ public class BuyerPage extends MasterList implements ActionListener {
         fondL.setFont(new Font("Verdera", Font.PLAIN,30));
 
         panel.add(fondL);
-        typeofestate= new JLabel("type of estate:");
+        typeofestate= new JLabel("TYPE OF ESTATE:");
         typeofestate.setBounds(100,550, 100,50 );
         panel.add(typeofestate);
         
@@ -117,14 +117,14 @@ public class BuyerPage extends MasterList implements ActionListener {
         formList.addActionListener(new actionComboType());
         panel.add(formList);
 
-        maxPriceLabel = new JLabel("maximum PRICE:");
+        maxPriceLabel = new JLabel("maximum price:");
         maxPriceLabel.setBounds(550, 550, 100, 50);
         maxPriceText = new JTextField(15);
         maxPriceText.setBounds(650, 550, 100, 50);
         panel.add(maxPriceLabel);
         panel.add(maxPriceText);
 
-        minPriceLabel = new JLabel("minimum PRICE:");
+        minPriceLabel = new JLabel("minimum price:");
         minPriceLabel.setBounds(350, 550, 100, 50);
         minPriceText = new JTextField(15);
         minPriceText.setBounds(450, 550, 100, 50);
